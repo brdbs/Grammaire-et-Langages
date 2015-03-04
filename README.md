@@ -8,4 +8,4 @@ Cette commande revoie sur sa fin une liste des générateurs disponibles sur le 
 exemple : "cmake -G "CodeBlocks - Unix Makefiles""
 Il va alors générer le ou les makefiles selon les paramètre situés dans CMakeLists.txt
 
-PAr la suite, utiliser le make classiquement et refaire cmake lorsque l'on crée/supprime/renomme de nouveaux fichier
+Par la suite, utiliser le make classiquement et refaire cmake lorsque l'on crée/supprime/renomme de nouveaux fichier
