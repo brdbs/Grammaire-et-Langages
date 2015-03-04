@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-                
+
 
 #Déclaration du projet
 project("Interpreteur")
@@ -14,7 +14,6 @@ file(
 	source_files
 	src/*
 )
-
 
 #Déclaration de l'exécutable
 add_executable(
