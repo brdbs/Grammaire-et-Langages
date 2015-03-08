@@ -5,10 +5,18 @@ cmake_minimum_required(VERSION 2.6)
 #Déclaration du projet
 project("Interpreteur")
 
+#Inclusion de Boost.regex pour les expressions régulières
+include(FindBoost)
+find_package(
+	Boost
+	1.56.0
+	REQUIRED regex
+)
+link_directories(${Boost_LIBRARY_DIRS})
 
+include_directories(${Boost_INCLUDE_DIRS})
 
 #Génération de la liste des fichiers sources
-
 file(
 	GLOB_RECURSE
 	source_files

@@ -9,3 +9,9 @@ exemple : "cmake -G "CodeBlocks - Unix Makefiles""
 Il va alors générer le ou les makefiles selon les paramètre situés dans CMakeLists.txt
 
 Par la suite, utiliser le make classiquement et refaire cmake lorsque l'on crée/supprime/renomme de nouveaux fichier
+
+##### Intégration de boost #####
+Fonctionne sur linux sans modifier le CMakeCache.txt
+Pour Windows et Mac, si cmake ne trouve pas automatiquement le path de la librairie :
+http://florian-goujeon.developpez.com/cours/cmake/initiation/#LIV-B
+Sur ce lien, voir la fin de cette partie IV-B pour spécifier le chemin de la librairie dans le CMakeCache.txt (à tester, Jérôme)

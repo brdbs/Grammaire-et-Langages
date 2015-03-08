@@ -1,6 +1,8 @@
 #include <iostream>
+#include <boost/regex.hpp>
 
 #include "Automate.h"
+
 
 using namespace std;
 
