@@ -8,9 +8,11 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	cout << "Hello world" << endl;
-
-	Automate *automate = new Automate();
+	if(argc == 2)
+	{
+		string cheminFichier (argv[1]);
+		Automate *automate = new Automate(cheminFichier);
+	}
 
 	return 0;
 }

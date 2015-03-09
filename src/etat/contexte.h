@@ -10,8 +10,8 @@ class Contexte
 public:
     Contexte();
     void transition();//goNext();
-    void etat(Etat* cur){current = cur;}
-    Etat* etat()const{return current;}
+    void etat(Etat* cur){m_current = cur;}
+    Etat* etat()const{return m_current;}
 private:
     Etat* m_current ;
 };

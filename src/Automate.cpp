@@ -1,11 +1,28 @@
 #include "Automate.h"
 
 #include <iostream>
+#include <fstream>
 
-Automate::Automate()
+using namespace std;
+
+Automate::Automate(string cheminFichier)
 {
-    //ctor
-    std::cout << "Construction de l'automate" << std::endl;
+    ifstream fichier(cheminFichier.c_str(), ifstream::ate);
+    if (fichier.is_open())
+	{
+		int tailleFichier = fichier.tellg();
+		fichier.seekg(0, ios_base::beg);
+
+		char buf[tailleFichier];
+		fichier.read(buf,tailleFichier);
+		m_programme.append(buf, tailleFichier);
+
+		fichier.close();
+	}
+	else
+	{
+		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
+	}
 }
 
 Automate::~Automate()
