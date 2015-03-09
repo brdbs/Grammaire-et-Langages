@@ -21,14 +21,14 @@ Sur ce lien, voir la fin de cette partie IV-B pour spécifier le chemin de la li
 
 Langue utilisée : Français
 
-variable : uneVariable
+Variable : uneVariable
 
 Constante : UNE_CONSTANTE
 
-méthode : maMethode()
+Méthode : maMethode()
 
 Classe : MaClasse
 
-attribut : m_monAttribut
+Attribut : m_monAttribut
 
-structure : MaStructure 
+Structure : MaStructure 
