@@ -13,7 +13,7 @@ public:
     void etat(Etat* cur){current = cur;}
     Etat* etat()const{return current;}
 private:
-    Etat* current;
+    Etat* m_current;
 };
 
 #endif // CONTEXTE_H
