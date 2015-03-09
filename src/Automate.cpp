@@ -1,4 +1,5 @@
 #include "Automate.h"
+#include "etat/etat.h"
 
 #include <iostream>
 #include <fstream>
@@ -32,4 +33,11 @@ Automate::~Automate()
 
 void Automate::lecture()
 {
+}
+
+void Automate::decalage(Symbole *s, Etat *e){
+    m_pileSymbole.push(s);
+    m_pileEtats.push(e);
+
+    //TODO
 }
