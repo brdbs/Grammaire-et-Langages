@@ -15,3 +15,15 @@ Fonctionne sur linux sans modifier le CMakeCache.txt
 Pour Windows et Mac, si cmake ne trouve pas automatiquement le path de la librairie :
 http://florian-goujeon.developpez.com/cours/cmake/initiation/#LIV-B
 Sur ce lien, voir la fin de cette partie IV-B pour spécifier le chemin de la librairie dans le CMakeCache.txt (à tester, Jérôme)
+
+
+##### Guide de style (à compléter) ####
+
+Langue utilisée : Français
+
+variable : uneVariable
+Constante : UNE_CONSTANTE
+méthode : maMethode()
+Classe : MaClasse
+attribut : m_monAttribut
+structure : MaStructure 
