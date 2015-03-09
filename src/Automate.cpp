@@ -12,3 +12,7 @@ Automate::~Automate()
 {
     //dtor
 }
+
+void Automate::lecture()
+{
+}

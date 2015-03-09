@@ -7,6 +7,7 @@ class Automate
     public:
         Automate();
         virtual ~Automate();
+        void lecture();
     protected:
     private:
 };

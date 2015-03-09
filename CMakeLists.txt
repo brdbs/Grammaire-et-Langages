@@ -9,7 +9,7 @@ project("Interpreteur")
 include(FindBoost)
 find_package(
 	Boost
-	1.56.0
+	1.54.0
 	REQUIRED regex
 )
 link_directories(${Boost_LIBRARY_DIRS})
