@@ -16,19 +16,14 @@ Pour Windows et Mac, si cmake ne trouve pas automatiquement le path de la librai
 http://florian-goujeon.developpez.com/cours/cmake/initiation/#LIV-B
 Sur ce lien, voir la fin de cette partie IV-B pour spécifier le chemin de la librairie dans le CMakeCache.txt (à tester, Jérôme)
 
+Rajouter la variable d'environement BOOST_ROOT vers la racine et surtout renomer le fichier libmsvsXXXX en lib !!!! 
 
 ##### Guide de style (à compléter) ####
 
 Langue utilisée : Français
 
-Variable : uneVariable
-
 Constante : UNE_CONSTANTE
-
-Méthode : maMethode()
-
+méthode : maMethode()
 Classe : MaClasse
-
-Attribut : m_monAttribut
-
-Structure : MaStructure 
+attribut : m_monAttribut
+structure : MaStructure 
