@@ -6,7 +6,7 @@ class E39 : public Etat
 {
 public:
 	E39();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate &automate, Symbole *s); //goNext()
 	virtual ~E39(){}
 };
 

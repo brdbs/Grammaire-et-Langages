@@ -5,7 +5,7 @@ E13::E13()
 
 }
 
-void E13::transition()
+void E13::transition(Automate &automate, Symbole *s)
 {
 
 }

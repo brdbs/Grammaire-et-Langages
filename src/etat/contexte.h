@@ -9,7 +9,7 @@ class Contexte
 
 public:
     Contexte();
-    void transition();//goNext();
+    void transition(Automate &automate, Symbole *s);//goNext();
     void etat(Etat* cur){m_current = cur;}
     Etat* etat()const{return m_current;}
 private:

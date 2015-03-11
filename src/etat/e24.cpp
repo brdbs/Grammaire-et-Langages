@@ -5,7 +5,7 @@ E24::E24()
 
 }
 
-void E24::transition()
+void E24::transition(Automate &automate, Symbole *s)
 {
 
 }

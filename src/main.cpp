@@ -8,11 +8,18 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	if(argc == 2)
+	string cheminFichier;
+	if (argc == 2)
 	{
-		string cheminFichier (argv[1]);
-		Automate *automate = new Automate(cheminFichier);
+		cheminFichier = argv[1];
 	}
-
+	else
+	{
+		cout << "nom du fichier :";
+		cin >> cheminFichier;
+	}
+	Automate *automate = new Automate(cheminFichier);
+	string pause;
+	cin >> pause;
 	return 0;
 }

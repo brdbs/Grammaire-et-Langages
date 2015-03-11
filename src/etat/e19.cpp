@@ -5,7 +5,7 @@ E19::E19()
 
 }
 
-void E19::transition()
+void E19::transition(Automate &automate, Symbole *s)
 {
 
 }

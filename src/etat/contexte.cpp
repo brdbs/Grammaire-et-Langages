@@ -5,7 +5,7 @@ Contexte::Contexte()
 {
 }
 
-void Contexte::transition()
+void Contexte::transition(Automate &automate, Symbole *s)
 {
 
 }

@@ -5,7 +5,7 @@ E42::E42()
 
 }
 
-void E42::transition()
+void E42::transition(Automate &automate, Symbole *s)
 {
 
 }

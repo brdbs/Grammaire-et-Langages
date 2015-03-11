@@ -5,7 +5,7 @@ E29::E29()
 
 }
 
-void E29::transition()
+void E29::transition(Automate &automate, Symbole *s)
 {
 
 }

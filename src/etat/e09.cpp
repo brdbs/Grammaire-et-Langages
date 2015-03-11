@@ -5,7 +5,7 @@ E09::E09()
 
 }
 
-void E09::transition()
+void E09::transition(Automate &automate, Symbole *s)
 {
 
 }

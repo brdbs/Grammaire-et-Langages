@@ -6,7 +6,7 @@ class E13 : public Etat
 {
 public:
 	E13();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate &automate, Symbole *s); //goNext()
 	virtual ~E13(){}
 };
 

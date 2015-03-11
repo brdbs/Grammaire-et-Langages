@@ -5,7 +5,7 @@ E32::E32()
 
 }
 
-void E32::transition()
+void E32::transition(Automate &automate, Symbole *s)
 {
 
 }

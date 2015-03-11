@@ -5,7 +5,7 @@ E08::E08()
 
 }
 
-void E08::transition()
+void E08::transition(Automate &automate, Symbole *s)
 {
 
 }

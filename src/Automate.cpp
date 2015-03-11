@@ -11,10 +11,10 @@ Automate::Automate(string cheminFichier)
     ifstream fichier(cheminFichier.c_str(), ifstream::ate);
     if (fichier.is_open())
 	{
-		int tailleFichier = fichier.tellg();
+		int tailleFichier = (int) fichier.tellg();
 		fichier.seekg(0, ios_base::beg);
 
-		char buf[tailleFichier];
+		char *buf = new char[tailleFichier];
 		fichier.read(buf,tailleFichier);
 		m_programme.append(buf, tailleFichier);
 

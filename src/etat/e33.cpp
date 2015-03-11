@@ -5,7 +5,7 @@ E33::E33()
 
 }
 
-void E33::transition()
+void E33::transition(Automate &automate, Symbole *s)
 {
 
 }

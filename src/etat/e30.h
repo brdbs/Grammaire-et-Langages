@@ -6,7 +6,7 @@ class E30 : public Etat
 {
 public:
 	E30();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate &automate, Symbole *s); //goNext()
 	virtual ~E30(){}
 };
 
