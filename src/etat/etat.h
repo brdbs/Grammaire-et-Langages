@@ -7,7 +7,8 @@ class Etat
 {
 public:
     Etat();
-    virtual void transition(Automate &automate, Symbole *s);//goNext();
+    virtual void transition(Automate* automate, Symbole *s);//goNext();
+	virtual bool isFinal(){ return false; }
     virtual ~Etat(){}
 };
 

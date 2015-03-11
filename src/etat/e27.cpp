@@ -5,7 +5,7 @@ E27::E27()
 
 }
 
-void E27::transition(Automate &automate, Symbole *s)
+void E27::transition(Automate* automate, Symbole *s)
 {
 
 }

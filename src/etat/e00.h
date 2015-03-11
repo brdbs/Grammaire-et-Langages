@@ -9,7 +9,7 @@ class E00 : public Etat
 {
 public:
 	E00();
-	void transition(Automate &automate, Symbole *s);
+	void transition(Automate* automate, Symbole *s);
 	virtual ~E00(){}
 };
 

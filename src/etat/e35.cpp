@@ -5,7 +5,7 @@ E35::E35()
 
 }
 
-void E35::transition(Automate &automate, Symbole *s)
+void E35::transition(Automate* automate, Symbole *s)
 {
 
 }

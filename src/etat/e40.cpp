@@ -5,7 +5,7 @@ E40::E40()
 
 }
 
-void E40::transition(Automate &automate, Symbole *s)
+void E40::transition(Automate* automate, Symbole *s)
 {
 
 }

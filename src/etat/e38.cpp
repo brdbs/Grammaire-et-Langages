@@ -5,7 +5,7 @@ E38::E38()
 
 }
 
-void E38::transition(Automate &automate, Symbole *s)
+void E38::transition(Automate* automate, Symbole *s)
 {
 
 }

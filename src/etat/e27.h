@@ -6,7 +6,7 @@ class E27 : public Etat
 {
 public:
 	E27();
-	virtual void transition(Automate &automate, Symbole *s); //goNext()
+	virtual void transition(Automate* automate, Symbole *s); //goNext()
 	virtual ~E27(){}
 };
 

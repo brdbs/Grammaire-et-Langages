@@ -5,7 +5,7 @@ E36::E36()
 
 }
 
-void E36::transition(Automate &automate, Symbole *s)
+void E36::transition(Automate* automate, Symbole *s)
 {
 
 }

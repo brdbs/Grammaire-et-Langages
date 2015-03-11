@@ -11,11 +11,11 @@ E00::E00()
 
 }
 
-void E00::transition(Automate &automate, Symbole *s)
+void E00::transition(Automate* automate, Symbole *s)
 {
     switch(*s){
     case LIGNEDECLARATION:
-        automate.decalage(s, new E02());
+        automate->decalage(s, new E02());
         break;
     }
 }

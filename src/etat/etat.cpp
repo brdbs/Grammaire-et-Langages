@@ -4,7 +4,7 @@ Etat::Etat()
 {
 }
 
-void Etat::transition(Automate &automate, Symbole *s)
+void Etat::transition(Automate* automate, Symbole *s)
 {
 
 }

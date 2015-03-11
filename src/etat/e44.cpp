@@ -5,7 +5,7 @@ E44::E44()
 
 }
 
-void E44::transition(Automate &automate, Symbole *s)
+void E44::transition(Automate* automate, Symbole *s)
 {
 
 }

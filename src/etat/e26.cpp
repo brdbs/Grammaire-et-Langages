@@ -5,7 +5,7 @@ E26::E26()
 
 }
 
-void E26::transition(Automate &automate, Symbole *s)
+void E26::transition(Automate* automate, Symbole *s)
 {
 
 }

@@ -5,7 +5,7 @@ E41::E41()
 
 }
 
-void E41::transition(Automate &automate, Symbole *s)
+void E41::transition(Automate* automate, Symbole *s)
 {
 
 }

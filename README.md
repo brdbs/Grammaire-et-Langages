@@ -22,6 +22,7 @@ Rajouter la variable d'environement BOOST_ROOT vers la racine et surtout renomer
 
 Langue utilisée : Français
 
+variable : uneVariable
 Constante : UNE_CONSTANTE
 méthode : maMethode()
 Classe : MaClasse
