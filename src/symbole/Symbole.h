@@ -19,20 +19,19 @@
 #define IDENTIFICATEUR 15
 #define NOMBRE 16
 #define VIRGULE 17
-#define EGAL
-#define PAROUVRANTE
-#define PARFERMANTE
-#define MOINS
-#define PLUS
-#define DIV
-#define MULT
-#define POINTVIRGULE
-#define DEUXPOINTSEGAL
-#define CONST
-#define VAR
-#define VAR
-#define LIRE
-#define ECRIRE
+#define EGAL 18
+#define PAROUVRANTE 19
+#define PARFERMANTE 20
+#define MOINS 21
+#define PLUS 22
+#define DIV 23
+#define MULT 24
+#define POINTVIRGULE 25
+#define DEUXPOINTSEGAL 26
+#define CONST 27
+#define VAR 29
+#define LIRE 30
+#define ECRIRE 31
 
 class Symbole
 {
