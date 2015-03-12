@@ -7,5 +7,4 @@ E06::E06()
 
 void E06::transition(Automate* automate, Symbole *s)
 {
-
 }

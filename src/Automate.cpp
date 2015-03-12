@@ -1,6 +1,7 @@
 #include "Automate.h"
 #include "etat/etat.h"
 #include "etat/e00.h"
+#include "symbole/LigneDeclaration.h"
 
 #include <iostream>
 #include <fstream>
@@ -21,6 +22,9 @@ Automate::Automate(string cheminFichier)
 
 		delete buf;
 		fichier.close();
+
+		//On considère le premier caractère rencontré comme une déclaration.
+		m_currentSymbole = new LigneDeclaration();
 	}
 	else
 	{
@@ -35,11 +39,11 @@ Automate::~Automate()
 
 void Automate::lecture()
 {
-	//envoyer le programme au lexer 
-	//m_currentSymbole = lexer.nextSymbole()
+	//TODO : envoyer le programme au lexer
 	m_pileEtats.push(new E00());
 	while (!m_pileEtats.top()->isFinal())
 	{
+		//m_currentSymbole = lexer.nextSymbole()
 		m_pileEtats.top()->transition(this, m_currentSymbole);
 	}
 }
@@ -49,8 +53,8 @@ void Automate::decalage(Symbole *s, Etat *e){
     m_pileEtats.push(e);
 
 	//m_currentSymbole = m_lexer.getNext
-    //TODO
 }
+    //TODO
 
 Symbole** Automate::reduction(Symbole* s, int nbSymboles)
 {

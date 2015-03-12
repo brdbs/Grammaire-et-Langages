@@ -29,10 +29,11 @@
 #define POINTVIRGULE 25
 #define DEUXPOINTSEGAL 26
 #define CONST 27
-#define VAR 29
-#define LIRE 30
-#define ECRIRE 31
+#define VAR 28
+#define LIRE 29
+#define ECRIRE 30
 
+/*
 class Symbole
 {
 	public:
@@ -44,6 +45,17 @@ class Symbole
 	protected:
 		int m_ident;
 	private:
+};
+*/
+
+struct Symbole
+{
+		Symbole(int id) : m_ident(id) {}
+		Symbole();
+		virtual ~Symbole();
+		operator int() const { return m_ident; }
+
+		int m_ident;
 };
 
 #endif // SYMBOLE_H
