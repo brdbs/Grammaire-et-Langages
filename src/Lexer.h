@@ -1,6 +1,10 @@
 #ifndef LEXER_H
 #define LEXER_H
 
+#include <string>
+
+using namespace std;
+
 class Symbole;
 
 class Lexer
@@ -9,7 +13,9 @@ class Lexer
 		Lexer();
 		virtual ~Lexer();
 		int getNext();
+		int scannerFichier(string cheminFichier);
 	protected:
+		string m_programme;
 	private:
 };
 

@@ -22,7 +22,6 @@ class Automate
         void decalage(Symbole *s, Etat *e);
 		Symbole** reduction(Symbole *s, int nbSymboles);
     protected:
-		string m_programme;
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
 		Symbole * m_currentSymbole;

@@ -3,38 +3,19 @@
 #include "etat/e00.h"
 #include "symbole/LigneDeclaration.h"
 
-#include <iostream>
-#include <fstream>
-
 using namespace std;
 
 Automate::Automate(string cheminFichier)
 {
-    ifstream fichier(cheminFichier.c_str(), ifstream::ate);
-    if (fichier.is_open())
-	{
-		int tailleFichier = (int) fichier.tellg();
-		fichier.seekg(0, ios_base::beg);
+	m_lexer.scannerFichier(cheminFichier);
 
-		char *buf = new char[tailleFichier];
-		fichier.read(buf,tailleFichier);
-		m_programme.append(buf, tailleFichier);
-
-		delete buf;
-		fichier.close();
-
-		//On considère le premier caractère rencontré comme une déclaration.
-		m_currentSymbole = new LigneDeclaration();
-	}
-	else
-	{
-		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
-	}
+    //On considère le premier caractère rencontré comme une déclaration.
+	m_currentSymbole = new LigneDeclaration();
 }
 
 Automate::~Automate()
 {
-    //dtor
+    delete m_currentSymbole;
 }
 
 void Automate::lecture()
@@ -53,8 +34,9 @@ void Automate::decalage(Symbole *s, Etat *e){
     m_pileEtats.push(e);
 
 	//m_currentSymbole = m_lexer.getNext
+	//TODO
 }
-    //TODO
+
 
 Symbole** Automate::reduction(Symbole* s, int nbSymboles)
 {
