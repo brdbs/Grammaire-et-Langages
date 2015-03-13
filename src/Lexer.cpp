@@ -14,8 +14,8 @@ Lexer::~Lexer()
 	//dtor
 }
 
-int Lexer::getNext(){
-	return 0;
+Symbole *Lexer::getNext(){
+	return NULL;
 }
 
 int Lexer::scannerFichier(string cheminFichier){

@@ -5,7 +5,7 @@ E20::E20()
 
 }
 
-void E20::transition(Automate* automate, Symbole *s)
+void E20::transition(Automate* automate)
 {
 
 }

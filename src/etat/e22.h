@@ -6,7 +6,7 @@ class E22 : public Etat
 {
 public:
 	E22();
-	virtual void transition(Automate* automate, Symbole *s); //goNext()
+	virtual void transition(Automate* automate); //goNext()
 	virtual ~E22(){}
 };
 

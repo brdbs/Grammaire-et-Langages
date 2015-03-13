@@ -5,14 +5,24 @@
 #include "e04.h"
 #include "e07.h"
 #include "e27.h"
+#include "../Automate.h"
+#include "../symbole/Programme.h"
 
 E03::E03()
 {
 
 }
 
-void E03::transition(Automate* automate, Symbole *s)
+void E03::transition(Automate* automate)
 {
+	Symbole *s = automate->getNextLexer();
+	if(s == NULL){
+		//TODO : Quand fait-on la réduction ?
+		//Suggestion : le lexer envoie NULL, cad endOfFile et on fait la réduction
+		automate->reduction(new Programme(), 2);
+		return;
+	}
+
 	switch(*s){
     case LIRE:
         automate->decalage(s, new E04());
@@ -24,6 +34,6 @@ void E03::transition(Automate* automate, Symbole *s)
         automate->decalage(s, new E27());
         break;
 
-	//TODO : Quand fait-on la réduction ?
+
     }
 }

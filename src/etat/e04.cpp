@@ -10,11 +10,13 @@ E04::E04()
 
 }
 
-void E04::transition(Automate* automate, Symbole *s)
+void E04::transition(Automate* automate)
 {
+	Symbole *s = automate->getNextLexer();
 	switch(*s){
     case IDENTIFICATEUR:
         automate->decalage(s, new E05());
         break;
 	}
+	//TODO : sinon erreur.
 }

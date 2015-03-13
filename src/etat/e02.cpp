@@ -12,8 +12,9 @@ E02::E02()
 
 }
 
-void E02::transition(Automate* automate, Symbole *s)
+void E02::transition(Automate* automate)
 {
+	Symbole *s = automate->getNextLexer();
 	switch(*s){
     case VAR:
         automate->decalage(s, new E31());
@@ -21,7 +22,7 @@ void E02::transition(Automate* automate, Symbole *s)
     case CONST:
         automate->decalage(s, new E37());
         break;
-    case LIGNEINSTRUCTION:
+    case LIGNEINSTRUCTION:	//Comment le lexer gère la création de LigneInstruction ?
         automate->decalage(s, new E03());
         break;
     }

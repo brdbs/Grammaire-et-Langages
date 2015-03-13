@@ -5,7 +5,7 @@ E37::E37()
 
 }
 
-void E37::transition(Automate* automate, Symbole *s)
+void E37::transition(Automate* automate)
 {
 
 }

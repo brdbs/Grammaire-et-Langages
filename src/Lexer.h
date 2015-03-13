@@ -12,7 +12,7 @@ class Lexer
 	public:
 		Lexer();
 		virtual ~Lexer();
-		int getNext();
+		Symbole *getNext();
 		int scannerFichier(string cheminFichier);
 	protected:
 		string m_programme;

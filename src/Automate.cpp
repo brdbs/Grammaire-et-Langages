@@ -8,35 +8,29 @@ using namespace std;
 Automate::Automate(string cheminFichier)
 {
 	m_lexer.scannerFichier(cheminFichier);
-
-    //On considère le premier caractère rencontré comme une déclaration.
-	m_currentSymbole = new LigneDeclaration();
 }
 
 Automate::~Automate()
 {
-    delete m_currentSymbole;
 }
 
 void Automate::lecture()
 {
-	//TODO : envoyer le programme au lexer
 	m_pileEtats.push(new E00());
 	while (!m_pileEtats.top()->isFinal())
 	{
-		//m_currentSymbole = lexer.nextSymbole()
-		m_pileEtats.top()->transition(this, m_currentSymbole);
+		m_pileEtats.top()->transition(this);
 	}
 }
 
 void Automate::decalage(Symbole *s, Etat *e){
     m_pileSymbole.push(s);
     m_pileEtats.push(e);
-
-	//m_currentSymbole = m_lexer.getNext
-	//TODO
 }
 
+Symbole * Automate::getNextLexer(){
+	return m_lexer.getNext();
+}
 
 Symbole** Automate::reduction(Symbole* s, int nbSymboles)
 {
