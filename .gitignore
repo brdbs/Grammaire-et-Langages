@@ -1,7 +1,7 @@
 #Files to exclude : executables files, projet files ...
 Interpreteur.cbp
 Interpreteur.layout
-InterpreteurLutin
+lut
 
 #CMake template
 CMakeCache.txt
