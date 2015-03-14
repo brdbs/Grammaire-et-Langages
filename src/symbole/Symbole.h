@@ -54,6 +54,7 @@ struct Symbole
 		Symbole();
 		virtual ~Symbole();
 		operator int() const { return m_ident; }
+		virtual bool estTerminal(){return false;}
 
 		int m_ident;
 };

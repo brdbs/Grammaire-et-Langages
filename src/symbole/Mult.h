@@ -9,6 +9,7 @@ class Mult : public Symbole
 	public:
 		Mult();
 		virtual ~Mult();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

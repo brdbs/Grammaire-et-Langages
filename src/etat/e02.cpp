@@ -2,6 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
+#include "../symbole/LigneInstruction.h"
 #include "e03.h"
 #include "e31.h"
 #include "e37.h"
@@ -22,8 +23,15 @@ void E02::transition(Automate* automate)
     case CONST:
         automate->decalage(s, new E37());
         break;
-    case LIGNEINSTRUCTION:	//Comment le lexer gère la création de LigneInstruction ?
+	default:
+		automate->reduction(new LigneInstruction(), 0);
+    }
+}
+
+void E02::transition(Automate* automate, Symbole *s){
+	switch(*s){
+	 case LIGNEINSTRUCTION:
         automate->decalage(s, new E03());
         break;
-    }
+	}
 }

@@ -19,18 +19,25 @@ void Automate::lecture()
 	m_pileEtats.push(new E00());
 	while (!m_pileEtats.top()->isFinal())
 	{
-		m_pileEtats.top()->transition(this);
+		m_pileEtats.top()->transition(this, new LigneDeclaration());
 	}
 }
 
 void Automate::decalage(Symbole *s, Etat *e){
+	if(s->estTerminal())
+		m_symbole = NULL;
+
     m_pileSymbole.push(s);
     m_pileEtats.push(e);
 }
 
 Symbole * Automate::getNextLexer(){
-	return m_lexer.getNext();
+	if(m_symbole == NULL)
+		m_symbole = m_lexer.getNext();
+
+	return m_symbole;
 }
+
 
 Symbole** Automate::reduction(Symbole* s, int nbSymboles)
 {

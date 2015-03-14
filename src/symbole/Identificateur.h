@@ -9,6 +9,7 @@ class Identificateur : public Facteur
 	public:
 		Identificateur();
 		virtual ~Identificateur();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

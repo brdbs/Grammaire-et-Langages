@@ -9,6 +9,7 @@ class ParFermante : public Symbole
 	public:
 		ParFermante();
 		virtual ~ParFermante();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

@@ -26,6 +26,7 @@ class Automate
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
 		Lexer m_lexer;
+		Symbole *m_symbole;
     private:
 };
 

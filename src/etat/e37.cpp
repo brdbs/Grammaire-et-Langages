@@ -9,3 +9,9 @@ void E37::transition(Automate* automate)
 {
 
 }
+
+
+void E37::transition(Automate* automate, Symbole *s)
+{
+
+}

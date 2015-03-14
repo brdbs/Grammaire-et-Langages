@@ -15,9 +15,7 @@ E00::E00()
 
 void E00::transition(Automate* automate)
 {
-	//Si on arrive par cette surcharge, c'est que l'on est au début de l'analyse
-	//-> Réduction par D
-	automate->reduction(new LigneDeclaration(), 0);
+
 }
 
 void E00::transition(Automate* automate, Symbole *s){

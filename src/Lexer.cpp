@@ -15,8 +15,10 @@ Lexer::~Lexer()
 }
 
 Symbole *Lexer::getNext(){
+	//TODO
 	return NULL;
 }
+
 
 int Lexer::scannerFichier(string cheminFichier){
 	ifstream fichier(cheminFichier.c_str(), ifstream::ate);

@@ -9,6 +9,7 @@ class Lire : public Symbole
 	public:
 		Lire();
 		virtual ~Lire();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

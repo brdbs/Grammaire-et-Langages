@@ -9,6 +9,7 @@ class Div : public Symbole
 	public:
 		Div();
 		virtual ~Div();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

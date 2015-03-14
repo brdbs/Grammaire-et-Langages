@@ -6,5 +6,5 @@ E01::E01()
 
 void E01::transition(Automate* automate)
 {
-
+	//TODO
 }

@@ -16,13 +16,6 @@ E03::E03()
 void E03::transition(Automate* automate)
 {
 	Symbole *s = automate->getNextLexer();
-	if(s == NULL){
-		//TODO : Quand fait-on la réduction ?
-		//Suggestion : le lexer envoie NULL, cad endOfFile et on fait la réduction
-		automate->reduction(new Programme(), 2);
-		return;
-	}
-
 	switch(*s){
     case LIRE:
         automate->decalage(s, new E04());
@@ -33,7 +26,7 @@ void E03::transition(Automate* automate)
     case IDENTIFICATEUR:
         automate->decalage(s, new E27());
         break;
-
-
+	default:
+		automate->reduction(new Programme(), 2);
     }
 }
