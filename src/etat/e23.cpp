@@ -2,7 +2,7 @@
 
 #include "../Automate.h"
 #include "../symbole/Symbole.h"
-#include "../symbole/Expression.h"
+#include "../symbole/OperationMul.h"
 #include "e14.h"
 #include "e15.h"
 #include "e16.h"
@@ -23,7 +23,7 @@ void E23::transition(Automate* automate)
 		automate->decalage(s, new E15());
 		break;
 	default:
-		automate->reduction(new Expression(),1);
+		automate->reduction(new OperationMul(),1);
 	}
 }
 
