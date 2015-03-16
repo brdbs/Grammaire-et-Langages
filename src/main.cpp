@@ -2,13 +2,13 @@
 #include <boost/regex.hpp>
 
 #include "Automate.h"
-#include "MessagesErreur.h"
+#include "MessagesErreurs.h"
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-	cout << NoArgument << endl;
+	cout << MessagesErreurs::NoArgument() << endl;
 	string cheminFichier;
 	if (argc == 2)
 	{
