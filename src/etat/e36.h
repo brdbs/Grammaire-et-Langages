@@ -2,6 +2,9 @@
 #define E36_H
 #include "etat.h"
 
+class Automate;
+class Symbole;
+
 class E36 : public Etat
 {
 public:

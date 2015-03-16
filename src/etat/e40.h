@@ -2,6 +2,9 @@
 #define E40_H
 #include "etat.h"
 
+class Automate;
+class Symbole;
+
 class E40 : public Etat
 {
 public:

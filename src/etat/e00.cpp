@@ -16,6 +16,8 @@ E00::E00()
 void E00::transition(Automate* automate)
 {
 
+
+
 }
 
 void E00::transition(Automate* automate, Symbole *s){

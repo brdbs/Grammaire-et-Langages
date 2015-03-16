@@ -2,6 +2,9 @@
 #define E04_H
 #include "etat.h"
 
+class Automate;
+class Symbole;
+
 class E04 : public Etat
 {
 public:

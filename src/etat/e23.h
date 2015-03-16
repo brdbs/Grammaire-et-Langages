@@ -2,6 +2,9 @@
 #define E23_H
 #include "etat.h"
 
+class Automate;
+class Symbole;
+
 class E23 : public Etat
 {
 public:

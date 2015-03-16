@@ -2,6 +2,9 @@
 #define E28_H
 #include "etat.h"
 
+class Automate;
+class Symbole;
+
 class E28 : public Etat
 {
 public:
