@@ -9,22 +9,14 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-	cout << MessagesErreurs::NoArgument() << endl;
-	cout << MessagesErreurs::FichierInexistant("NomFichierrr") << endl;
 	string cheminFichier;
 	Lexer lexer;
 
 	if (argc == 1) {
-		fprintf(stderr, "Erreur, veuillez specifier des arguments\n
-			\tUtilisation :\n
-			\t\t../lut [-p] [-a] [-e] [-o] source.lt\n
-      \t\t\t[-p] affiche le code source reconnu\n
-      \t\t\t[-a] analyse le programme de maniere statique\n
-      \t\t\t[-e] execute interactivement le programme\n
-      \t\t\t[-o] optimise les expressions et instructions");
+		fprintf(stderr, MessagesErreurs::NoArgument().c_str());
 
 		return EXIT_FAILURE;
-	} 
+	}
 
 	if (argc >= 2) {
 		cheminFichier = argv[argc-1];
@@ -61,8 +53,8 @@ int main(int argc, const char * argv[])
 			// afficher sur sortie d'erruer
 			return EXIT_FAILURE;
 		}
-	} 
-	
+	}
+
 	Automate *automate = new Automate(cheminFichier);
 	string pause;
 	cin >> pause;
