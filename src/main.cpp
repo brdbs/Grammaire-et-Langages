@@ -1,6 +1,8 @@
 #include <iostream>
-#include <boost/regex.hpp>\
-
+#include <boost/regex.hpp>
+#include <boost\algorithm\string.hpp>
+#include <vector>
+#include <string>
 #include "Lexer.h"
 #include "Automate.h"
 #include "MessagesErreurs.h"
@@ -11,6 +13,15 @@ int main(int argc, const char * argv[])
 {
 	string cheminFichier;
 	Lexer lexer;
+	vector<string> tmp;
+	boost::split(tmp, "var a, b, f, e;", boost::is_any_of(" ;"));
+	tmp.erase(tmp.begin());
+	for (unsigned int i = 0; i < tmp.size(); i++)
+	{
+		if (tmp[i] != "")
+			cout << tmp[i] << endl;
+	}
+	std::cin >> cheminFichier;
 
 	if (argc == 1) {
 		fprintf(stderr, MessagesErreurs::NoArgument().c_str());

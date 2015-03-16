@@ -2,7 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
-#include "../symbole/LigneInstruction.h"
+#include "../symbole/BlocInst.h"
 
 
 E09::E09()
@@ -12,5 +12,5 @@ E09::E09()
 
 void E09::transition(Automate* automate)
 {
-	automate->reduction(new LigneInstruction(), 4);
+	automate->reduction(new BlocInst(), 4);
 }

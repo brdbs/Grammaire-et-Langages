@@ -4,7 +4,7 @@
 
 #include "../Automate.h"
 #include "../symbole/Symbole.h"
-#include "../symbole/DConst.h"
+#include "../symbole/BlocDec.h"
 #include "../symbole/LigneDeclaration.h"
 
 
@@ -15,7 +15,8 @@ E00::E00()
 
 void E00::transition(Automate* automate)
 {
-
+	automate->getNextLexer();
+	automate->reduction(new BlocDec(), 0);
 }
 
 void E00::transition(Automate* automate, Symbole *s){

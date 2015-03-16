@@ -1,6 +1,7 @@
 #ifndef MULT_H
 #define MULT_H
 
+#include <string>
 #include "Symbole.h"
 
 
@@ -10,6 +11,8 @@ class Mult : public Symbole
 		Mult();
 		virtual ~Mult();
 		virtual bool estTerminal(){return true;}
+		virtual void castUp(){ m_id = OPERATEURMUL; }
+		virtual operator std::string() const{ return "*"; }
 	protected:
 	private:
 };

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include "LigneDeclaration.h"
-#include "DConst.h"
+#include "BlocDec.h"
 
 
 
@@ -13,6 +13,7 @@ class LigneConst : public LigneDeclaration
 	public:
 		LigneConst();
 		virtual ~LigneConst();
+		virtual operator std::string() const;
 	protected:
 	private:
 		std::string m_id;

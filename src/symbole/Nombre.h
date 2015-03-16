@@ -10,6 +10,7 @@ class Nombre : public Facteur
 		Nombre();
 		virtual ~Nombre();
 		virtual bool estTerminal(){return true;}
+		virtual operator std::string() const{ return std::to_string(m_valeur); }
 	protected:
 	private:
 		int m_valeur;

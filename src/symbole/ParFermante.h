@@ -1,6 +1,7 @@
 #ifndef PARFERMANTE_H
 #define PARFERMANTE_H
 
+#include <string>
 #include "Symbole.h"
 
 
@@ -10,6 +11,7 @@ class ParFermante : public Symbole
 		ParFermante();
 		virtual ~ParFermante();
 		virtual bool estTerminal(){return true;}
+		virtual operator std::string() const{ return ")"; }
 	protected:
 	private:
 };

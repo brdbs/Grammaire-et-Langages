@@ -11,6 +11,7 @@ class Identificateur : public Facteur
 		Identificateur();
 		virtual ~Identificateur();
 		virtual bool estTerminal(){return true;}
+		virtual operator std::string() const{ return m_id; }
 	protected:
 	private:
 		std::string m_id;

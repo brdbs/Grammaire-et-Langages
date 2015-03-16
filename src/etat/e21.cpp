@@ -10,5 +10,5 @@ E21::E21()
 
 void E21::transition(Automate* automate)
 {
-	automate->reduction(new Facteur(), 1);
+	automate->reduction();
 }

@@ -12,9 +12,9 @@
 #define ECRITURE 8
 #define EXPRESSION 9
 #define TERME 10
-#define OPERATIONAD 11
+#define OPERATEURAD 11
 #define FACTEUR 12
-#define OPERATIONMUL 13
+#define OPERATEURMUL 13
 #define EXPPAR 14
 #define IDENTIFICATEUR 15
 #define NOMBRE 16
@@ -32,7 +32,7 @@
 #define VAR 28
 #define LIRE 29
 #define ECRIRE 30
-
+#include <string>
 
 class Symbole
 {
@@ -43,23 +43,15 @@ class Symbole
 		void print();
 		operator int() const { return m_id; }
 		virtual bool estTerminal(){ return false; }
-		//virtual operator std::string() const = 0;
+		virtual operator std::string() const = 0;
+		virtual void castUp(){}
+		virtual void initialiser(Symbole **, int taille){}
 	protected:
 		int m_id;
 	private:
 };
 
 
-/*struct Symbole
-{
-		Symbole(int id) : m_id(id) {}
-		Symbole();
-		virtual ~Symbole();
-		operator int() const { return m_id; }
-		virtual bool estTerminal(){return false;}
-		virtual std::string toString();
 
-		int m_id;
-};*/
 
 #endif // SYMBOLE_H

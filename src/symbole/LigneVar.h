@@ -13,10 +13,11 @@ class LigneVar : public LigneDeclaration
 	public:
 		LigneVar();
 		virtual ~LigneVar();
+		virtual operator std::string() const;
 	protected:
 	private:
 		std::string m_ids;
-		LigneVar * next_id;
+		LigneVar * m_prevId;
 };
 
 #endif // LIGNEVAR_H

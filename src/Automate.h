@@ -30,7 +30,8 @@ class Automate
         void lecture();
         void decalage(Symbole *s, Etat *e);
         Symbole *getNextLexer();
-		Symbole** reduction(Symbole *s, int nbSymboles);
+		void reduction(Symbole *s, int nbSymboles);
+		void reduction();
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;

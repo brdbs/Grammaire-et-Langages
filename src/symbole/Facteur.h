@@ -9,6 +9,8 @@ class Facteur : public Terme
 	public:
 		Facteur();
 		virtual ~Facteur();
+		
+		virtual void castUp(){ m_id = FACTEUR; }
 	protected:
 	private:
 };

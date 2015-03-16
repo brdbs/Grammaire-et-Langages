@@ -30,7 +30,7 @@ void E08::transition(Automate* automate)
 
 void E08::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	case OPERATIONAD:
+	case OPERATEURAD:
 		automate->decalage(s, new E12());
 		break;
 	}

@@ -12,6 +12,7 @@ class Affectation : public LigneInstruction
 	public:
 		Affectation();
 		virtual ~Affectation();
+		virtual operator std::string() const;
 	protected:
 	private:
 		std::string m_id;

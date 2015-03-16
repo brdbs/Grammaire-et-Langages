@@ -10,9 +10,9 @@ class LigneDeclaration : public Symbole
 	public:
 		LigneDeclaration();
 		virtual ~LigneDeclaration();
+		
 	protected:
 	private:
-		LigneDeclaration *  m_prevDec;
 
 		
 };

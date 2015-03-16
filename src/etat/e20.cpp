@@ -10,5 +10,6 @@ E20::E20()
 
 void E20::transition(Automate* automate)
 {
-	automate->reduction(new Terme(), 1);
+	
+	automate->reduction();
 }

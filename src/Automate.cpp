@@ -1,3 +1,4 @@
+
 #include "Automate.h"
 #include "etat/etat.h"
 #include "etat/e00.h"
@@ -19,7 +20,7 @@ void Automate::lecture()
 	m_pileEtats.push(new E00());
 	while (!m_pileEtats.top()->isFinal())
 	{
-		m_pileEtats.top()->transition(this, new LigneDeclaration());
+		m_pileEtats.top()->transition(this);
 	}
 }
 
@@ -39,7 +40,7 @@ Symbole * Automate::getNextLexer(){
 }
 
 
-Symbole** Automate::reduction(Symbole* s, int nbSymboles)
+void Automate::reduction(Symbole* s, int nbSymboles)
 {
 	Symbole** listSymbole = new Symbole*[nbSymboles];
 	for (int i = nbSymboles -1 ; i > -1; i--)
@@ -52,6 +53,19 @@ Symbole** Automate::reduction(Symbole* s, int nbSymboles)
 		m_pileEtats.pop();
 		delete tmp;
 	}
+	s->initialiser(listSymbole, nbSymboles);
 	m_pileEtats.top()->transition(this, s);
-	return listSymbole;
+}
+
+void Automate::reduction()
+{
+	//cas où on cast un symbole en son parent
+	Symbole *s = m_pileSymbole.top();
+	m_pileSymbole.pop();
+	s->castUp();
+
+	Etat * tmp = m_pileEtats.top();
+	m_pileEtats.pop();
+	delete tmp;
+	m_pileEtats.top()->transition(this, s);
 }

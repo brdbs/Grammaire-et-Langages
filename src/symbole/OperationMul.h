@@ -1,6 +1,7 @@
 #ifndef OPERATIONMUL_H
 #define OPERATIONMUL_H
 
+#include <string>
 #include "Terme.h"
 #include "Facteur.h"
 
@@ -10,10 +11,11 @@ class OperationMul : public Terme
 	public:
 		OperationMul();
 		virtual ~OperationMul();
+		virtual operator std::string() const;
 	protected:
 	private:
 		Terme * m_terme;
-		bool m_isMult;
+		std::string m_op;
 		Facteur * m_facteur;
 };
 
