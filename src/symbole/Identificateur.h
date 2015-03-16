@@ -1,7 +1,8 @@
 #ifndef IDENTIFICATEUR_H
 #define IDENTIFICATEUR_H
-
+#include <string>
 #include "Facteur.h"
+
 
 
 class Identificateur : public Facteur
@@ -12,6 +13,7 @@ class Identificateur : public Facteur
 		virtual bool estTerminal(){return true;}
 	protected:
 	private:
+		std::string m_id;
 };
 
 #endif // IDENTIFICATEUR_H

@@ -1,7 +1,8 @@
 #ifndef LECTURE_H
 #define LECTURE_H
-
+#include <string>
 #include "LigneInstruction.h"
+
 
 
 class Lecture : public LigneInstruction
@@ -11,6 +12,7 @@ class Lecture : public LigneInstruction
 		virtual ~Lecture();
 	protected:
 	private:
+		std::string m_id;
 };
 
 #endif // LECTURE_H

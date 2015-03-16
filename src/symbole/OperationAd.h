@@ -2,6 +2,7 @@
 #define OPERATIONAD_H
 
 #include "Expression.h"
+#include "Terme.h"
 
 
 class OperationAd : public Expression
@@ -11,6 +12,10 @@ class OperationAd : public Expression
 		virtual ~OperationAd();
 	protected:
 	private:
+		Expression * m_expression;
+		int m_opA;
+		Terme * m_terme;
+
 };
 
 #endif // OPERATIONAD_H

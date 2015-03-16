@@ -2,7 +2,8 @@
 #define PROGRAMME_H
 
 #include "Symbole.h"
-
+#include "LigneInstruction.h"
+#include "LigneDeclaration.h"
 
 class Programme : public Symbole
 {
@@ -11,6 +12,9 @@ class Programme : public Symbole
 		virtual ~Programme();
 	protected:
 	private:
+		LigneDeclaration * m_blocDec;
+		LigneInstruction * m_blocInst;
+
 };
 
 #endif // PROGRAMME_H

@@ -12,6 +12,7 @@ class Nombre : public Facteur
 		virtual bool estTerminal(){return true;}
 	protected:
 	private:
+		int m_valeur;
 };
 
 #endif // NOMBRE_H

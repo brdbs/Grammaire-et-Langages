@@ -2,6 +2,7 @@
 #define OPERATIONMUL_H
 
 #include "Terme.h"
+#include "Facteur.h"
 
 
 class OperationMul : public Terme
@@ -11,6 +12,9 @@ class OperationMul : public Terme
 		virtual ~OperationMul();
 	protected:
 	private:
+		Terme * m_terme;
+		bool m_isMult;
+		Facteur * m_facteur;
 };
 
 #endif // OPERATIONMUL_H

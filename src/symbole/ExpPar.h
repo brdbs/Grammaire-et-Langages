@@ -11,6 +11,7 @@ class ExpPar : public Facteur
 		virtual ~ExpPar();
 	protected:
 	private:
+		Expression* m_expression;
 };
 
 #endif // EXPPAR_H

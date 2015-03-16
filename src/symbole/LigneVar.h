@@ -1,7 +1,10 @@
 #ifndef LIGNEVAR_H
 #define LIGNEVAR_H
 
+
+#include <string>
 #include "LigneDeclaration.h"
+
 
 
 class LigneVar : public LigneDeclaration
@@ -11,6 +14,7 @@ class LigneVar : public LigneDeclaration
 		virtual ~LigneVar();
 	protected:
 	private:
+		std::vector<std::string> m_ids;
 };
 
 #endif // LIGNEVAR_H
