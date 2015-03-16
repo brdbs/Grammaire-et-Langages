@@ -11,5 +11,5 @@ E11::E11()
 
 void E11::transition(Automate* automate)
 {
-	automate->reduction(new OperationAd(), 1);
+	automate->reduction();
 }

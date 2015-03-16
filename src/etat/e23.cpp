@@ -23,6 +23,7 @@ void E23::transition(Automate* automate)
 		automate->decalage(s, new E15());
 		break;
 	default:
+		//E->T
 		automate->reduction();
 	}
 }

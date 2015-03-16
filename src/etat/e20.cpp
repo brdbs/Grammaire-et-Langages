@@ -10,6 +10,6 @@ E20::E20()
 
 void E20::transition(Automate* automate)
 {
-	
+	//T->F
 	automate->reduction();
 }

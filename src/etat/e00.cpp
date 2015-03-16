@@ -15,7 +15,6 @@ E00::E00()
 
 void E00::transition(Automate* automate)
 {
-	automate->getNextLexer();
 	automate->reduction(new BlocDec(), 0);
 }
 

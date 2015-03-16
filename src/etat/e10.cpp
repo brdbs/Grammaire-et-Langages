@@ -12,5 +12,5 @@ E10::E10()
 
 void E10::transition(Automate* automate)
 {
-	automate->reduction(new OperationAd(), 1);
+	automate->reduction();
 }

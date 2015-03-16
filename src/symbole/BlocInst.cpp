@@ -2,7 +2,7 @@
 #include "BlocInst.h"
 using namespace std;
 
-BlocInst::BlocInst()
+BlocInst::BlocInst(LigneInstruction *instruction) : m_currentLine(instruction)
 {
 	//ctor
 }

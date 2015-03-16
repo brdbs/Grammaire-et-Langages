@@ -8,7 +8,7 @@
 class BlocInst : public Symbole
 {
 	public:
-		BlocInst();
+		BlocInst(LigneInstruction * instruction);
 		virtual ~BlocInst();
 		virtual operator std::string() const;
 	protected:
