@@ -5,9 +5,9 @@
 
 using namespace std;
 
-Automate::Automate(string cheminFichier)
+Automate::Automate(string cheminFichier) : m_lexer(cheminFichier)
 {
-	m_lexer.scannerFichier(cheminFichier);
+	
 }
 
 Automate::~Automate()

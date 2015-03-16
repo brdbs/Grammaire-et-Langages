@@ -2,7 +2,7 @@
 #include <boost/regex.hpp>
 
 #include "Automate.h"
-
+#include "Lexer.h"
 
 using namespace std;
 
@@ -19,7 +19,19 @@ int main(int argc, char** argv)
 		cin >> cheminFichier;
 	}
 	Automate *automate = new Automate(cheminFichier);
-	string pause;
-	cin >> pause;
+	Lexer * lexer = new Lexer(cheminFichier);
+	string in;
+	while(cin.good())
+	{
+		cin >> in;
+		if(in != "\n")
+		{
+			break;
+		}else
+		{
+			lexer->getNext();
+		}
+		
+	}
 	return 0;
 }

@@ -2,6 +2,8 @@
 #define LEXER_H
 
 #include <string>
+#include <sstream>
+#include <boost/regex.hpp>
 
 using namespace std;
 
@@ -17,12 +19,12 @@ class Lexer
 	protected:
 		string m_programme;  // seems useless 
 	private:
-		istringstream iss;
+		stringstream ss;
 		string carLus;
-		boost::regex motCle("var|const|lire|ecrire");
-		boost::regex symbole("-|\+|/|\*|,|;|\(|\)|=|:=");
-		boost::regex nb("[0-9]+");
-		boost::regex id("[a-zA-Z][a-zA-Z0-9]+");
+		boost::regex motCle;	
+		boost::regex symbole;
+		boost::regex nb;
+		boost::regex id;
 };
 
 #endif // LEXER_H

@@ -5,22 +5,28 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 Lexer::Lexer(string cheminFichier)
 {
-	std::ifstream file( cheminFichier );
+	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
 
     if ( file )
     {
 
-        iss << file.rdbuf();
+        ss << file.rdbuf();
 
         file.close();
+        
+        motCle = boost::regex("var|const|lire|ecrire");
+		symbole = boost::regex("-|\+|/|\*|,|;|\(|\)|=|:=");
+		nb = boost::regex("[0-9]+");
+		id = boost::regex("[a-zA-Z][a-zA-Z0-9]+");
+        
         
     }else
     {
 		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
-		return -1;
 	}
 }
 
@@ -32,7 +38,7 @@ Lexer::~Lexer()
 Symbole * getCurrent()
 {
 	// TO DO
-	return null;
+	return NULL;
 }
 
 
@@ -52,7 +58,7 @@ Symbole * Lexer::getNext(){
 	*/
 		
 	carLus = "";
-	char carLu = '';
+	char carLu;
 	boost::match_results<std::string::const_iterator> what;
 	 
 	bool prevCanBeMotCle=false;
@@ -65,17 +71,17 @@ Symbole * Lexer::getNext(){
 	bool canBeId=false;
 	bool canBeNb=false;
 	
-	cmatch matchMotCle;
-	cmatch matchSymbole;
-	cmatch matchId;
-	cmatch matchNb;
+	boost::cmatch matchMotCle;
+	boost::cmatch matchSymbole;
+	boost::cmatch matchId;
+	boost::cmatch matchNb;
 	
-	while(iss.get(carLu))
+	while(ss.get(carLu))
 	{
-		canBeMotCle = boost::regex_match(carLus+carLu, matchMotCle, motCle, boost::match_default | boost::match_partial);
-		canBeSymbole = boost::regex_match(carLus+carLu, matchSymbole, symbole, boost::match_default | boost::match_partial);
-		canBeId = boost::regex_match(carLus+carLu, matchId, nb, boost::match_default | boost::match_partial);
-		canBeNb = boost::regex_match(carLus+carLu, matchNb, id, boost::match_default | boost::match_partial);
+		canBeMotCle = boost::regex_match((carLus+carLu).c_str(), matchMotCle, motCle, boost::match_default | boost::match_partial);
+		canBeSymbole = boost::regex_match((carLus+carLu).c_str(), matchSymbole, symbole, boost::match_default | boost::match_partial);
+		canBeId = boost::regex_match((carLus+carLu).c_str(), matchNb, nb, boost::match_default | boost::match_partial);
+		canBeNb = boost::regex_match((carLus+carLu).c_str(), matchId, id, boost::match_default | boost::match_partial);
 		
 		if(!canBeMotCle && !canBeSymbole && !canBeId && !canBeNb)
 		{
@@ -112,19 +118,19 @@ Symbole * Lexer::getNext(){
 		{
 			if(canBeMotCle)
 			{
-				prevCanBeMotCle = matchMotCle.matched;
+				prevCanBeMotCle = matchMotCle[0].matched;
 			}
 			if(canBeSymbole)
 			{
-				prevCanBeSymbole = matchSymbole.matched;
+				prevCanBeSymbole = matchSymbole[0].matched;
 			}
 			if(canBeId)
 			{
-				prevCanBeId = matchId.matched;
+				prevCanBeId = matchId[0].matched;
 			}
 			if(canBeNb)
 			{
-				prevCanBeNb = matchNb.matched;
+				prevCanBeNb = matchNb[0].matched;
 			}
 			
 		}
@@ -132,7 +138,7 @@ Symbole * Lexer::getNext(){
 		
 	}
 	
-	return null
+	return NULL;
 }
 
 
