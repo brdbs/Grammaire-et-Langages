@@ -18,18 +18,19 @@ int main(int argc, char** argv)
 		cout << "nom du fichier :";
 		cin >> cheminFichier;
 	}
-	Automate *automate = new Automate(cheminFichier);
-	Lexer * lexer = new Lexer(cheminFichier);
+	//Automate *automate = new Automate(cheminFichier);
+	Lexer lexer(cheminFichier);
 	string in;
 	while(cin.good())
 	{
 		cin >> in;
-		if(in != "\n")
+		if(in == "stop")
 		{
 			break;
 		}else
 		{
-			lexer->getNext();
+			std::cout << "lexer.getNext() : " << cheminFichier << std::endl;
+			lexer.getNext();
 		}
 		
 	}

@@ -9,6 +9,7 @@
 
 Lexer::Lexer(string cheminFichier)
 {
+	std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
 	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
 
     if ( file )
@@ -19,14 +20,14 @@ Lexer::Lexer(string cheminFichier)
         file.close();
         
         motCle = boost::regex("var|const|lire|ecrire");
-		symbole = boost::regex("-|\+|/|\*|,|;|\(|\)|=|:=");
+		symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=|\\s");
 		nb = boost::regex("[0-9]+");
 		id = boost::regex("[a-zA-Z][a-zA-Z0-9]+");
         
         
     }else
     {
-		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
+		std::cout << "Erreur à l'ouverture de " << cheminFichier << std::endl;
 	}
 }
 
@@ -57,9 +58,11 @@ Symbole * Lexer::getNext(){
 		* 
 	*/
 		
+	std::cout  << "Lexer::getNext()"<<std::endl;
+	
+	
 	carLus = "";
 	char carLu;
-	boost::match_results<std::string::const_iterator> what;
 	 
 	bool prevCanBeMotCle=false;
 	bool prevCanBeSymbole=false;
@@ -78,6 +81,7 @@ Symbole * Lexer::getNext(){
 	
 	while(ss.get(carLu))
 	{
+		std::cout<<"string analysé : \""<<carLus+carLu<<"\"         ";
 		canBeMotCle = boost::regex_match((carLus+carLu).c_str(), matchMotCle, motCle, boost::match_default | boost::match_partial);
 		canBeSymbole = boost::regex_match((carLus+carLu).c_str(), matchSymbole, symbole, boost::match_default | boost::match_partial);
 		canBeId = boost::regex_match((carLus+carLu).c_str(), matchNb, nb, boost::match_default | boost::match_partial);
@@ -112,6 +116,10 @@ Symbole * Lexer::getNext(){
 						}
 				}
 			}
+			prevCanBeMotCle=false;
+			prevCanBeSymbole=false;
+			prevCanBeId=false;
+			prevCanBeNb=false;
 			carLus = carLu;
 				
 		}else
@@ -132,7 +140,8 @@ Symbole * Lexer::getNext(){
 			{
 				prevCanBeNb = matchNb[0].matched;
 			}
-			
+			carLus += carLu;
+			std::cout<<std::endl;
 		}
 		
 		
