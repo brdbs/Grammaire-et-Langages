@@ -1,6 +1,7 @@
 #ifndef DCONST_H
 #define DCONST_H
 
+#include <string>
 
 class DConst
 {

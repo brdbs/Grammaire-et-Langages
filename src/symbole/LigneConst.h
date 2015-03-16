@@ -15,7 +15,7 @@ class LigneConst : public LigneDeclaration
 		virtual ~LigneConst();
 	protected:
 	private:
-		std::vector<DConst*> m_dConst
+		std::vector<DConst*> m_dConst;
 };
 
 #endif // LIGNECONST_H
