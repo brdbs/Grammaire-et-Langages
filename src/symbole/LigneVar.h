@@ -15,7 +15,8 @@ class LigneVar : public LigneDeclaration
 		virtual ~LigneVar();
 	protected:
 	private:
-		std::vector<std::string> m_ids;
+		std::string m_ids;
+		LigneVar * next_id;
 };
 
 #endif // LIGNEVAR_H
