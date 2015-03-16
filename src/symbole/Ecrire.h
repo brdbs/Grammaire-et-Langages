@@ -9,6 +9,7 @@ class Ecrire : public Symbole
 	public:
 		Ecrire();
 		virtual ~Ecrire();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

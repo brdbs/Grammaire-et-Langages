@@ -1,15 +1,21 @@
 #ifndef LEXER_H
 #define LEXER_H
 
+#include <string>
+
+using namespace std;
+
 class Symbole;
 
 class Lexer
 {
 	public:
-		Lexer();
+		Lexer(string cheminFichier);
 		virtual ~Lexer();
-		int getNext();
+		Symbole *getNext();
+		Symbole *getCurrent();
 	protected:
+		string m_programme;  // seems useless 
 	private:
 		istringstream iss;
 		string carLus;

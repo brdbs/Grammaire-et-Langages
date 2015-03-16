@@ -6,7 +6,8 @@ class E35 : public Etat
 {
 public:
 	E35();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate* automate);
+	virtual void transition(Automate* automate, Symbole *s){};
 	virtual ~E35(){}
 };
 

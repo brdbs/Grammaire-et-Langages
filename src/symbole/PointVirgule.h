@@ -9,6 +9,7 @@ class PointVirgule : public Symbole
 	public:
 		PointVirgule();
 		virtual ~PointVirgule();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

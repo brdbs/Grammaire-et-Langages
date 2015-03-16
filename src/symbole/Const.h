@@ -9,6 +9,7 @@ class Const : public Symbole
 	public:
 		Const();
 		virtual ~Const();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

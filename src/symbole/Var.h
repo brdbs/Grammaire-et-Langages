@@ -9,6 +9,7 @@ class Var : public Symbole
 	public:
 		Var();
 		virtual ~Var();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

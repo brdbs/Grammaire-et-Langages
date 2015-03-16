@@ -6,7 +6,8 @@ class E02 : public Etat
 {
 public:
 	E02();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate* automate);
+	virtual void transition(Automate* automate, Symbole *s);
 	virtual ~E02(){}
 };
 

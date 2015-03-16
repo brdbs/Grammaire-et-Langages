@@ -1,35 +1,57 @@
 #include "Automate.h"
-
-#include <iostream>
-#include <fstream>
+#include "etat/etat.h"
+#include "etat/e00.h"
+#include "symbole/LigneDeclaration.h"
 
 using namespace std;
 
 Automate::Automate(string cheminFichier)
 {
-    ifstream fichier(cheminFichier.c_str(), ifstream::ate);
-    if (fichier.is_open())
-	{
-		int tailleFichier = fichier.tellg();
-		fichier.seekg(0, ios_base::beg);
-
-		char buf[tailleFichier];
-		fichier.read(buf,tailleFichier);
-		m_programme.append(buf, tailleFichier);
-
-		fichier.close();
-	}
-	else
-	{
-		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
-	}
+	m_lexer.scannerFichier(cheminFichier);
 }
 
 Automate::~Automate()
 {
-    //dtor
 }
 
 void Automate::lecture()
 {
+	m_pileEtats.push(new E00());
+	while (!m_pileEtats.top()->isFinal())
+	{
+		m_pileEtats.top()->transition(this, new LigneDeclaration());
+	}
+}
+
+void Automate::decalage(Symbole *s, Etat *e){
+	if(s->estTerminal())
+		m_symbole = NULL;
+
+    m_pileSymbole.push(s);
+    m_pileEtats.push(e);
+}
+
+Symbole * Automate::getNextLexer(){
+	if(m_symbole == NULL)
+		m_symbole = m_lexer.getNext();
+
+	return m_symbole;
+}
+
+
+Symbole** Automate::reduction(Symbole* s, int nbSymboles)
+{
+	Symbole** listSymbole = new Symbole*[nbSymboles];
+	for (int i = nbSymboles -1 ; i > -1; i--)
+	{
+		Etat * tmp;
+		listSymbole[i] = m_pileSymbole.top();
+		m_pileSymbole.pop();
+
+		tmp = m_pileEtats.top();
+		m_pileEtats.pop();
+		delete tmp;
+	}
+	m_pileEtats.top()->transition(this, s);
+	return listSymbole;
 }

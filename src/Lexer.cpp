@@ -3,9 +3,25 @@
 #include <boost/regex.hpp>
 
 
-Lexer::Lexer()
+#include <iostream>
+#include <fstream>
+
+Lexer::Lexer(string cheminFichier)
 {
-	//ctor
+	std::ifstream file( cheminFichier );
+
+    if ( file )
+    {
+
+        iss << file.rdbuf();
+
+        file.close();
+        
+    }else
+    {
+		cout << "Erreur à l'ouverture de " << cheminFichier << endl;
+		return -1;
+	}
 }
 
 Lexer::~Lexer()
@@ -13,8 +29,15 @@ Lexer::~Lexer()
 	//dtor
 }
 
-int Lexer::getNext(){
-	return 0;
+Symbole * getCurrent()
+{
+	// TO DO
+	return null;
+}
+
+
+
+Symbole * Lexer::getNext(){
 	
 	/* boucler sur la lecture de caractere
 		*
@@ -109,8 +132,7 @@ int Lexer::getNext(){
 		
 	}
 	
-	
-	
+	return null
 }
 
 

@@ -9,6 +9,7 @@ class Moins : public Symbole
 	public:
 		Moins();
 		virtual ~Moins();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

@@ -9,6 +9,7 @@ class Plus : public Symbole
 	public:
 		Plus();
 		virtual ~Plus();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

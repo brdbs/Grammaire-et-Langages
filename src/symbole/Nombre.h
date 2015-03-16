@@ -9,6 +9,7 @@ class Nombre : public Facteur
 	public:
 		Nombre();
 		virtual ~Nombre();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

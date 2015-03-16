@@ -6,7 +6,8 @@ class E26 : public Etat
 {
 public:
 	E26();
-	virtual void transition(); //goNext()
+	virtual void transition(Automate* automate);
+	virtual void transition(Automate* automate, Symbole *s){};
 	virtual ~E26(){}
 };
 
