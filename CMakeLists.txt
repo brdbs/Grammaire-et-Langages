@@ -23,6 +23,11 @@ file(
 	src/*
 )
 
+ADD_DEFINITIONS(
+	-std=c++11 # Or -std=c++0x
+	# Other flags
+)
+
 #Déclaration de l'exécutable
 add_executable(
 	lut
