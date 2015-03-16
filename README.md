@@ -25,6 +25,7 @@ Langue utilisée : Français
 variable : uneVariable
 Constante : UNE_CONSTANTE
 méthode : maMethode()
+méthode statique : MaMethode()
 Classe : MaClasse
 attribut : m_monAttribut
 structure : MaStructure 
