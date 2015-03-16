@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc, char** argv)
 {
 	cout << MessagesErreurs::NoArgument() << endl;
+	cout << MessagesErreurs::fichierInexistant("NomFichierrr") << endl;
 	string cheminFichier;
 	if (argc == 2)
 	{
