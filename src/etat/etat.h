@@ -9,6 +9,9 @@ class Etat
 {
 public:
     Etat();
+    /**
+     *Appelée pour les symboles terminaux.
+     */
     virtual void transition(Automate* automate);//goNext();
     /**
      *Appelée pour le décalage en fin de réduction.

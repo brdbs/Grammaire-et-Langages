@@ -12,6 +12,15 @@ using namespace std;
 class Symbole;
 class Etat;
 
+struct SymboleTable {
+    string id;
+    int valeur;
+    bool declaree;
+    bool use;
+    bool useBAff;
+    bool constante;
+};
+
 class Automate
 {
     public:
@@ -25,6 +34,7 @@ class Automate
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
+        vector <SymboleTable*> m_tSymboles;
 		Lexer m_lexer;
 		Symbole *m_symbole;
     private:
