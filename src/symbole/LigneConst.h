@@ -17,7 +17,7 @@ class LigneConst : public LigneDeclaration
 	private:
 		std::string m_id;
 		int m_value;
-		LigneConst * m_prevConst
+		LigneConst * m_prevConst;
 };
 
 #endif // LIGNECONST_H
