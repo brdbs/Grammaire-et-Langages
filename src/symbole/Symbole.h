@@ -43,7 +43,7 @@ class Symbole
 		void print();
 		operator int() const { return m_id; }
 		virtual bool estTerminal(){ return false; }
-		//virtual operator std::string() const = 0;
+		virtual operator std::string() const = 0;
 	protected:
 		int m_id;
 	private:
