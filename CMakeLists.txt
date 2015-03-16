@@ -28,3 +28,4 @@ add_executable(
 	lut
 	${source_files}
 )
+target_link_libraries(lut ${Boost_LIBRARIES})
