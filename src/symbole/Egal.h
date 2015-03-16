@@ -9,6 +9,7 @@ class Egal : public Symbole
 	public:
 		Egal();
 		virtual ~Egal();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

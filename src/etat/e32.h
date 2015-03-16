@@ -6,7 +6,8 @@ class E32 : public Etat
 {
 public:
 	E32();
-	virtual void transition(Automate* automate, Symbole *s); //goNext()
+	virtual void transition(Automate* automate);
+	virtual void transition(Automate* automate, Symbole *s){};
 	virtual ~E32(){}
 };
 

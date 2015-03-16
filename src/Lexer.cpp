@@ -14,9 +14,11 @@ Lexer::~Lexer()
 	//dtor
 }
 
-int Lexer::getNext(){
-	return 0;
+Symbole *Lexer::getNext(){
+	//TODO
+	return NULL;
 }
+
 
 int Lexer::scannerFichier(string cheminFichier){
 	ifstream fichier(cheminFichier.c_str(), ifstream::ate);

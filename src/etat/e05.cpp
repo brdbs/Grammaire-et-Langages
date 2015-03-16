@@ -9,8 +9,10 @@ E05::E05()
 
 }
 
-void E05::transition(Automate* automate, Symbole *s)
+void E05::transition(Automate* automate)
 {
+	//On ne peut faire un décalage que si on lit un point-virgule, sinon erreur.
+	Symbole *s = automate->getNextLexer();
 	switch(*s){
     case POINTVIRGULE:
         automate->decalage(s, new E06());

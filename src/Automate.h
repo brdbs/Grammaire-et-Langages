@@ -12,6 +12,15 @@ using namespace std;
 class Symbole;
 class Etat;
 
+struct SymboleTable {
+    string id;
+    int valeur;
+    bool declaree;
+    bool use;
+    bool useBAff;
+    bool constante;
+};
+
 class Automate
 {
     public:
@@ -20,12 +29,14 @@ class Automate
 
         void lecture();
         void decalage(Symbole *s, Etat *e);
+        Symbole *getNextLexer();
 		Symbole** reduction(Symbole *s, int nbSymboles);
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
-		Symbole * m_currentSymbole;
+        vector <SymboleTable*> m_tSymboles;
 		Lexer m_lexer;
+		Symbole *m_symbole;
     private:
 };
 

@@ -9,6 +9,7 @@ class ParOuvrante : public Symbole
 	public:
 		ParOuvrante();
 		virtual ~ParOuvrante();
+		virtual bool estTerminal(){return true;}
 	protected:
 	private:
 };

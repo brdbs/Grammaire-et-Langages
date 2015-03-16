@@ -4,6 +4,7 @@
 #include "Symbole.h"
 
 
+
 class LigneDeclaration : public Symbole
 {
 	public:
@@ -11,6 +12,9 @@ class LigneDeclaration : public Symbole
 		virtual ~LigneDeclaration();
 	protected:
 	private:
+		LigneDeclaration *  m_prevDec;
+
+		
 };
 
 #endif // LIGNEDECLARATION_H

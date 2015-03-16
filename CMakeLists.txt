@@ -25,6 +25,6 @@ file(
 
 #Déclaration de l'exécutable
 add_executable(
-	InterpreteurLutin
+	lut
 	${source_files}
 )

@@ -3,12 +3,14 @@
 
 #include "Lexer.h"
 #include "Automate.h"
-
+#include "MessagesErreurs.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
+	cout << MessagesErreurs::NoArgument() << endl;
+	cout << MessagesErreurs::fichierInexistant("NomFichierrr") << endl;
 	string cheminFichier;
 	Lexer lexer;
 

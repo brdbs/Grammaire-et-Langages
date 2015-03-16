@@ -33,29 +33,33 @@
 #define LIRE 29
 #define ECRIRE 30
 
-/*
+
 class Symbole
 {
 	public:
-		Symbole(int id) : m_ident(id) {}
+		Symbole(int id) : m_id(id) {}
 		Symbole();
 		virtual ~Symbole();
 		void print();
-		operator int() const { return m_ident; }
+		operator int() const { return m_id; }
+		virtual bool estTerminal(){ return false; }
+		//virtual operator std::string() const = 0;
 	protected:
-		int m_ident;
+		int m_id;
 	private:
 };
-*/
 
-struct Symbole
+
+/*struct Symbole
 {
-		Symbole(int id) : m_ident(id) {}
+		Symbole(int id) : m_id(id) {}
 		Symbole();
 		virtual ~Symbole();
-		operator int() const { return m_ident; }
+		operator int() const { return m_id; }
+		virtual bool estTerminal(){return false;}
+		virtual std::string toString();
 
-		int m_ident;
-};
+		int m_id;
+};*/
 
 #endif // SYMBOLE_H
