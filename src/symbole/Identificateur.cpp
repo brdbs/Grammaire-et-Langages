@@ -2,7 +2,7 @@
 
 Identificateur::Identificateur()
 {
-	//ctor
+	m_idSymbole = IDENTIFICATEUR;
 }
 
 Identificateur::~Identificateur()

@@ -2,7 +2,7 @@
 
 Lire::Lire()
 {
-	//ctor
+	m_idSymbole = LIRE;
 }
 
 Lire::~Lire()

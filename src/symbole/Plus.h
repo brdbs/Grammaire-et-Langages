@@ -12,7 +12,7 @@ class Plus : public Symbole
 		virtual ~Plus();
 		virtual bool estTerminal(){return true;}
 		virtual operator std::string() const{ return "+"; }
-		virtual void castUp(){ m_id = OPERATEURAD; }
+		virtual void castUp(){ m_idSymbole = OPERATEURAD; }
 	protected:
 	private:
 };

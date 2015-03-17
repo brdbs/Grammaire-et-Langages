@@ -2,7 +2,7 @@
 
 Var::Var()
 {
-	//ctor
+	m_idSymbole = VAR;
 }
 
 Var::~Var()

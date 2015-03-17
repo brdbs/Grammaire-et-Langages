@@ -16,7 +16,7 @@ class LigneVar : public LigneDeclaration
 		virtual operator std::string() const;
 	protected:
 	private:
-		std::string m_ids;
+		std::string m_id;
 		LigneVar * m_prevId;
 };
 

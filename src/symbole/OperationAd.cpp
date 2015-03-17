@@ -4,19 +4,36 @@
 using namespace std;
 OperationAd::OperationAd()
 {
-	//ctor
+	m_idSymbole = EXPRESSION;
 }
 
 OperationAd::~OperationAd()
 {
-	//dtor
+	delete m_expression;
+	delete m_terme;
 }
 
 OperationAd::operator std::string() const
 {
 	stringstream ss;
-	string exp= *m_expression;
-	string terme = *m_terme;
+	string exp;
+	if (m_expression != NULL)
+	{
+		exp = *m_expression;
+	}
+	else
+	{
+		exp = "";
+	}
+	string terme;
+	if (m_terme != NULL)
+	{
+		terme = *m_terme;
+	}
+	else
+	{
+		terme = "";
+	}
 	ss << exp << m_opA << terme;
 
 	return ss.str();

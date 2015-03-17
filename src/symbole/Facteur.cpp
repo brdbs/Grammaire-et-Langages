@@ -2,7 +2,7 @@
 
 Facteur::Facteur()
 {
-	//ctor
+	m_idSymbole = FACTEUR;
 }
 
 Facteur::~Facteur()

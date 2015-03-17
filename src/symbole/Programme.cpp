@@ -4,19 +4,36 @@
 using namespace std;
 Programme::Programme()
 {
-	//ctor
+	m_idSymbole = PROGRAMME;
 }
 
 Programme::~Programme()
 {
-	//dtor
+	delete m_blocDec;
+	delete m_blocInst;
 }
 
 Programme::operator std::string() const
 {
 	stringstream ss; 
-	string dec = *m_blocDec;
-	string inst = *m_blocInst;
+	string dec;
+	if (m_blocDec != NULL)
+	{
+		dec = *m_blocDec;
+	}
+	else
+	{
+		dec = "";
+	}
+	string inst;
+	if (m_blocInst != NULL)
+	{
+		inst = *m_blocInst;
+	}
+	else
+	{
+		inst = "";
+	}
 	ss << m_blocDec << endl << m_blocInst << endl;
 	return ss.str();
 }

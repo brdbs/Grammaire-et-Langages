@@ -5,20 +5,36 @@ using namespace std;
 
 OperationMul::OperationMul()
 {
-	//ctor
+	m_idSymbole = TERME;
 }
 
 OperationMul::~OperationMul()
 {
-	//dtor
+	delete m_facteur;
+	delete m_terme;
 }
 
 OperationMul::operator std::string() const
 {
 	stringstream ss;
-	string terme = *m_terme;
-	string facteur = *m_facteur;
-
+	string terme;
+	if (m_terme != NULL)
+	{
+		terme = *m_terme;
+	}
+	else
+	{
+		terme = "";
+	}
+	string facteur;
+	if (m_facteur!=NULL)
+	{
+		facteur = *m_facteur;
+	}
+	else
+	{
+		facteur = "";
+	}
 	ss << terme << m_op << m_facteur;
 	return ss.str();
 }

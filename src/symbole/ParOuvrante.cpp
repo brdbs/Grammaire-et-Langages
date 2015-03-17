@@ -2,7 +2,7 @@
 
 ParOuvrante::ParOuvrante()
 {
-	//ctor
+	m_idSymbole = PAROUVRANTE;
 }
 
 ParOuvrante::~ParOuvrante()

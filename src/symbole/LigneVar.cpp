@@ -6,30 +6,35 @@
 using namespace std;
 LigneVar::LigneVar()
 {
-	//ctor
+	m_idSymbole = LIGNEVAR;
 }
 
 LigneVar::~LigneVar()
 {
-	//dtor
+	delete m_prevId;
 }
 
 LigneVar::operator std::string() const
 {
 	std::stringstream ss;
-	ss << "const";
-	string prevConst = *m_prevId;
-	vector<string> tmp;
-	boost::split(tmp, prevConst, boost::is_any_of(" \r\n;"));
-	tmp.erase(tmp.begin());
-	for (unsigned int i = 0; i < tmp.size(); i++)
+	ss << "var";
+	string prevVar;
+	if (m_prevId != NULL)
 	{
-		if (tmp[i] != "")
+		prevVar = *m_prevId;
+		vector<string> tmp;
+		boost::split(tmp, prevVar, boost::is_any_of(" \r\n;"));
+		tmp.erase(tmp.begin());
+		for (unsigned int i = 0; i < tmp.size(); i++)
 		{
-			ss << " " << tmp[i];
+			if (tmp[i] != "")
+			{
+				ss << " " << tmp[i];
+			}
 		}
+		ss << ", ";
 	}
-	ss << ", " << m_id <<";" << endl;
+	ss << m_id <<";" << endl;
 
 	return ss.str();
 

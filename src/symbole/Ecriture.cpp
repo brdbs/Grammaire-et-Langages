@@ -4,18 +4,26 @@
 using namespace std;
 Ecriture::Ecriture()
 {
-	//ctor
+	m_idSymbole = ECRITURE;
 }
 
 Ecriture::~Ecriture()
 {
-	//dtor
+	delete m_expression;
 }
 
 Ecriture::operator std::string() const
 {
 	stringstream ss;
-	string s = *m_expression;
+	string s;
+	if (m_expression != NULL)
+	{
+		s = *m_expression;
+	}
+	else
+	{
+		s = "";
+	}
 	ss << "ecrire " << s << ";"<< endl;
 	return ss.str();
 

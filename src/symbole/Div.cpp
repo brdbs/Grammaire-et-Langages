@@ -2,7 +2,7 @@
 
 Div::Div()
 {
-	//ctor
+	m_idSymbole = DIV;
 }
 
 Div::~Div()

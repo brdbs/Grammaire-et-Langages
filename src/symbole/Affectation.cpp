@@ -2,20 +2,27 @@
 #include <sstream>
 
 using namespace std;
-Affectation::Affectation()
-{
-	//ctor
+Affectation::Affectation() {
+	m_idSymbole = AFFECTATION;
 }
 
 Affectation::~Affectation()
 {
-	//dtor
+	delete m_expression;
 }
 
 Affectation::operator std::string() const
 {
 	stringstream ss; 
-	string tmp = *m_expression;
+	string tmp;
+	if (m_expression != NULL)
+	{
+		tmp = *m_expression;
+	}
+	else
+	{
+		tmp = "";
+	}
 	ss << m_id << " := " << tmp << ";"<<endl;
 	return ss.str();
 }

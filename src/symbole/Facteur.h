@@ -10,7 +10,7 @@ class Facteur : public Terme
 		Facteur();
 		virtual ~Facteur();
 		
-		virtual void castUp(){ m_id = FACTEUR; }
+		virtual void castUp(){ m_idSymbole = FACTEUR; }
 	protected:
 	private:
 };

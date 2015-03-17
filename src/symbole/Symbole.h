@@ -3,8 +3,8 @@
 
 //Déclaration des id des symboles (utilisé dans Etat::transition)
 #define PROGRAMME 1
-#define LIGNEDECLARATION 2
-#define LIGNEINSTRUCTION 3
+#define BLOCDECLARATION 2
+#define BLOCINSTRUCTION 3
 #define LIGNECONST 4
 #define LIGNEVAR 5
 #define LECTURE 6
@@ -37,17 +37,17 @@
 class Symbole
 {
 	public:
-		Symbole(int id) : m_id(id) {}
+		Symbole(int id) : m_idSymbole(id) {}
 		Symbole();
 		virtual ~Symbole();
 		void print();
-		operator int() const { return m_id; }
+		operator int() const { return m_idSymbole; }
 		virtual bool estTerminal(){ return false; }
 		virtual operator std::string() const = 0;
 		virtual void castUp(){}
 		virtual void initialiser(Symbole **, int taille){}
 	protected:
-		int m_id;
+		int m_idSymbole;
 	private:
 };
 

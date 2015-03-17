@@ -20,7 +20,7 @@ void E00::transition(Automate* automate)
 
 void E00::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	case LIGNEDECLARATION:
+	case BLOCDECLARATION:
 		automate->decalage(s, new E02());
 		break;
 	case PROGRAMME:

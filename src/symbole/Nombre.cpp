@@ -2,7 +2,7 @@
 
 Nombre::Nombre()
 {
-	//ctor
+	m_idSymbole = NOMBRE;
 }
 
 Nombre::~Nombre()

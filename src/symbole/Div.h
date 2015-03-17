@@ -12,7 +12,7 @@ class Div : public Symbole
 		virtual ~Div();
 		virtual bool estTerminal(){return true;}
 		virtual operator std::string() const{ return "/"; }
-		virtual void castUp(){ m_id = OPERATEURMUL; }
+		virtual void castUp(){ m_idSymbole = OPERATEURMUL; }
 	protected:
 	private:
 };

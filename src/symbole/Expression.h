@@ -10,7 +10,7 @@ class Expression : public Symbole
 	public:
 		Expression();
 		virtual ~Expression(); 
-		virtual void castUp(){ m_id = EXPRESSION; }
+		virtual void castUp(){ m_idSymbole = EXPRESSION; }
 	protected:
 	private:
 };

@@ -2,7 +2,7 @@
 
 Expression::Expression()
 {
-	//ctor
+	m_idSymbole = EXPRESSION;
 }
 
 Expression::~Expression()

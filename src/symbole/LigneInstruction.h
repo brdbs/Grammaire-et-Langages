@@ -1,5 +1,5 @@
-#ifndef LIGNEINSTRUCTION_H
-#define LIGNEINSTRUCTION_H
+#ifndef BLOCINSTRUCTION_H
+#define BLOCINSTRUCTION_H
 
 #include "Symbole.h"
 
@@ -13,4 +13,4 @@ class LigneInstruction : public Symbole
 	private:
 };
 
-#endif // LIGNEINSTRUCTION_H
+#endif // BLOCINSTRUCTION_H

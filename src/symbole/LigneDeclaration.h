@@ -1,5 +1,5 @@
-#ifndef LIGNEDECLARATION_H
-#define LIGNEDECLARATION_H
+#ifndef BLOCDECLARATION_H
+#define BLOCDECLARATION_H
 
 #include "Symbole.h"
 
@@ -17,4 +17,4 @@ class LigneDeclaration : public Symbole
 		
 };
 
-#endif // LIGNEDECLARATION_H
+#endif // BLOCDECLARATION_H

@@ -2,7 +2,7 @@
 
 Virgule::Virgule()
 {
-	//ctor
+	m_idSymbole = VIRGULE;
 }
 
 Virgule::~Virgule()

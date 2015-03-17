@@ -30,7 +30,7 @@ void E02::transition(Automate* automate)
 
 void E02::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	 case LIGNEINSTRUCTION:
+	 case BLOCINSTRUCTION:
         automate->decalage(s, new E03());
         break;
 	}

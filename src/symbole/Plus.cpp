@@ -2,7 +2,7 @@
 
 Plus::Plus()
 {
-	//ctor
+	m_idSymbole = PLUS;
 }
 
 Plus::~Plus()

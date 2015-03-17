@@ -2,7 +2,7 @@
 
 PointVirgule::PointVirgule()
 {
-	//ctor
+	m_idSymbole = POINTVIRGULE;
 }
 
 PointVirgule::~PointVirgule()

@@ -9,7 +9,7 @@ class Terme : public Expression
 	public:
 		Terme();
 		virtual ~Terme();
-		virtual void castUp(){ m_id = TERME; }
+		virtual void castUp(){ m_idSymbole = TERME; }
 	protected:
 	private:
 };

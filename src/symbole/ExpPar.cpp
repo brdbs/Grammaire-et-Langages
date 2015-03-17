@@ -4,18 +4,26 @@
 using namespace std;
 ExpPar::ExpPar()
 {
-	//ctor
+	m_idSymbole = EXPPAR;
 }
 
 ExpPar::~ExpPar()
 {
-	//dtor
+	delete m_expression;
 }
 
 ExpPar::operator std::string() const
 {
 	stringstream ss;
-	string tmp = *m_expression;
+	string tmp;
+	if (m_expression != NULL)
+	{
+		tmp = *m_expression;
+	}
+	else
+	{
+		tmp = "";
+	}
 	ss << "(" << tmp << ")" << endl;
 	return ss.str();
 

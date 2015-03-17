@@ -4,7 +4,7 @@
 
 Lecture::Lecture()
 {
-	//ctor
+	m_idSymbole = LECTURE;
 }
 
 Lecture::~Lecture()

@@ -4,7 +4,7 @@
 using namespace std;
 BlocDec::BlocDec()
 {
-	//ctor
+	m_idSymbole = BLOCDECLARATION;
 }
 
 BlocDec::~BlocDec()
@@ -15,8 +15,24 @@ BlocDec::~BlocDec()
 BlocDec::operator std::string() const
 {
 	stringstream ss;
-	string prev = *m_prevDec;
-	string current = *m_currentLine;
+
+	string prev;
+	if (m_prevDec != NULL)
+	{
+		prev = *m_prevDec;
+	}
+	else{
+		prev = "";
+	}
+	string current;
+	if (m_currentLine != NULL)
+	{
+		current = *m_currentLine;
+	}
+	else
+	{
+		current = "";
+	}
 	ss << prev << current << endl;
 	return ss.str();
 }

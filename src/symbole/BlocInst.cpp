@@ -4,19 +4,41 @@ using namespace std;
 
 BlocInst::BlocInst(LigneInstruction *instruction) : m_currentLine(instruction)
 {
-	//ctor
+	m_idSymbole = BLOCINSTRUCTION; 
 }
 
+BlocInst::BlocInst() 
+{
+	m_idSymbole = BLOCINSTRUCTION;
+}
 BlocInst::~BlocInst()
 {
-	//dtor
+	delete m_prevInst;
+	delete m_currentLine;
 }
 
 BlocInst::operator std::string() const
 {
+	
 	stringstream ss;
-	string prev = *m_prevInst;
-	string current = *m_currentLine;
+	string prev;
+	if (m_prevInst != NULL)
+	{
+		prev = *m_prevInst;
+	}
+	else
+	{
+		prev = "";
+	}
+	string current;
+	if (m_currentLine != NULL)
+	{
+		current = *m_currentLine;
+	}
+	else
+	{
+		current = "";
+	}
 	ss << prev << current << endl;
 	return ss.str();
 }
