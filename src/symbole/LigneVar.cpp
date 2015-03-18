@@ -1,6 +1,7 @@
 #include <sstream>
 #include <vector>
-#include <boost\algorithm\string.hpp>
+//#include <boost\algorithm\string.hpp>
+#include <boost/algorithm/string.hpp>
 #include "LigneVar.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ LigneVar::operator std::string() const
 	string prevVar;
 	if (m_prevId != NULL)
 	{
-		prevVar = *m_prevId;
+		prevVar = (string)*m_prevId;
 		vector<string> tmp;
 		boost::split(tmp, prevVar, boost::is_any_of(" \r\n;"));
 		tmp.erase(tmp.begin());

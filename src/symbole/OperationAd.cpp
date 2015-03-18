@@ -19,7 +19,7 @@ OperationAd::operator std::string() const
 	string exp;
 	if (m_expression != NULL)
 	{
-		exp = *m_expression;
+		exp = (string)*m_expression;
 	}
 	else
 	{
@@ -28,7 +28,7 @@ OperationAd::operator std::string() const
 	string terme;
 	if (m_terme != NULL)
 	{
-		terme = *m_terme;
+		terme = (string)*m_terme;
 	}
 	else
 	{

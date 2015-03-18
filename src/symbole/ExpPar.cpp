@@ -18,7 +18,7 @@ ExpPar::operator std::string() const
 	string tmp;
 	if (m_expression != NULL)
 	{
-		tmp = *m_expression;
+		tmp = (string)*m_expression;
 	}
 	else
 	{

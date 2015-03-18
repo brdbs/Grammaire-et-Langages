@@ -24,7 +24,7 @@ BlocInst::operator std::string() const
 	string prev;
 	if (m_prevInst != NULL)
 	{
-		prev = *m_prevInst;
+		prev = (string)*m_prevInst;
 	}
 	else
 	{
@@ -33,7 +33,7 @@ BlocInst::operator std::string() const
 	string current;
 	if (m_currentLine != NULL)
 	{
-		current = *m_currentLine;
+		current = (string)*m_currentLine;
 	}
 	else
 	{

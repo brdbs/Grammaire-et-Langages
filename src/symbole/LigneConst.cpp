@@ -1,6 +1,7 @@
 #include <sstream>
 #include <vector>
-#include <boost\algorithm\string.hpp>
+//#include <boost\algorithm\string.hpp>
+#include <boost/algorithm/string.hpp>
 #include "LigneConst.h"
 
 using namespace std;

@@ -19,7 +19,7 @@ Programme::operator std::string() const
 	string dec;
 	if (m_blocDec != NULL)
 	{
-		dec = *m_blocDec;
+		dec = (string)*m_blocDec;
 	}
 	else
 	{
@@ -28,7 +28,7 @@ Programme::operator std::string() const
 	string inst;
 	if (m_blocInst != NULL)
 	{
-		inst = *m_blocInst;
+		inst = (string)*m_blocInst;
 	}
 	else
 	{

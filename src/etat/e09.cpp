@@ -3,7 +3,7 @@
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
 #include "../symbole/BlocInst.h"
-#include "../Symbole/Ecriture.h"
+#include "../symbole/Ecriture.h"
 
 
 E09::E09()

@@ -18,7 +18,7 @@ Ecriture::operator std::string() const
 	string s;
 	if (m_expression != NULL)
 	{
-		s = *m_expression;
+		s = (string)*m_expression;
 	}
 	else
 	{

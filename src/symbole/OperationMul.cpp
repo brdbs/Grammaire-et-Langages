@@ -20,7 +20,7 @@ OperationMul::operator std::string() const
 	string terme;
 	if (m_terme != NULL)
 	{
-		terme = *m_terme;
+		terme = (string)*m_terme;
 	}
 	else
 	{
@@ -29,7 +29,7 @@ OperationMul::operator std::string() const
 	string facteur;
 	if (m_facteur!=NULL)
 	{
-		facteur = *m_facteur;
+		facteur = (string)*m_facteur;
 	}
 	else
 	{
