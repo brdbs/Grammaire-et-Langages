@@ -11,6 +11,7 @@ class Nombre : public Facteur
 		virtual ~Nombre();
 		virtual bool estTerminal(){return true;}
 		virtual operator std::string() const{ return std::to_string(m_valeur); }
+		int getValeur(){return m_valeur;}
 	protected:
 	private:
 		int m_valeur;

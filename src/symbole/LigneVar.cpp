@@ -40,3 +40,19 @@ LigneVar::operator std::string() const
 	return ss.str();
 
 }
+
+void LigneVar::initialiser(Symbole **listeSymboles, int taille)
+{
+    if(taille==1)
+    {
+		//On vient de E32
+		m_prevId = NULL;
+        m_id = (string)*listeSymboles[0];
+    }
+    else if(taille==3)
+    {
+		//On vient de E36
+		m_prevId = (LigneVar*)listeSymboles[0];
+		m_id = (string)*listeSymboles[2];
+    }
+}

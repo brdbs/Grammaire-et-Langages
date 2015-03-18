@@ -11,6 +11,7 @@ class BlocDec : public Symbole
 		BlocDec();
 		virtual ~BlocDec();
 		virtual operator std::string() const;
+		virtual void initialiser(Symbole **, int taille);
 	protected:
 	private:
 		BlocDec * m_prevDec;

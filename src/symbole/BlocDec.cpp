@@ -36,3 +36,13 @@ BlocDec::operator std::string() const
 	ss << prev << current << endl;
 	return ss.str();
 }
+
+void BlocDec::initialiser(Symbole **liste, int taille)
+{
+	if(taille==4)
+	{
+		//On vient de E34 ou E42
+		m_prevDec = (BlocDec*)liste[0];
+		m_currentLine = (LigneDeclaration*)liste[2];
+	}
+}
