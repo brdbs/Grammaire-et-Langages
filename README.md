@@ -18,7 +18,7 @@ Sur ce lien, voir la fin de cette partie IV-B pour spécifier le chemin de la li
 
 Rajouter la variable d'environement BOOST_ROOT vers la racine et surtout renomer le fichier libmsvsXXXX en lib !!!! 
 
-##### Guide de style (à compléter) ####
+##### Guide de style (à compléter) #####
 
 Langue utilisée : Français
 
@@ -30,3 +30,29 @@ Classe : MaClasse
 attribut : m_monAttribut
 structure : MaStructure 
 
+
+
+##### Notes sur la mise en oeuvre #####
+États réduction TODO :
+0
+1
+2
+3
+6
+9
+10
+11
+14
+15
+17
+19
+21
+22
+23
+26
+30
+32
+34
+36
+40
+42

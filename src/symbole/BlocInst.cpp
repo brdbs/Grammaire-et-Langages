@@ -42,3 +42,8 @@ BlocInst::operator std::string() const
 	ss << prev << current << endl;
 	return ss.str();
 }
+
+void BlocInst::initialiser(Symbole **, int taille)
+{
+
+}
