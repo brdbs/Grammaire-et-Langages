@@ -2,6 +2,8 @@
 #define LEXER_H
 
 #include <string>
+#include <queue>
+#include "symbole\Symbole.h"
 
 using namespace std;
 
@@ -17,6 +19,7 @@ class Lexer
 		int scannerFichier(string cheminFichier);
 	protected:
 		string m_programme;
+		queue<Symbole *> m_test;
 	private:
 };
 

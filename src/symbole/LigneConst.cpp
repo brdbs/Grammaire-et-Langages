@@ -9,6 +9,7 @@ using namespace std;
 LigneConst::LigneConst()
 {
 	m_idSymbole = LIGNECONST;
+	m_prevConst = NULL;
 }
 
 LigneConst::~LigneConst()
@@ -19,7 +20,7 @@ LigneConst::~LigneConst()
 LigneConst::operator std::string() const
 {
 	std::stringstream ss;
-	ss << "const";
+	ss << "const ";
 	if (m_prevConst != NULL)
 	{
 		string prevConst = *m_prevConst;
@@ -35,7 +36,7 @@ LigneConst::operator std::string() const
 		}
 		ss << ", ";
 	}
-	ss << m_id << "=" << m_value << ";"<< endl;
+	ss << m_id << " = " << m_value << ";";
 
 	return ss.str();
 
@@ -51,7 +52,8 @@ void LigneConst::initialiser(Symbole **liste, int taille)
 		m_value = ((Nombre*)liste[2])->getValeur();
 		m_prevConst = NULL;
 
-		for(int i=0 ; i<taille ; taille++){
+		for(int i=0 ; i<taille ; i++)
+		{
 			delete liste[i];
 		}
     }

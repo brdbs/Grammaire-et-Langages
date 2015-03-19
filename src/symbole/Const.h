@@ -11,7 +11,7 @@ class Const : public Symbole
 		Const();
 		virtual ~Const();
 		virtual bool estTerminal(){return true;}
-		virtual operator std::string(){ return "const"; }
+		virtual operator std::string() const{ return "const"; }
 	protected:
 	private:
 };

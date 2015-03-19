@@ -6,6 +6,11 @@
 
 using namespace std;
 
+Automate::Automate()
+{
+	m_symbole = NULL;
+}
+
 Automate::Automate(string cheminFichier)
 {
 	m_lexer.scannerFichier(cheminFichier);
@@ -68,4 +73,10 @@ void Automate::reduction()
 	m_pileEtats.pop();
 	delete tmp;
 	m_pileEtats.top()->transition(this, s);
+}
+
+void Automate::afficherProgramme()
+{
+	string tmp = *m_pileSymbole.top();
+	cout << tmp;
 }

@@ -12,6 +12,7 @@ class OperationAd : public Expression
 		OperationAd();
 		virtual ~OperationAd();
 		virtual operator std::string() const;
+		void initialiser(Symbole **liste, int taille);
 	protected:
 	private:
 		Expression * m_expression;

@@ -5,6 +5,8 @@ using namespace std;
 Programme::Programme()
 {
 	m_idSymbole = PROGRAMME;
+	m_blocDec = NULL;
+	m_blocInst = NULL;
 }
 
 Programme::~Programme()
@@ -34,7 +36,7 @@ Programme::operator std::string() const
 	{
 		inst = "";
 	}
-	ss << m_blocDec << endl << m_blocInst << endl;
+	ss << dec << endl << inst << endl;
 	return ss.str();
 }
 

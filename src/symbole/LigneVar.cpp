@@ -8,6 +8,7 @@ using namespace std;
 LigneVar::LigneVar()
 {
 	m_idSymbole = LIGNEVAR;
+	m_prevId = NULL;
 }
 
 LigneVar::~LigneVar()
@@ -18,7 +19,7 @@ LigneVar::~LigneVar()
 LigneVar::operator std::string() const
 {
 	std::stringstream ss;
-	ss << "var";
+	ss << "var ";
 	string prevVar;
 	if (m_prevId != NULL)
 	{
@@ -35,7 +36,7 @@ LigneVar::operator std::string() const
 		}
 		ss << ", ";
 	}
-	ss << m_id <<";" << endl;
+	ss << m_id <<";";
 
 	return ss.str();
 

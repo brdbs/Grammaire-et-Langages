@@ -9,11 +9,14 @@ using namespace std;
 BlocInst::BlocInst(LigneInstruction *instruction) : m_currentLine(instruction)
 {
 	m_idSymbole = BLOCINSTRUCTION;
+	m_prevInst = NULL;
 }
 
 BlocInst::BlocInst()
 {
 	m_idSymbole = BLOCINSTRUCTION;
+	m_currentLine = NULL;
+	m_prevInst = NULL;
 }
 BlocInst::~BlocInst()
 {
@@ -80,7 +83,7 @@ void BlocInst::initialiser(Symbole **liste, int taille)
 		//liste : [I,id,:=,E,;]
         Affectation *aff = (Affectation*)m_currentLine;
         aff->determinerExpr((Expression*)liste[3]);
-        aff->determinerId((string)*(Identificateur*)liste[1]);
+        aff->determinerId(*liste[1]);
 		m_prevInst=(BlocInst*)liste[0];
 
 		delete liste[1];

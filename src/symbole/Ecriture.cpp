@@ -5,6 +5,7 @@ using namespace std;
 Ecriture::Ecriture()
 {
 	m_idSymbole = ECRITURE;
+	m_expression = NULL;
 }
 
 Ecriture::~Ecriture()

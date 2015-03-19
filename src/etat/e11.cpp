@@ -2,7 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
-#include "../symbole/OperationAd.h"
+
 
 E11::E11()
 {

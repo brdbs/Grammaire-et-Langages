@@ -1,6 +1,6 @@
 #include "Nombre.h"
 
-Nombre::Nombre()
+Nombre::Nombre(int nb) : m_valeur(nb)
 {
 	m_idSymbole = NOMBRE;
 }

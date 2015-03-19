@@ -8,11 +8,10 @@
 class Identificateur : public Facteur
 {
 	public:
-		Identificateur();
+		Identificateur(std::string id);
 		virtual ~Identificateur();
-		virtual bool estTerminal(){return true;}
+		virtual bool estTerminal(){return m_idSymbole==IDENTIFICATEUR;}
 		virtual operator std::string() const{ return m_id; }
-		virtual void castUp(){ m_idSymbole = FACTEUR; }
 	protected:
 	private:
 		std::string m_id;

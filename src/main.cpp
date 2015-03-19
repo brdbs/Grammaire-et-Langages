@@ -9,6 +9,20 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
+
+
+
+
+	//test 
+	Automate test;
+
+	test.lecture();
+	test.afficherProgramme();
+
+	return 0;
+
+
+	//-----------------------------------------------------------------------------
 	string cheminFichier;
 	Lexer lexer;
 	

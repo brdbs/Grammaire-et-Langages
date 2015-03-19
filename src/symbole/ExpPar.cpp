@@ -4,7 +4,7 @@
 using namespace std;
 ExpPar::ExpPar()
 {
-	m_idSymbole = EXPPAR;
+	m_idSymbole = FACTEUR;
 }
 
 ExpPar::~ExpPar()
@@ -24,7 +24,7 @@ ExpPar::operator std::string() const
 	{
 		tmp = "";
 	}
-	ss << "(" << tmp << ")" << endl;
+	ss << "(" << tmp << ")";
 	return ss.str();
 
 }

@@ -24,6 +24,7 @@ struct SymboleTable {
 class Automate
 {
     public:
+		Automate();
         Automate(string cheminFichier);
         virtual ~Automate();
 
@@ -32,6 +33,7 @@ class Automate
         Symbole *getNextLexer();
 		void reduction(Symbole *s, int nbSymboles);
 		void reduction();
+		void afficherProgramme();
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;

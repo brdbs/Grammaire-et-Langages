@@ -32,6 +32,7 @@
 #define VAR 28
 #define LIRE 29
 #define ECRIRE 30
+#define ENDOFFILE 31
 #include <string>
 
 class Symbole

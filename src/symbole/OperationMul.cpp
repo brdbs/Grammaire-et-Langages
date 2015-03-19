@@ -6,6 +6,8 @@ using namespace std;
 OperationMul::OperationMul()
 {
 	m_idSymbole = TERME;
+	m_facteur = NULL;
+	m_terme = NULL;
 }
 
 OperationMul::~OperationMul()
@@ -35,7 +37,7 @@ OperationMul::operator std::string() const
 	{
 		facteur = "";
 	}
-	ss << terme << m_op << m_facteur;
+	ss << terme << m_op << facteur;
 	return ss.str();
 }
 

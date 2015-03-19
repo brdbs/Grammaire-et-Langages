@@ -5,6 +5,8 @@ using namespace std;
 BlocDec::BlocDec()
 {
 	m_idSymbole = BLOCDECLARATION;
+	m_currentLine = NULL;
+	m_prevDec = NULL;
 }
 
 BlocDec::~BlocDec()
@@ -19,7 +21,7 @@ BlocDec::operator std::string() const
 	string prev;
 	if (m_prevDec != NULL)
 	{
-		prev = (string)*m_prevDec;
+		prev = *m_prevDec;
 	}
 	else{
 		prev = "";

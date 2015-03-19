@@ -4,6 +4,7 @@
 using namespace std;
 Affectation::Affectation() {
 	m_idSymbole = AFFECTATION;
+	m_expression = NULL;
 }
 
 Affectation::~Affectation()

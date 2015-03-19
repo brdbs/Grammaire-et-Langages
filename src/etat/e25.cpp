@@ -16,7 +16,7 @@ void E25::transition(Automate* automate)
 {
 	Symbole *s = automate->getNextLexer();
 	switch(*s){
-	case PAROUVRANTE:
+	case PARFERMANTE:
         automate->decalage(s, new E26());
         break;
 	case PLUS:
