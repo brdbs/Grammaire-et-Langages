@@ -46,13 +46,20 @@ void LigneVar::initialiser(Symbole **listeSymboles, int taille)
     if(taille==1)
     {
 		//On vient de E32
+		//liste : [id]
 		m_prevId = NULL;
         m_id = (string)*listeSymboles[0];
+
+        delete listeSymboles[0];
     }
     else if(taille==3)
     {
 		//On vient de E36
+		//liste : [V,,,id]
 		m_prevId = (LigneVar*)listeSymboles[0];
 		m_id = (string)*listeSymboles[2];
+
+		delete listeSymboles[1];
+		delete listeSymboles[2];
     }
 }

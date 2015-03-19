@@ -46,15 +46,25 @@ void LigneConst::initialiser(Symbole **liste, int taille)
     if(taille==3)
     {
 		//On vient de l'état 40
+		//liste : [id,=,nb]
 		m_id = (string)*liste[0];
 		m_value = ((Nombre*)liste[2])->getValeur();
 		m_prevConst = NULL;
+
+		for(int i=0 ; i<taille ; taille++){
+			delete liste[i];
+		}
     }
     else if (taille==5)
     {
 		//On vient de l'état 19
+		//liste : [C,,,id,=,nb]
 		m_id = (string)*liste[2];
 		m_value = ((Nombre*)liste[4])->getValeur();
 		m_prevConst = (LigneConst*)liste[0];
+
+		for(int i=1 ; i<taille ; i++){
+			delete liste[i];
+		}
     }
 }

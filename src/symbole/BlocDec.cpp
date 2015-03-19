@@ -42,7 +42,11 @@ void BlocDec::initialiser(Symbole **liste, int taille)
 	if(taille==4)
 	{
 		//On vient de E34 ou E42
+		//liste : [D , var ou const , V ou C , ;]
 		m_prevDec = (BlocDec*)liste[0];
 		m_currentLine = (LigneDeclaration*)liste[2];
+
+		delete liste[1];
+		delete liste[3];
 	}
 }

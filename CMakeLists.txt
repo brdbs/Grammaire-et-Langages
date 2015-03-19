@@ -26,6 +26,7 @@ file(
 ADD_DEFINITIONS(
 	-std=c++11 # Or -std=c++0x
 	# Other flags
+	-g
 )
 
 #Déclaration de l'exécutable
