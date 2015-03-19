@@ -12,6 +12,7 @@ class Ecriture : public LigneInstruction
 		Ecriture();
 		virtual ~Ecriture();
 		virtual operator std::string() const;
+		void determinerExpr(Expression *exp){m_expression=exp;}
 	protected:
 	private:
 		Expression* m_expression;

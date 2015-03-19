@@ -15,7 +15,7 @@ Programme::~Programme()
 
 Programme::operator std::string() const
 {
-	stringstream ss; 
+	stringstream ss;
 	string dec;
 	if (m_blocDec != NULL)
 	{
@@ -36,4 +36,14 @@ Programme::operator std::string() const
 	}
 	ss << m_blocDec << endl << m_blocInst << endl;
 	return ss.str();
+}
+
+void Programme::initialiser(Symbole **liste, int taille)
+{
+	//On vient de E3
+	//liste : [D,I]
+	if(taille==2){
+		m_blocDec = (LigneDeclaration*)liste[0];
+		m_blocInst = (LigneInstruction*)liste[1];
+	}
 }

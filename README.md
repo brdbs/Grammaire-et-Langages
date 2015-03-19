@@ -34,12 +34,12 @@ structure : MaStructure
 
 ##### Notes sur la mise en oeuvre #####
 États réduction TODO :
-0
+#0
 1
-2
-3
-6
-9
+#2
+#3
+#6
+#9
 10
 11
 14
@@ -56,4 +56,3 @@ structure : MaStructure
 #36
 #40
 #42
-42
