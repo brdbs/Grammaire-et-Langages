@@ -3,6 +3,7 @@
 #include "Lecture.h"
 #include "Identificateur.h"
 #include "Ecriture.h"
+#include "Affectation.h"
 using namespace std;
 
 BlocInst::BlocInst(LigneInstruction *instruction) : m_currentLine(instruction)
@@ -73,5 +74,17 @@ void BlocInst::initialiser(Symbole **liste, int taille)
 			delete liste[1];
 			delete liste[3];
 		}
+	}
+	else if(taille==5){
+		//On vient de E30
+		//liste : [I,id,:=,E,;]
+        Affectation *aff = (Affectation*)m_currentLine;
+        aff->determinerExpr((Expression*)liste[3]);
+        aff->determinerId((string)*(Identificateur*)liste[1]);
+		m_prevInst=(BlocInst*)liste[0];
+
+		delete liste[1];
+		delete liste[2];
+		delete liste[4];
 	}
 }

@@ -28,3 +28,14 @@ ExpPar::operator std::string() const
 	return ss.str();
 
 }
+
+void ExpPar::initialiser(Symbole **liste, int taille){
+    if(taille==3){
+		//On vient de E26
+		//liste : [(,E,)]
+		m_expression = (Expression*)liste[1];
+
+		delete liste[0];
+		delete liste[2];
+    }
+}

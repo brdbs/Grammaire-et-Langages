@@ -11,6 +11,7 @@ class ExpPar : public Facteur
 		ExpPar();
 		virtual ~ExpPar();
 		virtual operator std::string() const;
+		void initialiser(Symbole **, int taille);
 	protected:
 	private:
 		Expression* m_expression;

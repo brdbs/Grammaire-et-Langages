@@ -12,6 +12,7 @@ class OperationMul : public Terme
 		OperationMul();
 		virtual ~OperationMul();
 		virtual operator std::string() const;
+		void initialiser(Symbole **, int taille);
 	protected:
 	private:
 		Terme * m_terme;
