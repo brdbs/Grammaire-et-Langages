@@ -3,7 +3,7 @@
 
 #include <string>
 #include <queue>
-#include "symbole\Symbole.h"
+#include "symbole/Symbole.h"
 
 using namespace std;
 

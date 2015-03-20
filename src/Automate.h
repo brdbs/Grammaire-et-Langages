@@ -3,7 +3,7 @@
 
 #include <string>
 #include <stack>
-#include <vector>
+#include <map>
 
 #include "Lexer.h"
 
@@ -21,6 +21,8 @@ struct SymboleTable {
     bool constante;
 };
 
+typedef map<string,SymboleTable*> ArbreSymboles;
+
 class Automate
 {
     public:
@@ -37,7 +39,7 @@ class Automate
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
-        vector <SymboleTable*> m_tSymboles;
+        ArbreSymboles m_aSymboles;
 		Lexer m_lexer;
 		Symbole *m_symbole;
     private:
