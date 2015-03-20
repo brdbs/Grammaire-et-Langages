@@ -15,6 +15,6 @@ Lecture::~Lecture()
 Lecture::operator std::string() const
 {
 	std::stringstream ss; 
-	ss << "lecture " << m_id << ";"<< std::endl;
+	ss << "lecture " << m_id << ";";
 	return ss.str();
 }

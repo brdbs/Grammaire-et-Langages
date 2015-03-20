@@ -24,6 +24,6 @@ Affectation::operator std::string() const
 	{
 		tmp = "";
 	}
-	ss << m_id << " := " << tmp << ";"<<endl;
+	ss << m_id << " := " << tmp << ";";
 	return ss.str();
 }

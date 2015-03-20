@@ -18,6 +18,8 @@
 #include "symbole\DeuxPointsEgal.h"
 #include "symbole\Mult.h"
 #include "symbole\Moins.h"
+#include "symbole\Lire.h"
+#include "symbole\Ecrire.h"
 
 Lexer::Lexer()
 {
@@ -65,6 +67,31 @@ Lexer::Lexer()
 	m_test.push(new Nombre(5));
 	m_test.push(new PointVirgule());
 	
+	//lire b; 
+	m_test.push(new Lire());
+	m_test.push(new Identificateur("b"));
+	m_test.push(new PointVirgule());
+
+	//ecrire a*b;
+	m_test.push(new Ecrire());
+	m_test.push(new Identificateur("a"));
+	m_test.push(new Mult());
+	m_test.push(new Identificateur("b"));
+	m_test.push(new PointVirgule());
+
+	//e := b+d;
+	m_test.push(new Identificateur("e"));
+	m_test.push(new DeuxPointsEgal());
+	m_test.push(new Identificateur("b"));
+	m_test.push(new Plus());
+	m_test.push(new Identificateur("d"));
+	m_test.push(new PointVirgule());
+
+	//ecrire e;
+	m_test.push(new Ecrire());
+	m_test.push(new Identificateur("e"));
+	m_test.push(new PointVirgule());
+
 	//EOF
 	m_test.push(new EndOfFile());
 
