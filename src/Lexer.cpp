@@ -3,23 +3,25 @@
 
 #include <iostream>
 #include <fstream>
-#include "symbole\Var.h"
-#include "symbole\Identificateur.h"
-#include "symbole\Virgule.h"
-#include "symbole\ParFermante.h"
-#include "symbole\ParOuvrante.h"
-#include "symbole\Plus.h"
-#include "symbole\PointVirgule.h"
-#include "symbole\EndOfFile.h"
-#include "symbole\Const.h"
-#include "symbole\Egal.h"
-#include "symbole\Nombre.h"
-#include "symbole\Virgule.h"
-#include "symbole\DeuxPointsEgal.h"
-#include "symbole\Mult.h"
-#include "symbole\Moins.h"
-#include "symbole\Lire.h"
-#include "symbole\Ecrire.h"
+
+#include "symbole/Var.h"
+#include "symbole/Identificateur.h"
+#include "symbole/Virgule.h"
+#include "symbole/ParFermante.h"
+#include "symbole/ParOuvrante.h"
+#include "symbole/Plus.h"
+#include "symbole/PointVirgule.h"
+#include "symbole/EndOfFile.h"
+#include "symbole/Const.h"
+#include "symbole/Egal.h"
+#include "symbole/Nombre.h"
+#include "symbole/Virgule.h"
+#include "symbole/DeuxPointsEgal.h"
+#include "symbole/Mult.h"
+#include "symbole/Moins.h"
+#include "symbole/Lire.h"
+#include "symbole/Ecrire.h"
+
 
 Lexer::Lexer()
 {
@@ -91,6 +93,7 @@ Lexer::Lexer()
 	m_test.push(new Ecrire());
 	m_test.push(new Identificateur("e"));
 	m_test.push(new PointVirgule());
+
 
 	//EOF
 	m_test.push(new EndOfFile());

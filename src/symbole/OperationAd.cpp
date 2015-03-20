@@ -47,7 +47,7 @@ void OperationAd::initialiser(Symbole **liste, int taille){
 		//On vient de E13
 		//liste : [E,OpA,T]
 		m_expression = (Expression*)liste[0];
-		m_opA = *liste[1];
+		m_opA = (string)*liste[1];
 		m_terme = (Terme*) liste[2];
 
 		delete liste[1];

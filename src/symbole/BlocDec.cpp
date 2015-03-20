@@ -21,7 +21,7 @@ BlocDec::operator std::string() const
 	string prev;
 	if (m_prevDec != NULL)
 	{
-		prev = *m_prevDec;
+		prev = (string)*m_prevDec;
 	}
 	else{
 		prev = "";
