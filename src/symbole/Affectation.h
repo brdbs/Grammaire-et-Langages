@@ -15,6 +15,7 @@ class Affectation : public LigneInstruction
 		virtual operator std::string() const;
 		void determinerExpr(Expression *expr){m_expression = expr;}
 		void determinerId(std::string id){m_id = id;}
+		std::string const demanderId(){return m_id;}
 	protected:
 	private:
 		std::string m_id;

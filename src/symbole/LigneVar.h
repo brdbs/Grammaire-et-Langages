@@ -15,6 +15,7 @@ class LigneVar : public LigneDeclaration
 		virtual ~LigneVar();
 		virtual operator std::string() const;
 		virtual void initialiser(Symbole **, int taille);
+		std::string const demanderId(){return m_id;}
 	protected:
 	private:
 		std::string m_id;

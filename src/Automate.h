@@ -13,12 +13,12 @@ class Symbole;
 class Etat;
 
 struct SymboleTable {
-    string id;
-    int valeur;
-    bool declaree;
-    bool use;
-    bool useBAff;
-    bool constante;
+    int m_valeur;
+    bool m_declaree;
+    bool m_use;
+    bool m_useBAff;
+    bool m_constante;
+    SymboleTable(int valeur, bool declaree, bool use, bool useBAff, bool constante) : m_valeur(valeur), m_declaree(declaree), m_use(use), m_useBAff(useBAff), m_constante(constante){}
 };
 
 typedef map<string,SymboleTable*> ArbreSymboles;
@@ -43,6 +43,7 @@ class Automate
 		Lexer m_lexer;
 		Symbole *m_symbole;
     private:
+		void majTableSymboles(Symbole *s);
 };
 
 #endif // AUTOMATE_H

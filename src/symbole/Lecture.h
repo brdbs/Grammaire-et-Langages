@@ -13,6 +13,7 @@ class Lecture : public LigneInstruction
 		virtual ~Lecture();
 		virtual operator std::string() const;
 		void determinerId(std::string id){m_id = id;}
+		std::string const demanderId(){return m_id;}
 	protected:
 	private:
 		std::string m_id;

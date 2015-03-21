@@ -59,6 +59,7 @@ void Automate::reduction(Symbole* s, int nbSymboles)
 		delete tmp;
 	}
 	s->initialiser(listSymbole, nbSymboles);
+	majTableSymboles(s);
 	m_pileEtats.top()->transition(this, s);
 }
 
@@ -79,4 +80,54 @@ void Automate::afficherProgramme()
 {
 	string tmp = *m_pileSymbole.top();
 	cout << tmp;
+}
+
+void Automate::majTableSymboles(Symbole *s)
+{
+	string idTable = s->demanderId();
+	if(idTable == "null")	return;
+
+	SymboleTable *symbole = NULL;
+	ArbreSymboles::iterator it = m_aSymboles.find(idTable);
+	if(it != m_aSymboles.end())	symbole = it->second;
+
+	const int typeS = (int)*s;
+    if(typeS == LIGNEVAR){
+		if(symbole != NULL){
+			//TODO : erreur : variable déjà déclarée.
+			return;
+		}
+		//Ajout de la déclaration dans la table.
+		SymboleTable *st = new SymboleTable(NULL,true,false,false,false);
+        m_aSymboles[idTable] = st;
+	}
+	else if(typeS == LIGNECONST){
+		if(symbole != NULL){
+			//TODO : erreur : constante déjà définie.
+			return;
+		}
+		//Ajout de la définition de constante la table.
+		SymboleTable *st = new SymboleTable(0,true,false,false,true);
+        m_aSymboles[idTable] = st;
+	}
+	else if(typeS == AFFECTATION){
+        /*
+         * TODO :
+         * 	variable partie droite de affectation non affectée (chercher dans la table)
+         *	variable partie gauche est une constante
+         * 	une des deux variables n'a pas été déclarée
+         */
+	}
+	else if(typeS == ECRITURE){
+		/*
+		 * TODO :
+		 * 	la variable à écrire est une constante ou n'a pas été déclarée.
+		 */
+	}
+	else if(typeS == LECTURE){
+		if(symbole == NULL){
+			//TODO : erreur : la variable n'a pas été déclarée.
+			return;
+		}
+	}
 }

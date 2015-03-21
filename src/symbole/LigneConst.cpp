@@ -4,6 +4,7 @@
 #include <boost/algorithm/string.hpp>
 #include "LigneConst.h"
 #include "Nombre.h"
+#include "../Automate.h"
 
 using namespace std;
 LigneConst::LigneConst()
@@ -69,4 +70,8 @@ void LigneConst::initialiser(Symbole **liste, int taille)
 			delete liste[i];
 		}
     }
+}
+
+SymboleTable *LigneConst::construireSymboleTable(){
+	return new SymboleTable(m_value,true,false,false,true);
 }
