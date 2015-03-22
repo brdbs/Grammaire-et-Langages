@@ -53,3 +53,8 @@ void OperationAd::initialiser(Symbole **liste, int taille){
 		delete liste[1];
 	}
 }
+
+void OperationAd::remplirIdsExpression(vector<string> ids){
+	m_expression->remplirIdsExpression(ids);
+	m_terme->remplirIdsExpression(ids);
+}

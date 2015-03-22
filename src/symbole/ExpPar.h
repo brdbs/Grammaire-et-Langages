@@ -12,6 +12,8 @@ class ExpPar : public Facteur
 		virtual ~ExpPar();
 		virtual operator std::string() const;
 		void initialiser(Symbole **, int taille);
+
+		virtual void remplirIdsExpression(vector<string> ids){m_expression->remplirIdsExpression(ids);}
 	protected:
 	private:
 		Expression* m_expression;

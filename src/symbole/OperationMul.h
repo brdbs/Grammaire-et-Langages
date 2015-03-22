@@ -13,6 +13,8 @@ class OperationMul : public Terme
 		virtual ~OperationMul();
 		virtual operator std::string() const;
 		void initialiser(Symbole **, int taille);
+
+		virtual void remplirIdsExpression(vector<string> ids);
 	protected:
 	private:
 		Terme * m_terme;

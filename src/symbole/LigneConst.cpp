@@ -73,5 +73,5 @@ void LigneConst::initialiser(Symbole **liste, int taille)
 }
 
 SymboleTable *LigneConst::construireSymboleTable(){
-	return new SymboleTable(m_value,true,false,false,true);
+	return new SymboleTable(m_value,false,true,true);
 }
