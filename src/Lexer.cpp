@@ -20,9 +20,9 @@ Lexer::Lexer(string cheminFichier)
         file.close();
         
         motCle = boost::regex("var|const|lire|ecrire");
-		symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=|\\s");
+		symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=");
 		nb = boost::regex("[0-9]+");
-		id = boost::regex("[a-zA-Z][a-zA-Z0-9]+");
+		id = boost::regex("[a-zA-Z0-9]+");
         
         
     }else
@@ -81,11 +81,11 @@ Symbole * Lexer::getNext(){
 	
 	while(ss.get(carLu))
 	{
-		std::cout<<"string analysé : \""<<carLus+carLu<<"\"         ";
+		
 		canBeMotCle = boost::regex_match((carLus+carLu).c_str(), matchMotCle, motCle, boost::match_default | boost::match_partial);
 		canBeSymbole = boost::regex_match((carLus+carLu).c_str(), matchSymbole, symbole, boost::match_default | boost::match_partial);
-		canBeId = boost::regex_match((carLus+carLu).c_str(), matchNb, nb, boost::match_default | boost::match_partial);
-		canBeNb = boost::regex_match((carLus+carLu).c_str(), matchId, id, boost::match_default | boost::match_partial);
+		canBeId = boost::regex_match((carLus+carLu).c_str(), matchId, id, boost::match_default | boost::match_partial);
+		canBeNb = boost::regex_match((carLus+carLu).c_str(), matchNb, nb, boost::match_default | boost::match_partial);
 		
 		if(!canBeMotCle && !canBeSymbole && !canBeId && !canBeNb)
 		{
@@ -110,8 +110,13 @@ Symbole * Lexer::getNext(){
 								std::cout<<"Nombre ("<<carLus<<")"<<std::endl;
 							}else
 							{
-								
-								std::cout<<"Erreur lexicale 42 !"<<std::endl;
+								if(!isspace(carLu))
+								{
+									std::cout<<"Erreur lexicale 42 !   ("<<(carLus+carLu)<<")"<<std::endl;
+								}else
+								 {
+									 std::cout<<"SPAAAACE"<<std::endl;
+								 }
 							}
 						}
 				}
@@ -120,9 +125,15 @@ Symbole * Lexer::getNext(){
 			prevCanBeSymbole=false;
 			prevCanBeId=false;
 			prevCanBeNb=false;
-			carLus = carLu;
-				
-		}else
+			if(!isspace(carLu))
+			{
+				carLus = "";
+				ss.unget();
+			}else
+			 {
+				 carLus = "";
+			 }				
+		}else 
 		{
 			if(canBeMotCle)
 			{
@@ -141,7 +152,7 @@ Symbole * Lexer::getNext(){
 				prevCanBeNb = matchNb[0].matched;
 			}
 			carLus += carLu;
-			std::cout<<std::endl;
+			
 		}
 		
 		
