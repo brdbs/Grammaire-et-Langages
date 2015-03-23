@@ -10,6 +10,8 @@ class Terme : public Expression
 		Terme();
 		virtual ~Terme();
 		virtual void castUp(){ m_idSymbole = EXPRESSION; }
+		virtual int calculer() = 0;
+		virtual int* evaluer(Automate *automate) = 0;
 	protected:
 	private:
 };

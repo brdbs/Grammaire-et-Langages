@@ -58,3 +58,33 @@ void OperationAd::remplirIdsExpression(vector<string> ids){
 	m_expression->remplirIdsExpression(ids);
 	m_terme->remplirIdsExpression(ids);
 }
+
+int  OperationAd::calculer(){
+	return 0;
+}
+int* OperationAd::evaluer(Automate *automate) {
+	int * e = m_expression->evaluer(automate);
+	int * t = m_terme->evaluer(automate);
+	if ((e == NULL) | (t == NULL))
+	{
+		delete e;
+		delete t;
+		return NULL;
+	}
+	else
+	{
+		int * ret = new int();
+		if (m_opA == "+")
+		{
+			(*ret) = (*e) + (*t);
+		}
+		else
+		{
+			(*ret) = (*e) - (*t);
+		}
+		delete e;
+		delete t;
+
+		return ret;
+	}
+}

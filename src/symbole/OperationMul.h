@@ -6,6 +6,7 @@
 #include "Facteur.h"
 
 
+
 class OperationMul : public Terme
 {
 	public:
@@ -15,6 +16,8 @@ class OperationMul : public Terme
 		void initialiser(Symbole **, int taille);
 
 		virtual void remplirIdsExpression(vector<string> ids);
+		virtual int calculer();
+		virtual int* evaluer(Automate *automate);
 	protected:
 	private:
 		Terme * m_terme;
