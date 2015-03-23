@@ -1,3 +1,5 @@
+#define DEBUG false
+
 #include "Lexer.h"
 #include "symbole/Symbole.h"
 #include <boost/regex.hpp>
@@ -49,7 +51,7 @@ Lexer::Lexer(string cheminFichier)
         
     }else
     {
-		std::cout << "Erreur à l'ouverture de " << cheminFichier << std::endl;
+		std::cerr << "Erreur à l'ouverture de " << cheminFichier << std::endl;
 	}
 }
 
@@ -81,7 +83,7 @@ Symbole * Lexer::getNext(){
 		* 
 	*/
 		
-	std::cout  << "Lexer::getNext()"<<std::endl;
+	if(DEBUG) std::cout  << "Lexer::getNext()"<<std::endl;
 	
 	
 	carLus = "";
@@ -113,10 +115,10 @@ Symbole * Lexer::getNext(){
 		
 		if(!canBeMotCle && !canBeSymbole && !canBeId && !canBeNb)
 		{
-			// pas de correspondance, regarder les match précédent (et conclure lolilol)
+			// pas de correspondance, regarder les match précédent
 			if(prevCanBeMotCle)
 			{
-				std::cout<<"mot clé ("<<carLus<<")"<<std::endl;
+				if(DEBUG) std::cout<<"mot clé ("<<carLus<<")"<<std::endl;
 				if(carLus == "var")
 				{
 					symb = new Var();
@@ -137,7 +139,7 @@ Symbole * Lexer::getNext(){
 			{
 				if(prevCanBeSymbole)
 				{
-					std::cout<<"Symbole ("<<carLus<<")"<<std::endl;
+					if(DEBUG) std::cout<<"Symbole ("<<carLus<<")"<<std::endl;
 					if(carLus == "-")
 					{
 						symb = new Moins();
@@ -183,22 +185,22 @@ Symbole * Lexer::getNext(){
 				{
 						if(prevCanBeId)
 						{
-							std::cout<<"Identifiant ("<<carLus<<")"<<std::endl;
+							if(DEBUG) std::cout<<"Identifiant ("<<carLus<<")"<<std::endl;
 							symb = new Identificateur(carLus);
 						}else
 						{
 							if(prevCanBeNb)
 							{
-								std::cout<<"Nombre ("<<carLus<<")"<<std::endl;
+								if(DEBUG) std::cout<<"Nombre ("<<carLus<<")"<<std::endl;
 								symb = new Nombre(atoi(carLus.c_str()));
 							}else
 							{
 								if(!isspace(carLu))
 								{
-									std::cout<<"Erreur lexicale 42 !   ("<<(carLus+carLu)<<")"<<std::endl;
+									if(DEBUG) std::cout<<"Erreur lexicale 42 !   ("<<(carLus+carLu)<<")"<<std::endl;
 								}else
 								 {
-									 std::cout<<"SPAAAACE"<<std::endl;
+									if(DEBUG) std::cout<<"SPAAAACE"<<std::endl;
 								 }
 							}
 						}
