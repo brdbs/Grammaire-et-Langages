@@ -2,7 +2,7 @@
 #define MESSAGESERREURS_H
 
 #include <string>
-#include <sstream>
+#include <iostream>
 using namespace std;
 
 #define ATTENDU_VIRGPOINTVIRG 1
@@ -19,8 +19,8 @@ class MessagesErreurs
 		MessagesErreurs() {}
 		virtual ~MessagesErreurs() {}
 
-		static const string NoArgument (){
-			return "Erreur, veuillez specifier des arguments\n"
+		void NoArgument (){
+			cerr << "Erreur, veuillez specifier des arguments\n"
 				 "\tUtilisation :\n"
 				"\t\t../lut [-p] [-a] [-e] [-o] source.lt\n"
 				"\t\t\t[-p] affiche le code source reconnu\n"
@@ -29,27 +29,27 @@ class MessagesErreurs
 				"\t\t\t[-o] optimise les expressions et instructions\n";
 		}
 
-		static const string Erreur(string description){
-			std::stringstream ss;
-			ss << "Erreur : " << description;
-			return ss.str();
+		void Erreur(string description){
+			cerr << "Erreur : " << description;
 		}
-		
+
 		static const string FichierInexistant(string nomFichier){
 			std::stringstream ss;
 			ss << "Erreur a l'ouverture du fichier " << nomFichier;
 			return ss.str();
 		}
 
-		static const string DoubleDeclaration(string nomVariable){
-			std::stringstream ss;
-			ss << "la variable " << nomVariable << " est deja declaree";
-			return ss.str();
+		void DoubleDeclaration(string nomVariable){
+			cerr << "la variable " << nomVariable << " est deja declaree";
+		}
+
+		void ConstanteNonModifiable(string nomVariable){
+			cerr << "la variable " << nomVariable << " est deja declaree";
 		}
 
 		static const string ASValeurInconnue(string expression){
 			std::stringstream ss;
-			ss << "une valeur dans l'" << expression 
+			ss << "une valeur dans l'" << expression
 					<< " n'est pas connue.";
 			return ss.str();
 		}

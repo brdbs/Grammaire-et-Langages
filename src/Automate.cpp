@@ -7,6 +7,7 @@
 #include "symbole/LigneConst.h"
 #include "symbole/Affectation.h"
 #include "symbole/Ecriture.h"
+#include "MessagesErreurs.h"
 
 #include <vector>
 using namespace std;
@@ -110,7 +111,7 @@ void Automate::majTableSymboles(Symbole *s)
     if(typeS == LIGNEVAR)
     {
 		if(symbole != NULL){
-			//TODO : erreur : variable déjà déclarée.
+			MessagesErreurs::DoubleDeclaration(idTable);
 			return;
 		}
 		//Ajout de la déclaration dans la table.
@@ -120,7 +121,7 @@ void Automate::majTableSymboles(Symbole *s)
 	else if(typeS == LIGNECONST)
 	{
 		if(symbole != NULL){
-			//TODO : erreur : constante déjà définie.
+			MessagesErreurs::DoubleDeclaration(idTable);
 			return;
 		}
 		//Ajout de la définition de constante la table.
@@ -136,7 +137,8 @@ void Automate::majTableSymboles(Symbole *s)
          * 	(DONE) une des deux variables n'a pas été déclarée
          */
          if(symbole == NULL){
-			//TODO : erreur : la variable n'a pas été déclarée.
+			MessagesErreurs::ASVariableNonDeclaree(idTable);
+
 			SymboleTable *nSymb = creerDeclaration();
 			nSymb->m_declaree = false;
 			m_aSymboles[idTable] = nSymb;
