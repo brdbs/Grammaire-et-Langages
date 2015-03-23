@@ -54,8 +54,12 @@ class MessagesErreurs
 			m_FileMessages.push("une valeur dans l'expression " + expression + " n'est pas connue.");
 		}
 
-		static void ASVariableNonAffecteeNiUtilisee(string nomVariable){
-			m_FileMessages.push("variable non affectee : " + nomVariable + "\n" + "variable non utilisee : " + nomVariable);
+		static void ASVariableNonAffectee(string nomVariable){
+			m_FileMessages.push("variable non affectee : " + nomVariable);
+		}
+
+		static void ASVariableNonUtilisee(string nomVariable){
+			m_FileMessages.push("variable non utilisee : " + nomVariable);
 		}
 
 		static void ASVariableNonDeclaree(string nomVariable){

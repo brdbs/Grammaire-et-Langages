@@ -154,9 +154,9 @@ void Automate::majTableSymboles(Symbole *s)
 			 if(symbole == NULL){
 				MessagesErreurs::ASVariableNonDeclaree(idTable);
 
-				SymboleTable *nSymb = creerDeclaration();
-				nSymb->m_declaree = false;
-				m_aSymboles.insert(pair<string,SymboleTable*>(idTable,nSymb));
+				symbole = creerDeclaration();
+				symbole->m_declaree = false;
+				m_aSymboles.insert(pair<string,SymboleTable*>(idTable,symbole));
 				calcul = false;
 			 }
 			 else if(symbole->m_constante){
@@ -174,13 +174,13 @@ void Automate::majTableSymboles(Symbole *s)
 				calcul = false;
 			}
 
-			if(!calcul)	return;
-
+			if(!calcul){
 			 //Si on arrive ici, alors l'affectation peut avoir lieu.
 //			 symbole->m_valeur = aff->calculerExpression();
+			}
 
 
-			if(symbole != NULL){
+			if(symbole->m_declaree){
 				symbole->m_affectee = true;
 				symbole->m_connnue = true;
 			}
@@ -201,7 +201,6 @@ void Automate::majTableSymboles(Symbole *s)
 			 ecr->remplirIdsExpression(identificateurs);
 			 if(!verifierIdentificateurs(identificateurs, listeSymboles)){
 				MessagesErreurs::ASValeurInconnue(ecr->MessageErreur());
-				return;
 			}
 
 			 majFlagsPartieDroite(listeSymboles);
@@ -221,22 +220,21 @@ void Automate::majTableSymboles(Symbole *s)
 }
 
 bool Automate::verifierIdentificateurs(vector<string> identificateurs, vector<SymboleTable*> &listeSymboles){
-
+	bool aRetourner = true;
 	for(unsigned i=0; i<identificateurs.size() ; i++){
-		string nomVariable = identificateurs[i];
-		ArbreSymboles::iterator it = m_aSymboles.find(nomVariable);
+		ArbreSymboles::iterator it = m_aSymboles.find(identificateurs[i]);
 
 		if(it==m_aSymboles.end()){
-//			MessagesErreurs::ASVariableNonDeclaree(nomVariable);
-			return false;
+			aRetourner =  false;
 		}
-		if(!it->second->m_affectee){
-//			MessagesErreurs::ASVariableNonAffectee(nomVariable);
-			return false;
+		else{
+			if(!it->second->m_affectee){
+				aRetourner = false;
+			}
+			listeSymboles.push_back(it->second);
 		}
-		listeSymboles.push_back(it->second);
 	}
-	return true;
+	return aRetourner;
 }
 
 
@@ -251,6 +249,23 @@ void Automate::majFlagsPartieDroite(vector<SymboleTable*> &listeSymboles){
 }
 
 void Automate::verifierTable(){
+	ArbreSymboles::iterator it ;
+	SymboleTable *sTable;
+    for(it = m_aSymboles.begin() ; it!=m_aSymboles.end() ; it++){
+		sTable = it->second;
+
+		if(!sTable->m_declaree){
+			MessagesErreurs::ASVariableNonDeclaree(it->first);
+		}
+		else{
+			if(!sTable->m_affectee){
+				MessagesErreurs::ASVariableNonAffectee(it->first);
+			}
+			if(!sTable->m_use){
+				MessagesErreurs::ASVariableNonUtilisee(it->first);
+			}
+		}
+    }
 }
 
 void Automate::interpreter()
