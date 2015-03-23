@@ -1,4 +1,4 @@
-#define DEBUG false
+#define DEBUG true
 
 #include "Lexer.h"
 #include "symbole/Symbole.h"
@@ -30,34 +30,38 @@
 
 
 
-Lexer::Lexer(string cheminFichier)
+Lexer::Lexer()
 {
-	std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
-	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
-
-    if ( file )
-    {
-
-
-        ss << file.rdbuf();
-
-        file.close();
-        
-        motCle = boost::regex("var|const|lire|ecrire");
-		symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=");
-		nb = boost::regex("[0-9]+");
-		id = boost::regex("[a-zA-Z0-9]+");
-        
-        
-    }else
-    {
-		std::cerr << "Erreur à l'ouverture de " << cheminFichier << std::endl;
-	}
+	motCle = boost::regex("var|const|lire|ecrire");
+	symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=");
+	nb = boost::regex("[0-9]+");
+	id = boost::regex("[a-zA-Z0-9]+");
 }
 
 Lexer::~Lexer()
 {
 	//dtor
+}
+
+int Lexer::scannerFichier(string cheminFichier)
+{
+	if(DEBUG) std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
+	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
+
+    if ( file )
+    {
+        ss << file.rdbuf();
+        file.close();
+
+    }else
+    {
+		if(DEBUG) std::cerr << "Erreur à l'ouverture de " << cheminFichier << std::endl;
+		return -1;
+	}
+    
+    if(DEBUG) std::cout<< " lecture du fichier finie"<<std::endl;
+    return 0 ;
+	
 }
 
 Symbole * getCurrent()

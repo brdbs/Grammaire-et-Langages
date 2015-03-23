@@ -13,10 +13,11 @@ class Symbole;
 class Lexer
 {
 	public:
-		Lexer(string cheminFichier);
+		Lexer();
 		virtual ~Lexer();
-		Symbole *getNext();
+		Symbole *getNext();  // ???
 		Symbole *getCurrent();
+		int scannerFichier(string cheminFichier);
 	private:
 		stringstream ss;
 		string carLus;
