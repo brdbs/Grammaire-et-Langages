@@ -7,6 +7,8 @@
 
 using namespace std;
 
+queue<string> MessagesErreurs::m_FileMessages;
+
 int main(int argc, const char * argv[])
 {
 
@@ -18,6 +20,8 @@ int main(int argc, const char * argv[])
 
 	test.lecture();
 	test.afficherProgramme();
+
+	MessagesErreurs::EcrireMessages();
 
 	return 0;
 
