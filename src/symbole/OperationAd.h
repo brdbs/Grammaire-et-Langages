@@ -13,6 +13,9 @@ class OperationAd : public Expression
 		virtual ~OperationAd();
 		virtual operator std::string() const;
 		void initialiser(Symbole **liste, int taille);
+
+		virtual void remplirIdsExpression(vector<string> ids);
+
 	protected:
 	private:
 		Expression * m_expression;

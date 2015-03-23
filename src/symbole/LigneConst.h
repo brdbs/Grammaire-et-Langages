@@ -6,7 +6,7 @@
 #include "LigneDeclaration.h"
 #include "BlocDec.h"
 
-
+struct SymboleTable;
 
 class LigneConst : public LigneDeclaration
 {
@@ -15,6 +15,8 @@ class LigneConst : public LigneDeclaration
 		virtual ~LigneConst();
 		virtual operator std::string() const;
 		virtual void initialiser(Symbole **, int taille);
+		std::string const demanderId(){return m_id;}
+		SymboleTable *construireSymboleTable();
 	protected:
 	private:
 		std::string m_id;

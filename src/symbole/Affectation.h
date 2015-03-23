@@ -6,6 +6,9 @@
 #include "LigneInstruction.h"
 #include "Expression.h"
 
+#include <vector>
+using namespace std;
+
 
 class Affectation : public LigneInstruction
 {
@@ -15,6 +18,8 @@ class Affectation : public LigneInstruction
 		virtual operator std::string() const;
 		void determinerExpr(Expression *expr){m_expression = expr;}
 		void determinerId(std::string id){m_id = id;}
+		std::string const demanderId(){return m_id;}
+		void remplirIdsExpression(vector<string> ids){m_expression->remplirIdsExpression(ids);}
 	protected:
 	private:
 		std::string m_id;

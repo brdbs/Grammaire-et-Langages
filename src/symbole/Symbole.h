@@ -44,7 +44,9 @@ class Symbole
 		void print();
 		operator int() const { return m_idSymbole; }
 		virtual bool estTerminal(){ return false; }
+		virtual bool modificateurTableSymboles(){return false;}
 		virtual operator std::string() const = 0;
+		virtual std::string const demanderId(){return "null";}
 		virtual void castUp(){}
 		virtual void initialiser(Symbole **, int taille){}
 	protected:

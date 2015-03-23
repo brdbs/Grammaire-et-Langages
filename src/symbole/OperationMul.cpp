@@ -53,3 +53,8 @@ void OperationMul::initialiser(Symbole **liste, int taille)
 		delete liste[1];
 	}
 }
+
+void OperationMul::remplirIdsExpression(vector<string> ids){
+	m_terme->remplirIdsExpression(ids);
+	m_facteur->remplirIdsExpression(ids);
+}

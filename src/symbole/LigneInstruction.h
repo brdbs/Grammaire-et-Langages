@@ -3,7 +3,6 @@
 
 #include "Symbole.h"
 
-
 class LigneInstruction : public Symbole
 {
 	public:
