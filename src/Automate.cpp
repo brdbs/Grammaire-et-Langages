@@ -2,6 +2,7 @@
 #include "Automate.h"
 #include "etat/etat.h"
 #include "etat/e00.h"
+#include "etat/e01.h"
 #include "symbole/LigneDeclaration.h"
 #include "symbole/LigneConst.h"
 #include "symbole/Affectation.h"
@@ -92,6 +93,8 @@ void Automate::afficherProgramme()
 }
 
 SymboleTable *Automate::chercherSymbole(string key){
+	if(key=="null") return NULL;	//Si key vient de Symbole::demanderId
+
 	ArbreSymboles::iterator it = m_aSymboles.find(key);
 	if(it != m_aSymboles.end())	return it->second;
 
@@ -102,9 +105,6 @@ void Automate::majTableSymboles(Symbole *s)
 {
 	string idTable = s->demanderId();
 	SymboleTable *symbole = chercherSymbole(idTable);
-
-
-	//if(idTable != "null"){
 
 	const int typeS = (int)*s;
     if(typeS == LIGNEVAR)
@@ -137,7 +137,9 @@ void Automate::majTableSymboles(Symbole *s)
          */
          if(symbole == NULL){
 			//TODO : erreur : la variable n'a pas été déclarée.
-			m_aSymboles[idTable] = creerDeclaration();
+			SymboleTable *nSymb = creerDeclaration();
+			nSymb->m_declaree = false;
+			m_aSymboles[idTable] = nSymb;
 			return;
          }
          if(symbole->m_constante){
@@ -182,7 +184,7 @@ void Automate::majTableSymboles(Symbole *s)
 }
 
 bool Automate::verifierIdentificateurs(vector<string> identificateurs){
-	for(int i=0; i<identificateurs.size() ; i++){
+	for(unsigned i=0; i<identificateurs.size() ; i++){
 		ArbreSymboles::iterator it = m_aSymboles.find(identificateurs[i]);
 
 		if(it==m_aSymboles.end()){
