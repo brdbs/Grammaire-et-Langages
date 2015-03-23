@@ -2,7 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
-#include "../symbole/LigneInstruction.h"
+#include "../symbole/BlocInst.h"
 #include "e03.h"
 #include "e31.h"
 #include "e37.h"
@@ -24,13 +24,13 @@ void E02::transition(Automate* automate)
         automate->decalage(s, new E37());
         break;
 	default:
-		automate->reduction(new LigneInstruction(), 0);
+		automate->reduction(new BlocInst(), 0);
     }
 }
 
 void E02::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	 case LIGNEINSTRUCTION:
+	 case BLOCINSTRUCTION:
         automate->decalage(s, new E03());
         break;
 	}

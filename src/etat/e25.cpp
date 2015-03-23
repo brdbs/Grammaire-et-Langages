@@ -1,6 +1,7 @@
 #include "e25.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e26.h"
 #include "e10.h"
@@ -16,7 +17,7 @@ void E25::transition(Automate* automate)
 {
 	Symbole *s = automate->getNextLexer();
 	switch(*s){
-	case PAROUVRANTE:
+	case PARFERMANTE:
         automate->decalage(s, new E26());
         break;
 	case PLUS:
@@ -25,13 +26,17 @@ void E25::transition(Automate* automate)
 	case MOINS:
 		automate->decalage(s, new E11());
 		break;
+	default:
+		MessagesErreurs::Erreur("Opérateur '+'/'-' ou un symbole "
+								"')' est attendu");
+        break;
 	}
 }
 
 void E25::transition(Automate* automate, Symbole *s)
 {
 	switch(*s){
-	case OPERATIONAD:
+	case OPERATEURAD:
         automate->decalage(s, new E12());
         break;
 	}

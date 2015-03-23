@@ -4,7 +4,7 @@
 
 #include "../Automate.h"
 #include "../symbole/Symbole.h"
-#include "../symbole/DConst.h"
+#include "../symbole/BlocDec.h"
 #include "../symbole/LigneDeclaration.h"
 
 
@@ -15,12 +15,12 @@ E00::E00()
 
 void E00::transition(Automate* automate)
 {
-
+	automate->reduction(new BlocDec(), 0);
 }
 
 void E00::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	case LIGNEDECLARATION:
+	case BLOCDECLARATION:
 		automate->decalage(s, new E02());
 		break;
 	case PROGRAMME:

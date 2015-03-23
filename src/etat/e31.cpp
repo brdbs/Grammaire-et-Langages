@@ -1,6 +1,7 @@
 #include "e31.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e32.h"
 #include "e33.h"
@@ -17,6 +18,9 @@ void E31::transition(Automate* automate)
 	case IDENTIFICATEUR:
         automate->decalage(s, new E32());
         break;
+	default:
+		MessagesErreurs::IdentificateurNonDeclare();
+		break;
 	}
 }
 

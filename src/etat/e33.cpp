@@ -1,6 +1,7 @@
 #include "e33.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e34.h"
 #include "e35.h"
@@ -19,6 +20,9 @@ void E33::transition(Automate* automate)
         break;
 	case VIRGULE:
         automate->decalage(s, new E35());
+        break;
+    default:
+		MessagesErreurs::ErreurLexicale(0, 0, ATTENDU_VIRGPOINTVIRG);
         break;
 	}
 }

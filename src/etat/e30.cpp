@@ -1,8 +1,8 @@
 #include "e30.h"
 
 #include "../Automate.h"
-#include "../symbole/LigneInstruction.h"
-
+#include "../symbole/BlocInst.h"
+#include "../symbole/Affectation.h"
 E30::E30()
 {
 
@@ -10,5 +10,5 @@ E30::E30()
 
 void E30::transition(Automate* automate)
 {
-	automate->reduction(new LigneInstruction(), 5);
+	automate->reduction(new BlocInst(new Affectation()), 5);
 }

@@ -7,7 +7,6 @@
 #include <fstream>
 #include <sstream>
 
-
 #include "symbole/Var.h"
 #include "symbole/Identificateur.h"
 #include "symbole/Virgule.h"
@@ -29,7 +28,6 @@
 
 
 
-
 Lexer::Lexer(string cheminFichier)
 {
 	std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
@@ -37,6 +35,7 @@ Lexer::Lexer(string cheminFichier)
 
     if ( file )
     {
+
 
         ss << file.rdbuf();
 
@@ -63,6 +62,7 @@ Symbole * getCurrent()
 {
 	// TO DO
 	return NULL;
+
 }
 
 

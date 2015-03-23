@@ -1,6 +1,7 @@
 #include "e24.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e20.h"
 #include "e21.h"
@@ -24,6 +25,10 @@ void E24::transition(Automate* automate)
 	case NOMBRE:
 		automate->decalage(s, new E22());
 		break;
+	default:
+		MessagesErreurs::Erreur("un identificateur, un numérique est "
+								"attendu");
+        break;
 	}
 }
 

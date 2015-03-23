@@ -1,6 +1,7 @@
 #include "e38.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e39.h"
 
@@ -15,6 +16,9 @@ void E38::transition(Automate* automate)
 	switch(*s){
 	case EGAL:
         automate->decalage(s, new E39());
+        break;
+	default:
+		MessagesErreurs::ErreurLexicale(0, 0, ATTENDU_EGAL);
         break;
 	}
 }

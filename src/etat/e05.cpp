@@ -2,6 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "e06.h"
 
 E05::E05()
@@ -16,6 +17,9 @@ void E05::transition(Automate* automate)
 	switch(*s){
     case POINTVIRGULE:
         automate->decalage(s, new E06());
+        break;
+	default:
+        ErreurLexicale(0, 0, ATTENDU_VIRGPOINTVIRG);
         break;
 	}
 }

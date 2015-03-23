@@ -1,6 +1,7 @@
 #include "e07.h"
 
 #include "../symbole/Symbole.h"
+#include "../MessagesErreurs.h"
 #include "../Automate.h"
 #include "e21.h"
 #include "e22.h"
@@ -26,6 +27,10 @@ void E07::transition(Automate* automate)
         break;
 	case PAROUVRANTE:
         automate->decalage(s, new E24());
+        break;
+	default:
+		MessagesErreurs::Erreur("un identificateur, un numérique ou un symbole "
+						"'(' est attendu");
         break;
 	}
 }

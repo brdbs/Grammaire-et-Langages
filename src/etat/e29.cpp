@@ -1,6 +1,7 @@
 #include "e29.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e30.h"
 #include "e10.h"
@@ -25,13 +26,16 @@ void E29::transition(Automate* automate)
 	case MOINS:
         automate->decalage(s, new E11());
         break;
+	default:
+		MessagesErreurs::ErreurLexicale(0, 0, ATTENDU_VIRGPOINTVIRG);
+        break;
 	}
 }
 
 void E29::transition(Automate* automate, Symbole *s)
 {
 	switch(*s){
-	case OPERATIONAD:
+	case OPERATEURAD:
         automate->decalage(s, new E12());
         break;
 	}

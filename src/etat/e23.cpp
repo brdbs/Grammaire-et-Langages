@@ -23,14 +23,15 @@ void E23::transition(Automate* automate)
 		automate->decalage(s, new E15());
 		break;
 	default:
-		automate->reduction(new OperationMul(),1);
+		//E->T
+		automate->reduction();
 	}
 }
 
 void E23::transition(Automate* automate, Symbole *s)
 {
 	switch(*s){
-	case OPERATIONMUL:
+	case OPERATEURMUL:
         automate->decalage(s, new E16());
         break;
 	}

@@ -12,5 +12,5 @@ E14::E14()
 
 void E14::transition(Automate* automate)
 {
-	automate->reduction(new OperationMul(), 1);
+	automate->reduction();
 }

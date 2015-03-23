@@ -4,7 +4,7 @@
 #include "../Automate.h"
 #include "e14.h"
 #include "e15.h"
-#include "../symbole/Expression.h"
+#include "../symbole/OperationAd.h"
 #include "e16.h"
 
 E13::E13()
@@ -23,14 +23,15 @@ void E13::transition(Automate* automate)
 		automate->decalage(s, new E15());
 		break;
 	default:
-		automate->reduction(new Expression(), 3);
+		//operationAd est considéré comme une expression
+		automate->reduction(new OperationAd(), 3);
 	}
 }
 
 
 void E13::transition(Automate* automate, Symbole *s){
 	switch(*s){
-	case OPERATIONMUL:
+	case OPERATEURMUL:
 		automate->decalage(s, new E16());
 		break;
 	}

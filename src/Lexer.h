@@ -5,6 +5,7 @@
 #include <sstream>
 #include <boost/regex.hpp>
 
+
 using namespace std;
 
 class Symbole;
@@ -16,8 +17,6 @@ class Lexer
 		virtual ~Lexer();
 		Symbole *getNext();
 		Symbole *getCurrent();
-	protected:
-		string m_programme;  // seems useless 
 	private:
 		stringstream ss;
 		string carLus;

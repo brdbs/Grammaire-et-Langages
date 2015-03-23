@@ -1,6 +1,7 @@
 #include "e27.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e28.h"
 
@@ -15,6 +16,9 @@ void E27::transition(Automate* automate)
 	switch(*s){
 	case DEUXPOINTSEGAL:
         automate->decalage(s, new E28());
+        break;
+	default:
+		MessagesErreurs::ErreurLexicale(0, 0, ATTENDU_OPERATEUR);
         break;
 	}
 }
