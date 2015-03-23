@@ -145,7 +145,7 @@ void Automate::majTableSymboles(Symbole *s)
 			return;
          }
          if(symbole->m_constante){
-			//TODO : erreur : une constante ne peut pas être modifiée
+			MessagesErreurs::ConstanteNonModifiable(idTable);
 			return;
          }
 
@@ -158,6 +158,11 @@ void Automate::majTableSymboles(Symbole *s)
 
          //Si on arrive ici, alors l'affectation peut avoir lieu.
          //TODO : comment on calcule la valeur d'une expression ?
+
+
+		symbole->m_affectee = true;
+		symbole->m_connnue = true;
+		majFlagsPartieDroite(identificateurs);
 
 
 	}
@@ -173,28 +178,31 @@ void Automate::majTableSymboles(Symbole *s)
 
          if(!verifierIdentificateurs(identificateurs)) return;
 
-         //Si on arrive ici, alors l'écriture peut avoir lieu.
-         //TODO : comment on calcule la valeur d'une expression ?
+         majFlagsPartieDroite(identificateurs);
 	}
 	else if(typeS == LECTURE)
 	{
 		if(symbole == NULL){
-			//TODO : erreur : la variable n'a pas été déclarée.
+			MessagesErreurs::ASVariableNonDeclaree(idTable);
 			return;
 		}
+
+		symbole->m_affectee = true;
+		symbole->m_connnue = false;
 	}
 }
 
 bool Automate::verifierIdentificateurs(vector<string> identificateurs){
 	for(unsigned i=0; i<identificateurs.size() ; i++){
-		ArbreSymboles::iterator it = m_aSymboles.find(identificateurs[i]);
+		string nomVariable = identificateurs[i];
+		ArbreSymboles::iterator it = m_aSymboles.find(nomVariable);
 
 		if(it==m_aSymboles.end()){
-			//TODO : erreur : variable n'a pas été déclarée.
+			MessagesErreurs::ASVariableNonDeclaree(nomVariable);
 			return false;
 		}
 		if(!it->second->m_affectee){
-			//TODO : erreur : variable utilisée sans être affectée
+			MessagesErreurs::ASVariableNonAffectee(nomVariable);
 			return false;
 		}
 	}
@@ -204,4 +212,13 @@ bool Automate::verifierIdentificateurs(vector<string> identificateurs){
 
 SymboleTable *Automate::creerDeclaration(){
 	return new SymboleTable(0,true,false,false,false,false);
+}
+
+void Automate::majFlagsPartieDroite(vector<string> identificateurs){
+	for(unsigned i=0; i<identificateurs.size() ; i++){
+		string nomVariable = identificateurs[i];
+		ArbreSymboles::iterator it = m_aSymboles.find(nomVariable);
+
+		it->second->m_use = true;
+	}
 }

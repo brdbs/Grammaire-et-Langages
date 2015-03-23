@@ -13,15 +13,6 @@ using namespace std;
 class Symbole;
 class Etat;
 
-//struct SymboleTable {
-//    int m_valeur;
-//    bool m_declaree;
-//    bool m_use;
-//    bool m_useBAff;
-//    bool m_constante;
-//    SymboleTable(int valeur, bool declaree, bool use, bool useBAff, bool constante) : m_valeur(valeur), m_declaree(declaree), m_use(use), m_useBAff(useBAff), m_constante(constante){}
-//};
-
 struct SymboleTable {
     int m_valeur;
     bool m_declaree;
@@ -62,6 +53,7 @@ class Automate
 		 **/
 		bool verifierIdentificateurs(vector<string> identificateurs);
 		SymboleTable *creerDeclaration();
+		void majFlagsPartieDroite(vector<string> identificateurs);
 };
 
 #endif // AUTOMATE_H
