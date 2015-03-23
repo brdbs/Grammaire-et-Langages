@@ -2,6 +2,7 @@
 #define MESSAGESERREURS_H
 
 #include <string>
+#include <sstream>
 using namespace std;
 
 #define ATTENDU_VIRGPOINTVIRG 1
@@ -28,41 +29,65 @@ class MessagesErreurs
 				"\t\t\t[-o] optimise les expressions et instructions\n";
 		}
 
+		static const Erreur(string description){
+			std::stringstream ss;
+			ss << "Erreur : " << description;
+			return ss.str();
+		}
+		
 		static const string FichierInexistant(string nomFichier){
-			return "Erreur a l'ouverture du fichier " + nomFichier;
+			std::stringstream ss;
+			ss << "Erreur a l'ouverture du fichier " << nomFichier;
+			return ss.str();
 		}
 
 		static const string DoubleDeclaration(string nomVariable){
-			return "la variable " + nomVariable + " est deja declaree";
+			std::stringstream ss;
+			ss << "la variable " << nomVariable << " est deja declaree";
+			return ss.str();
 		}
 
 		static const string ASValeurInconnue(string expression){
-			return "une valeur dans l'" + expression + " n'est pas connue.";
+			std::stringstream ss;
+			ss << "une valeur dans l'" << expression 
+					<< " n'est pas connue.";
+			return ss.str();
 		}
 
 		static const string ASVariableNonAffectee(string nomVariable){
-			return "variable non affectee : " + nomVariable
-					+ "variable non utilisee : " + nomVariable ;
+			std::stringstream ss;
+			ss <<"variable non affectee : " << nomVariable
+					<< "variable non utilisee : " << nomVariable;
+			return ss.str();
 		}
 
 		static const string ASVariableNonDeclaree(string nomVariable){
-			return "la variable " + nomVariable + " n'a pas ete declaree.";
+			std::stringstream ss;
+			ss << "la variable " << nomVariable << " n'a pas ete declaree.";
+			return ss.str();
 		}
 
 		static const string ErreurLexicale(int ligne, int colonne){
-			return "Erreur lexicale (" + to_string(ligne) + ":" + to_string(colonne) + ") caractere _";
+			std::stringstream ss;
+			ss <<"Erreur lexicale (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") caractere _";
+			return ss.str();
 		}
 
 		static const string ErreurLexicale(int ligne, int colonne, int nature){
+			std::stringstream ss;
 			switch(nature){
 			case ATTENDU_VIRGPOINTVIRG:
-				return "Erreur syntaxique (" + to_string(ligne) + ":" + to_string(colonne) + ") symbole , ou ; attendu";
+				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole , ou ; attendu";
+				return ss.str();
 			case ATTENDU_EGAL:
-				return "Erreur syntaxique (" + to_string(ligne) + ":" + to_string(colonne) + ") symbole = attendu";
+				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole = attendu";
+				return ss.str();
 			case ATTENDU_VALEUR:
-				return "Erreur syntaxique (" + to_string(ligne) + ":" + to_string(colonne) + ") valeur attendue";
+				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") valeur attendue";
+				return ss.str();
 			case ATTENDU_OPERATEUR:
-				return "Erreur syntaxique (" + to_string(ligne) + ":" + to_string(colonne) + ") operateur := attendu";
+				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") operateur := attendu";
+				return ss.str();
 			}
 		}
 
