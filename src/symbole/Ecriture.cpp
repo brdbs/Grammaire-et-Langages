@@ -1,5 +1,7 @@
+#include <iostream>
 #include <sstream>
 #include "Ecriture.h"
+
 
 using namespace std;
 Ecriture::Ecriture()
@@ -32,5 +34,5 @@ Ecriture::operator std::string() const
 
 void Ecriture::interpreter(Automate *automate)
 {
-
+	cout << m_expression->calculer(automate);
 }
