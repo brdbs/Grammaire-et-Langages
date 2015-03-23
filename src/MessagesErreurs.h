@@ -7,8 +7,8 @@ using namespace std;
 
 #define ATTENDU_VIRGPOINTVIRG 1
 #define ATTENDU_EGAL 2
-#define ATTENDU_VALEUR 3
-#define ATTENDU_OPERATEUR 4
+#define ATTENDU_VALEUR 4
+#define ATTENDU_OPERATEUR 8
 
 /*
  * Destiné à contenir l'ensemble des messages d'erreurs que peut renvoyer le programme

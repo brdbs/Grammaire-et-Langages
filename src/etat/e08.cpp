@@ -1,6 +1,7 @@
 #include "e08.h"
 
 #include "../symbole/Symbole.h"
+#include "../MessagesErreurs.h"
 #include "../Automate.h"
 #include "e09.h"
 #include "e10.h"
@@ -24,6 +25,9 @@ void E08::transition(Automate* automate)
 		break;
 	case MOINS:
 		automate->decalage(s, new E11());
+		break;
+	default:
+		MessageErreurs::Erreur("Opérateur '+'/'-' ou ';' attendu");
 		break;
 	}
 }

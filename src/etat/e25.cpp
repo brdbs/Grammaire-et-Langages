@@ -1,6 +1,7 @@
 #include "e25.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e26.h"
 #include "e10.h"
@@ -25,6 +26,10 @@ void E25::transition(Automate* automate)
 	case MOINS:
 		automate->decalage(s, new E11());
 		break;
+	default:
+		MessagesErreurs::Erreur("Opérateur '+'/'-' ou un symbole "
+								"')' est attendu");
+        break;
 	}
 }
 

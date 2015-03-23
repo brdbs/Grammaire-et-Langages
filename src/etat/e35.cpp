@@ -1,6 +1,7 @@
 #include "e35.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e36.h"
 
@@ -15,6 +16,9 @@ void E35::transition(Automate* automate)
 	switch(*s){
 	case IDENTIFICATEUR:
         automate->decalage(s, new E36());
+        break;
+	default:
+		MessagesErreurs::IdentificateurNonDeclare();
         break;
 	}
 }

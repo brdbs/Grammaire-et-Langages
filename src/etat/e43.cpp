@@ -1,6 +1,7 @@
 #include "e43.h"
 
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "../symbole/Symbole.h"
 #include "e44.h"
 
@@ -15,6 +16,9 @@ void E43::transition(Automate* automate)
 	switch(*s){
 	case IDENTIFICATEUR:
         automate->decalage(s, new E44());
+        break;
+	default:
+		MessagesErreurs::IdentificateurNonDeclare();
         break;
 	}
 }

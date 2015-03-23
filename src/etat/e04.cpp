@@ -22,5 +22,5 @@ void E04::transition(Automate* automate)
 		MessagesErreurs::IdentificateurNonDeclare();
         break;
 	}
-	//TODO : sinon erreur.
+
 }
