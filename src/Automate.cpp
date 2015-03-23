@@ -82,7 +82,7 @@ void Automate::reduction()
 
 void Automate::erreur()
 {
-	m_pileEtats.push(new Etat01());
+	m_pileEtats.push(new E01());
 }
 
 void Automate::afficherProgramme()
