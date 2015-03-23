@@ -29,7 +29,7 @@ class MessagesErreurs
 				"\t\t\t[-o] optimise les expressions et instructions\n";
 		}
 
-		static const Erreur(string description){
+		static const string Erreur(string description){
 			std::stringstream ss;
 			ss << "Erreur : " << description;
 			return ss.str();
