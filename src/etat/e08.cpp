@@ -27,7 +27,7 @@ void E08::transition(Automate* automate)
 		automate->decalage(s, new E11());
 		break;
 	default:
-		MessageErreurs::Erreur("Opérateur '+'/'-' ou ';' attendu");
+		MessagesErreurs::Erreur("Opérateur '+'/'-' ou ';' attendu");
 		break;
 	}
 }

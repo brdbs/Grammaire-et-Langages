@@ -59,8 +59,16 @@ void OperationMul::remplirIdsExpression(vector<string> ids){
 	m_facteur->remplirIdsExpression(ids);
 }
 
-int  OperationMul::calculer(){
-	return 0;
+int  OperationMul::calculer(Automate *automate){
+	if (m_op == "*")
+	{
+		return m_terme->calculer(automate) * m_facteur->calculer(automate);
+	}
+	else
+	{
+		return m_terme->calculer(automate) / m_facteur->calculer(automate);
+	}
+	
 }
 
 int* OperationMul::evaluer(Automate *automate) {

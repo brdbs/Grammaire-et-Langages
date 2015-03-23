@@ -10,7 +10,7 @@ class Facteur : public Terme
 		Facteur();
 		virtual ~Facteur();
 		void castUp();
-		virtual int calculer() = 0;
+		virtual int calculer(Automate *automate) = 0;
 		virtual int* evaluer(Automate *automate) = 0;
 	protected:
 	private:

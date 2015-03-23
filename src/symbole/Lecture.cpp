@@ -19,7 +19,7 @@ Lecture::operator std::string() const
 	return ss.str();
 }
 
-void Lecture::interpreter()
+void Lecture::interpreter(Automate *automate)
 {
 
 }

@@ -50,7 +50,7 @@ void Programme::initialiser(Symbole **liste, int taille)
 	}
 }
 
-void Programme::interpreter()
+void Programme::interpreter(Automate *automate)
 {
-	m_blocInst->interpreter();
+	m_blocInst->interpreter(automate);
 }

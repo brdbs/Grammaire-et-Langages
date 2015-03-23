@@ -16,7 +16,7 @@ class OperationMul : public Terme
 		void initialiser(Symbole **, int taille);
 
 		virtual void remplirIdsExpression(vector<string> ids);
-		virtual int calculer();
+		virtual int calculer(Automate *automate);
 		virtual int* evaluer(Automate *automate);
 	protected:
 	private:

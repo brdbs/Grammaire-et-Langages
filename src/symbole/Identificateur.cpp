@@ -11,8 +11,9 @@ Identificateur::~Identificateur()
 	//dtor
 }
 
-int  Identificateur::calculer(){
-	return 0;
+int  Identificateur::calculer(Automate *automate){
+
+	return (automate->chercherSymbole(m_id))->m_valeur;
 }
 
 int* Identificateur::evaluer(Automate *automate) {

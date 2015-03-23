@@ -30,7 +30,7 @@ Ecriture::operator std::string() const
 
 }
 
-void Ecriture::interpreter()
+void Ecriture::interpreter(Automate *automate)
 {
 
 }

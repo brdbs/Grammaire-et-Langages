@@ -16,7 +16,7 @@ class Ecriture : public LigneInstruction
 		virtual operator std::string() const;
 		void determinerExpr(Expression *exp){m_expression=exp;}
 		void remplirIdsExpression(vector<string> ids){m_expression->remplirIdsExpression(ids);}
-		virtual void interpreter();
+		virtual void interpreter(Automate *automate);
 	protected:
 	private:
 		Expression* m_expression;
