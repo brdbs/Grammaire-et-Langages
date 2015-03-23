@@ -27,3 +27,8 @@ Affectation::operator std::string() const
 	ss << m_id << " := " << tmp << ";";
 	return ss.str();
 }
+
+void Affectation::interpreter()
+{
+
+}
