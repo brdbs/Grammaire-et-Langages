@@ -13,7 +13,7 @@ int main(int argc, const char * argv[])
 
 
 
-	//test 
+	//test
 	Automate test;
 
 	test.lecture();
@@ -25,9 +25,9 @@ int main(int argc, const char * argv[])
 	//-----------------------------------------------------------------------------
 	string cheminFichier;
 	Lexer lexer;
-	
+
 	if (argc == 1) {
-		fprintf(stderr, MessagesErreurs::NoArgument().c_str());
+		MessagesErreurs::NoArgument();
 
 		return EXIT_FAILURE;
 	}

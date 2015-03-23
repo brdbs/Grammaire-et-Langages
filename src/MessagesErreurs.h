@@ -19,7 +19,7 @@ class MessagesErreurs
 		MessagesErreurs() {}
 		virtual ~MessagesErreurs() {}
 
-		void NoArgument (){
+		static void NoArgument (){
 			cerr << "Erreur, veuillez specifier des arguments\n"
 				 "\tUtilisation :\n"
 				"\t\t../lut [-p] [-a] [-e] [-o] source.lt\n"
@@ -29,71 +29,58 @@ class MessagesErreurs
 				"\t\t\t[-o] optimise les expressions et instructions\n";
 		}
 
-		void Erreur(string description){
+		static void Erreur(string description){
 			cerr << "Erreur : " << description;
 		}
 
-		static const string FichierInexistant(string nomFichier){
-			std::stringstream ss;
-			ss << "Erreur a l'ouverture du fichier " << nomFichier;
-			return ss.str();
-		}
-		
-		static const string IdentificateurNonDeclare(){
-			std::stringstream ss;
-			ss << "Identificateur requis";
-			return ss.str();
+		static void FichierInexistant(string nomFichier){
+			cerr << "Erreur a l'ouverture du fichier " << nomFichier;
 		}
 
-		void DoubleDeclaration(string nomVariable){
+		static void IdentificateurNonDeclare(){
+			cerr << "Identificateur requis";
+		}
+
+		static void DoubleDeclaration(string nomVariable){
 			cerr << "la variable " << nomVariable << " est deja declaree";
 		}
 
-		void ConstanteNonModifiable(string nomVariable){
+		static void ConstanteNonModifiable(string nomVariable){
 			cerr << "la variable " << nomVariable << " est deja declaree";
 		}
 
-		static const string ASValeurInconnue(string expression){
-			std::stringstream ss;
-			ss << "une valeur dans l'" << expression
+		static void ASValeurInconnue(string expression){
+			cerr << "une valeur dans l'" << expression
 					<< " n'est pas connue.";
-			return ss.str();
 		}
 
-		static const string ASVariableNonAffectee(string nomVariable){
-			std::stringstream ss;
-			ss <<"variable non affectee : " << nomVariable
+		static void ASVariableNonAffectee(string nomVariable){
+			cerr <<"variable non affectee : " << nomVariable
 					<< "variable non utilisee : " << nomVariable;
-			return ss.str();
 		}
 
-		static const string ASVariableNonDeclaree(string nomVariable){
-			std::stringstream ss;
-			ss << "la variable " << nomVariable << " n'a pas ete declaree.";
-			return ss.str();
+		static void ASVariableNonDeclaree(string nomVariable){
+			cerr << "la variable " << nomVariable << " n'a pas ete declaree.";
 		}
 
-		static const string ErreurLexicale(int ligne, int colonne){
-			std::stringstream ss;
-			ss <<"Erreur lexicale (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") caractere _";
-			return ss.str();
+		static void ErreurLexicale(int ligne, int colonne){
+			cerr <<"Erreur lexicale (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") caractere _";
 		}
 
-		static const string ErreurLexicale(int ligne, int colonne, int nature){
-			std::stringstream ss;
+		static void ErreurLexicale(int ligne, int colonne, int nature){
 			switch(nature){
 			case ATTENDU_VIRGPOINTVIRG:
-				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole , ou ; attendu";
-				return ss.str();
+				cerr << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole , ou ; attendu";
+				return;
 			case ATTENDU_EGAL:
-				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole = attendu";
-				return ss.str();
+				cerr << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") symbole = attendu";
+				return;
 			case ATTENDU_VALEUR:
-				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") valeur attendue";
-				return ss.str();
+				cerr << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") valeur attendue";
+				return;
 			case ATTENDU_OPERATEUR:
-				ss << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") operateur := attendu";
-				return ss.str();
+				cerr << "Erreur syntaxique (" << std::to_string(ligne) << ":" << std::to_string(colonne) << ") operateur := attendu";
+				return;
 			}
 		}
 
