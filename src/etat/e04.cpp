@@ -2,6 +2,7 @@
 
 #include "../symbole/Symbole.h"
 #include "../Automate.h"
+#include "../MessagesErreurs.h"
 #include "e05.h"
 
 
@@ -16,6 +17,9 @@ void E04::transition(Automate* automate)
 	switch(*s){
     case IDENTIFICATEUR:
         automate->decalage(s, new E05());
+        break;
+	default:
+		MessagesErreurs::IdentificateurNonDeclare();
         break;
 	}
 	//TODO : sinon erreur.

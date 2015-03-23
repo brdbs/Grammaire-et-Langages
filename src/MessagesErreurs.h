@@ -38,6 +38,12 @@ class MessagesErreurs
 			ss << "Erreur a l'ouverture du fichier " << nomFichier;
 			return ss.str();
 		}
+		
+		static const string IdentificateurNonDeclare(){
+			std::stringstream ss;
+			ss << "Identificateur requis";
+			return ss.str();
+		}
 
 		void DoubleDeclaration(string nomVariable){
 			cerr << "la variable " << nomVariable << " est deja declaree";
