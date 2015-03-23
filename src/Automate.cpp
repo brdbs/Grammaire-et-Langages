@@ -2,6 +2,7 @@
 #include "Automate.h"
 #include "etat/etat.h"
 #include "etat/e00.h"
+#include "etat/e01.h"
 #include "symbole/LigneDeclaration.h"
 #include "symbole/LigneConst.h"
 #include "symbole/Affectation.h"
