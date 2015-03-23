@@ -80,6 +80,11 @@ void Automate::reduction()
 	m_pileEtats.top()->transition(this, s);
 }
 
+void Automate::erreur()
+{
+	m_pileEtats.push(new E01());
+}
+
 void Automate::afficherProgramme()
 {
 	string tmp = *m_pileSymbole.top();
