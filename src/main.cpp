@@ -4,7 +4,6 @@
 #include "Lexer.h"
 #include "Automate.h"
 #include "MessagesErreurs.h"
-	
 
 using namespace std;
 
@@ -14,8 +13,18 @@ int main(int argc, const char * argv[])
 
 
 
+	//test
+	Automate test;
+
+	test.lecture();
+	test.afficherProgramme();
+
+	return 0;
+
+
 	//-----------------------------------------------------------------------------
 	string cheminFichier;
+	Lexer lexer;
 
 	if (argc == 1) {
 		MessagesErreurs::NoArgument();
@@ -26,25 +35,43 @@ int main(int argc, const char * argv[])
 	if (argc >= 2) {
 		cheminFichier = argv[argc-1];
 
-	}
+		if (lexer.scannerFichier(cheminFichier) == 0) {
+			for (int i = 1; i < argc-1; i++) {
+				string option = argv[i];
+				if (option.length() == 2 && option[0] == '-') {
+					switch (option[1]) {
+						case 'p':
+							// afficher le code source
+							break;
 
-	//Automate *automate = new Automate(cheminFichier);
-	Lexer lexer(cheminFichier);
-	string in;
-	while(cin.good())
-	{
-		cin >> in;
-		if(in == "stop")
-		{
-			break;
-		}else
-		{
-			std::cout << "lexer.getNext() : " << cheminFichier << std::endl;
-			lexer.getNext();
+						case 'a':
+							// analyser le programme de maniere statique
+							break;
+
+						case 'e':
+							// executer le programme
+							break;
+
+						case 'o':
+							//optimiser les expressions et instructions
+							break;
+
+						default:
+							break;
+					}
+				}
+			}
+
+			return EXIT_SUCCESS;
+		} else {
+			// afficher sur sortie d'erruer
+			return EXIT_FAILURE;
 		}
-		
 	}
 
+	Automate *automate = new Automate(cheminFichier);
+	string pause;
+	cin >> pause;
 	return 0;
 }
 

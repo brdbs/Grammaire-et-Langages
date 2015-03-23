@@ -12,15 +12,14 @@
 #include <vector>
 using namespace std;
 
-
-Automate::Automate() : m_lexer("")
+Automate::Automate()
 {
 	m_symbole = NULL;
 }
 
-Automate::Automate(string cheminFichier) : m_lexer(cheminFichier)
+Automate::Automate(string cheminFichier)
 {
-	
+	m_lexer.scannerFichier(cheminFichier);
 }
 
 Automate::~Automate()
