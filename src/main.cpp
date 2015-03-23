@@ -3,11 +3,8 @@
 #include <string>
 #include "Lexer.h"
 #include "Automate.h"
-<<<<<<< HEAD
-#include "Lexer.h"
-=======
 #include "MessagesErreurs.h"
->>>>>>> master
+	
 
 using namespace std;
 
@@ -17,18 +14,8 @@ int main(int argc, const char * argv[])
 
 
 
-	//test
-	Automate test;
-
-	test.lecture();
-	test.afficherProgramme();
-
-	return 0;
-
-
 	//-----------------------------------------------------------------------------
 	string cheminFichier;
-	Lexer lexer;
 
 	if (argc == 1) {
 		MessagesErreurs::NoArgument();

@@ -12,16 +12,13 @@
 #include <vector>
 using namespace std;
 
-<<<<<<< HEAD
-Automate::Automate(string cheminFichier) : m_lexer(cheminFichier)
-=======
-Automate::Automate()
+
+Automate::Automate() : m_lexer("")
 {
 	m_symbole = NULL;
 }
 
-Automate::Automate(string cheminFichier)
->>>>>>> master
+Automate::Automate(string cheminFichier) : m_lexer(cheminFichier)
 {
 	
 }
