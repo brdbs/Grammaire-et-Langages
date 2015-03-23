@@ -86,15 +86,20 @@ void Automate::afficherProgramme()
 	cout << tmp;
 }
 
+SymboleTable *Automate::chercherSymbole(string key){
+	ArbreSymboles::iterator it = m_aSymboles.find(key);
+	if(it != m_aSymboles.end())	return it->second;
+
+	return NULL;
+}
+
 void Automate::majTableSymboles(Symbole *s)
 {
-	SymboleTable *symbole = NULL;
-
 	string idTable = s->demanderId();
-	if(idTable != "null"){
-		ArbreSymboles::iterator it = m_aSymboles.find(idTable);
-		if(it != m_aSymboles.end())	symbole = it->second;
-	}
+	SymboleTable *symbole = chercherSymbole(idTable);
+
+
+	//if(idTable != "null"){
 
 	const int typeS = (int)*s;
     if(typeS == LIGNEVAR)
@@ -104,7 +109,7 @@ void Automate::majTableSymboles(Symbole *s)
 			return;
 		}
 		//Ajout de la déclaration dans la table.
-		SymboleTable *st = new SymboleTable(NULL,false,false,false);
+		SymboleTable *st = creerDeclaration();
         m_aSymboles[idTable] = st;
 	}
 	else if(typeS == LIGNECONST)
@@ -127,6 +132,7 @@ void Automate::majTableSymboles(Symbole *s)
          */
          if(symbole == NULL){
 			//TODO : erreur : la variable n'a pas été déclarée.
+			m_aSymboles[idTable] = creerDeclaration();
 			return;
          }
          if(symbole->m_constante){
@@ -184,4 +190,9 @@ bool Automate::verifierIdentificateurs(vector<string> identificateurs){
 		}
 	}
 	return true;
+}
+
+
+SymboleTable *Automate::creerDeclaration(){
+	return new SymboleTable(0,true,false,false,false,false);
 }
