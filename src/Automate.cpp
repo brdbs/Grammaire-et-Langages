@@ -252,3 +252,8 @@ void Automate::majFlagsPartieDroite(vector<SymboleTable*> &listeSymboles){
 
 void Automate::verifierTable(){
 }
+
+void Automate::interpreter()
+{
+	//m_pileSymbole.top()->interpreter;
+}

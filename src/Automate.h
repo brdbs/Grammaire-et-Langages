@@ -38,8 +38,12 @@ class Automate
 		void reduction(Symbole *s, int nbSymboles);
 		void reduction();
 		void erreur();//Empile l'état d'acceptation pour sortir de la boucle de compile
-		void afficherProgramme();
 		SymboleTable *chercherSymbole(string key);
+
+		void afficherProgramme();
+		//void analyseStatic();
+		void interpreter();
+
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;

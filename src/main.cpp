@@ -16,10 +16,10 @@ int main(int argc, const char * argv[])
 
 
 	//test
-	Automate test;
+	Automate automate;
 
-	test.lecture();
-	test.afficherProgramme();
+	automate.lecture();
+	automate.afficherProgramme();
 
 	MessagesErreurs::EcrireMessages();
 
@@ -45,7 +45,7 @@ int main(int argc, const char * argv[])
 				if (option.length() == 2 && option[0] == '-') {
 					switch (option[1]) {
 						case 'p':
-							// afficher le code source
+							automate.afficherProgramme();
 							break;
 
 						case 'a':
@@ -73,7 +73,7 @@ int main(int argc, const char * argv[])
 		}
 	}
 
-	Automate *automate = new Automate(cheminFichier);
+	//Automate *automate = new Automate(cheminFichier);
 	string pause;
 	cin >> pause;
 	return 0;
