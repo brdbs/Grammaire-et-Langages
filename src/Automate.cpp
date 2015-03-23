@@ -184,7 +184,7 @@ void Automate::majTableSymboles(Symbole *s)
 }
 
 bool Automate::verifierIdentificateurs(vector<string> identificateurs){
-	for(int i=0; i<identificateurs.size() ; i++){
+	for(unsigned i=0; i<identificateurs.size() ; i++){
 		ArbreSymboles::iterator it = m_aSymboles.find(identificateurs[i]);
 
 		if(it==m_aSymboles.end()){
