@@ -222,3 +222,8 @@ void Automate::majFlagsPartieDroite(vector<string> identificateurs){
 		it->second->m_use = true;
 	}
 }
+
+void Automate::interpreter()
+{
+	//m_pileSymbole.top()->interpreter;
+}
