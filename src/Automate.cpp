@@ -87,6 +87,8 @@ void Automate::afficherProgramme()
 }
 
 SymboleTable *Automate::chercherSymbole(string key){
+	if(key=="null") return NULL;	//Si key vient de Symbole::demanderId
+
 	ArbreSymboles::iterator it = m_aSymboles.find(key);
 	if(it != m_aSymboles.end())	return it->second;
 
@@ -97,9 +99,6 @@ void Automate::majTableSymboles(Symbole *s)
 {
 	string idTable = s->demanderId();
 	SymboleTable *symbole = chercherSymbole(idTable);
-
-
-	//if(idTable != "null"){
 
 	const int typeS = (int)*s;
     if(typeS == LIGNEVAR)
@@ -132,7 +131,9 @@ void Automate::majTableSymboles(Symbole *s)
          */
          if(symbole == NULL){
 			//TODO : erreur : la variable n'a pas été déclarée.
-			m_aSymboles[idTable] = creerDeclaration();
+			SymboleTable *nSymb = creerDeclaration();
+			nSymb->m_declaree = false;
+			m_aSymboles[idTable] = nSymb;
 			return;
          }
          if(symbole->m_constante){
