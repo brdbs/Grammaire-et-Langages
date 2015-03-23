@@ -49,6 +49,7 @@ class Symbole
 		virtual std::string const demanderId(){return "null";}
 		virtual void castUp(){}
 		virtual void initialiser(Symbole **, int taille){}
+		
 	protected:
 		int m_idSymbole;
 	private:

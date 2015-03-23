@@ -29,3 +29,8 @@ Ecriture::operator std::string() const
 	return ss.str();
 
 }
+
+void Ecriture::interpreter()
+{
+
+}

@@ -49,3 +49,8 @@ void Programme::initialiser(Symbole **liste, int taille)
 		m_blocInst = (LigneInstruction*)liste[1];
 	}
 }
+
+void Programme::interpreter()
+{
+	m_blocInst->interpreter();
+}

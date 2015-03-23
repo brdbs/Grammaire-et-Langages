@@ -18,3 +18,8 @@ Lecture::operator std::string() const
 	ss << "lecture " << m_id << ";";
 	return ss.str();
 }
+
+void Lecture::interpreter()
+{
+
+}

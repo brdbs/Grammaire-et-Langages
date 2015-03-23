@@ -13,6 +13,7 @@ class Programme : public Symbole
 		virtual ~Programme();
 		virtual operator std::string() const;
 		void initialiser(Symbole **, int taille);
+		void interpreter();
 	protected:
 	private:
 		LigneDeclaration * m_blocDec;
