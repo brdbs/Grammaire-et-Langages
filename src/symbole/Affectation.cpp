@@ -1,5 +1,6 @@
-#include "Affectation.h"
 #include <sstream>
+#include "Affectation.h"
+#include "../Automate.h"
 
 using namespace std;
 Affectation::Affectation() {
@@ -30,5 +31,6 @@ Affectation::operator std::string() const
 
 void Affectation::interpreter(Automate *automate)
 {
-
+	SymboleTable * s = automate->chercherSymbole(m_id);
+	s->m_valeur = m_expression->calculer(automate);
 }

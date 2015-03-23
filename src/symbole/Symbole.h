@@ -41,7 +41,6 @@ class Symbole
 		Symbole(int id) : m_idSymbole(id) {}
 		Symbole();
 		virtual ~Symbole();
-		void print();
 		operator int() const { return m_idSymbole; }
 		virtual bool estTerminal(){ return false; }
 		virtual bool modificateurTableSymboles(){return false;}

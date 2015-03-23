@@ -12,7 +12,6 @@ class Identificateur : public Facteur
 		virtual ~Identificateur();
 		virtual bool estTerminal(){return m_idSymbole==IDENTIFICATEUR;}
 		virtual operator std::string() const{ return m_id; }
-		virtual void castUp(){m_idSymbole = FACTEUR;}
 		virtual int calculer(Automate *automate);
 		virtual int* evaluer(Automate *automate);
 

@@ -13,6 +13,7 @@ class BlocInst : public Symbole
 		virtual ~BlocInst();
 		virtual operator std::string() const;
 		void initialiser(Symbole **, int taille);
+		virtual void interpreter(Automate *automate);
 	protected:
 	private:
 		BlocInst * m_prevInst;

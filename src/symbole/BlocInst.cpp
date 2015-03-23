@@ -91,3 +91,9 @@ void BlocInst::initialiser(Symbole **liste, int taille)
 		delete liste[4];
 	}
 }
+
+void BlocInst::interpreter(Automate *automate)
+{
+	m_prevInst->interpreter(automate);
+	m_currentLine->interpreter(automate);
+}
