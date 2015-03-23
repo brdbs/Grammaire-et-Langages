@@ -13,18 +13,9 @@ int main(int argc, const char * argv[])
 
 
 
-	//test
-	Automate test(argv[argc-1]);
-
-	test.lecture();
-	test.afficherProgramme();
-
-	return 0;
-
-
 	//-----------------------------------------------------------------------------
 	string cheminFichier;
-	Lexer lexer;
+	Automate automate;
 
 	if (argc == 1) {
 		MessagesErreurs::NoArgument();
@@ -35,13 +26,14 @@ int main(int argc, const char * argv[])
 	if (argc >= 2) {
 		cheminFichier = argv[argc-1];
 
-		if (lexer.scannerFichier(cheminFichier) == 0) {
+		if (automate.scannerFichier(cheminFichier) == 0) {
+			automate.lecture();
 			for (int i = 1; i < argc-1; i++) {
 				string option = argv[i];
 				if (option.length() == 2 && option[0] == '-') {
 					switch (option[1]) {
 						case 'p':
-							// afficher le code source
+							automate.afficherProgramme();
 							break;
 
 						case 'a':
@@ -69,7 +61,7 @@ int main(int argc, const char * argv[])
 		}
 	}
 
-	Automate *automate = new Automate(cheminFichier);
+	//Automate *automate = new Automate(cheminFichier);
 	string pause;
 	cin >> pause;
 	return 0;

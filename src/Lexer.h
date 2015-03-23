@@ -19,12 +19,12 @@ class Lexer
 		Symbole *getCurrent();
 		int scannerFichier(string cheminFichier);
 	private:
-		stringstream ss;
-		string carLus;
-		boost::regex motCle;	
-		boost::regex symbole;
-		boost::regex nb;
-		boost::regex id;
+		stringstream m_ss;
+		string m_carLus;
+		boost::regex m_motCle;	
+		boost::regex m_symbole;
+		boost::regex m_nb;
+		boost::regex m_id;
 };
 
 #endif // LEXER_H

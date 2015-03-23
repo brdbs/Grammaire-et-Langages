@@ -17,9 +17,9 @@ Automate::Automate()
 	m_symbole = NULL;
 }
 
-Automate::Automate(string cheminFichier)
+int Automate::scannerFichier(string cheminFichier)
 {
-	m_lexer.scannerFichier(cheminFichier);
+	return m_lexer.scannerFichier(cheminFichier);
 }
 
 Automate::~Automate()
@@ -221,4 +221,9 @@ void Automate::majFlagsPartieDroite(vector<string> identificateurs){
 
 		it->second->m_use = true;
 	}
+}
+
+void Automate::interpreter()
+{
+	//m_pileSymbole.top()->interpreter;
 }

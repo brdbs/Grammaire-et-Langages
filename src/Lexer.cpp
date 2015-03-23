@@ -1,13 +1,15 @@
 #define DEBUG true
 
-#include "Lexer.h"
-#include "symbole/Symbole.h"
+
 #include <boost/regex.hpp>
 
 #include <stdlib.h> 
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+#include "Lexer.h"
+#include "symbole/Symbole.h"
 
 #include "symbole/Var.h"
 #include "symbole/Identificateur.h"
@@ -32,10 +34,10 @@
 
 Lexer::Lexer()
 {
-	motCle = boost::regex("var|const|lire|ecrire");
-	symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=");
-	nb = boost::regex("[0-9]+");
-	id = boost::regex("[a-zA-Z0-9]+");
+	m_motCle = boost::regex("var|const|lire|ecrire");
+	m_symbole = boost::regex("-|\\+|/|\\*|,|;|\\(|\\)|=|:=");
+	m_nb = boost::regex("[0-9]+");
+	m_id = boost::regex("[a-zA-Z][a-zA-Z0-9]*");
 }
 
 Lexer::~Lexer()
@@ -45,12 +47,14 @@ Lexer::~Lexer()
 
 int Lexer::scannerFichier(string cheminFichier)
 {
-	if(DEBUG) std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
+	//if(DEBUG) std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
 	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
 
     if ( file )
     {
-        ss << file.rdbuf();
+		
+        m_ss << file.rdbuf();
+		//cout << file.rdbuf();
         file.close();
 
     }else
@@ -80,7 +84,7 @@ Symbole * Lexer::getNext(){
 		* rechercher les expreg correspondant totalement ou partiellement aux caractères lus jusqu'a present
 		* 
 		* on lit les caractères jusqu'a ce que plus aucune expreg ne corresponde.
-		* A ce moment la, si l'on avait une expreg correspondait (totalement), on enregistre le symbole associé.
+		* A ce moment la, si l'on avait une expreg correspondait (totalement), on enregistre le m_symbole associé.
 		* Sinon il y a une erreur.
 		* 
 		* http://www.boost.org/doc/libs/1_31_0/libs/regex/doc/partial_matches.html
@@ -90,13 +94,13 @@ Symbole * Lexer::getNext(){
 	if(DEBUG) std::cout  << "Lexer::getNext()"<<std::endl;
 	
 	
-	carLus = "";
+	m_carLus = "";
 	char carLu;
 	 
 	bool prevCanBeMotCle=false;
 	bool prevCanBeSymbole=false;
 	bool prevCanBeId=false;
-	bool prevCanBeNb=true;
+	bool prevCanBeNb=false;
 	
 	bool canBeMotCle=false;
 	bool canBeSymbole=false;
@@ -109,33 +113,38 @@ Symbole * Lexer::getNext(){
 	boost::cmatch matchNb;
 	Symbole * symb = NULL;
 	
-	while(symb == NULL && !ss.eof())
+	while (symb == NULL)
 	{
-		ss.get(carLu);
-		canBeMotCle = boost::regex_match((carLus+carLu).c_str(), matchMotCle, motCle, boost::match_default | boost::match_partial);
-		canBeSymbole = boost::regex_match((carLus+carLu).c_str(), matchSymbole, symbole, boost::match_default | boost::match_partial);
-		canBeId = boost::regex_match((carLus+carLu).c_str(), matchId, id, boost::match_default | boost::match_partial);
-		canBeNb = boost::regex_match((carLus+carLu).c_str(), matchNb, nb, boost::match_default | boost::match_partial);
+		if (!m_ss.get(carLu) && m_carLus=="")
+		{
+			symb = new EndOfFile();
+			break;
+		}
+		
+		canBeMotCle = boost::regex_match((m_carLus+carLu).c_str(), matchMotCle, m_motCle, boost::match_default | boost::match_partial);
+		canBeSymbole = boost::regex_match((m_carLus+carLu).c_str(), matchSymbole, m_symbole, boost::match_default | boost::match_partial);
+		canBeId = boost::regex_match((m_carLus+carLu).c_str(), matchId, m_id, boost::match_default | boost::match_partial);
+		canBeNb = boost::regex_match((m_carLus+carLu).c_str(), matchNb, m_nb, boost::match_default | boost::match_partial);
 		
 		if(!canBeMotCle && !canBeSymbole && !canBeId && !canBeNb)
 		{
 			// pas de correspondance, regarder les match précédent
 			if(prevCanBeMotCle)
 			{
-				if(DEBUG) std::cout<<"mot clé ("<<carLus<<")"<<std::endl;
-				if(carLus == "var")
+				if(DEBUG) std::cout<<"mot clé ("<<m_carLus<<")"<<std::endl;
+				if(m_carLus == "var")
 				{
 					symb = new Var();
 				}
-				if(carLus == "const")
+				if(m_carLus == "const")
 				{
 					symb = new Const();
 				}
-				if(carLus == "lire")
+				if(m_carLus == "lire")
 				{
 					symb = new Lire();
 				}
-				if(carLus == "ecrire")
+				if(m_carLus == "ecrire")
 				{
 					symb = new Ecrire();
 				}
@@ -143,44 +152,44 @@ Symbole * Lexer::getNext(){
 			{
 				if(prevCanBeSymbole)
 				{
-					if(DEBUG) std::cout<<"Symbole ("<<carLus<<")"<<std::endl;
-					if(carLus == "-")
+					if(DEBUG) std::cout<<"Symbole ("<<m_carLus<<")"<<std::endl;
+					if(m_carLus == "-")
 					{
 						symb = new Moins();
 					}
-					if(carLus == "+")
+					if(m_carLus == "+")
 					{
 						symb = new Plus();
 					}
-					if(carLus == "/")
+					if(m_carLus == "/")
 					{
 						symb = new Div();
 					}
-					if(carLus == "*")
+					if(m_carLus == "*")
 					{
 						symb = new Mult();
 					}
-					if(carLus == ",")
+					if(m_carLus == ",")
 					{
 						symb = new Virgule();
 					}
-					if(carLus == ";")
+					if(m_carLus == ";")
 					{
 						symb = new PointVirgule();
 					}
-					if(carLus == "(")
+					if(m_carLus == "(")
 					{
 						symb = new ParOuvrante();
 					}
-					if(carLus == ")")
+					if(m_carLus == ")")
 					{
 						symb = new ParFermante();
 					}
-					if(carLus == "=")
+					if(m_carLus == "=")
 					{
 						symb = new Egal();
 					}
-					if(carLus == ":=")
+					if(m_carLus == ":=")
 					{
 						symb = new DeuxPointsEgal();
 					}
@@ -189,19 +198,19 @@ Symbole * Lexer::getNext(){
 				{
 						if(prevCanBeId)
 						{
-							if(DEBUG) std::cout<<"Identifiant ("<<carLus<<")"<<std::endl;
-							symb = new Identificateur(carLus);
+							if(DEBUG) std::cout<<"Identifiant ("<<m_carLus<<")"<<std::endl;
+							symb = new Identificateur(m_carLus);
 						}else
 						{
 							if(prevCanBeNb)
 							{
-								if(DEBUG) std::cout<<"Nombre ("<<carLus<<")"<<std::endl;
-								symb = new Nombre(atoi(carLus.c_str()));
+								if(DEBUG) std::cout<<"Nombre ("<<m_carLus<<")"<<std::endl;
+								symb = new Nombre(atoi(m_carLus.c_str()));
 							}else
 							{
 								if(!isspace(carLu))
 								{
-									if(DEBUG) std::cout<<"Erreur lexicale 42 !   ("<<(carLus+carLu)<<")"<<std::endl;
+									if(DEBUG) std::cout<<"Erreur lexicale 42 !   ("<<(m_carLus+carLu)<<")"<<std::endl;
 								}else
 								 {
 									if(DEBUG) std::cout<<"SPAAAACE"<<std::endl;
@@ -216,11 +225,11 @@ Symbole * Lexer::getNext(){
 			prevCanBeNb=false;
 			if(!isspace(carLu))
 			{
-				carLus = "";
-				ss.unget();
+				m_carLus = "";
+				m_ss.unget();
 			}else
 			 {
-				 carLus = "";
+				 m_carLus = "";
 			 }				
 		}else 
 		{
@@ -240,15 +249,11 @@ Symbole * Lexer::getNext(){
 			{
 				prevCanBeNb = matchNb[0].matched;
 			}
-			carLus += carLu;
+			m_carLus += carLu;
 			
 		}
 		
 		
-	}
-	if(symb == NULL && !ss.eof())
-	{
-		symb = new EndOfFile();
 	}
 	return symb;
 }

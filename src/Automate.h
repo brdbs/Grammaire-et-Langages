@@ -29,7 +29,6 @@ class Automate
 {
     public:
 		Automate();
-        Automate(string cheminFichier);
         virtual ~Automate();
 
         void lecture();
@@ -38,8 +37,13 @@ class Automate
 		void reduction(Symbole *s, int nbSymboles);
 		void reduction();
 		void erreur();//Empile l'état d'acceptation pour sortir de la boucle de compile
-		void afficherProgramme();
 		SymboleTable *chercherSymbole(string key);
+		int scannerFichier(string cheminFichier);
+
+		void afficherProgramme();
+		//void analyseStatic();
+		void interpreter();
+
     protected:
         stack <Symbole*> m_pileSymbole;
         stack <Etat*> m_pileEtats;
