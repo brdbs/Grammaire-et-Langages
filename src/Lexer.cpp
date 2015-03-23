@@ -1,14 +1,15 @@
 #define DEBUG true
 
-#include "Lexer.h"
-#include "symbole/Symbole.h"
-#include <boost/regex.hpp>
+
+//#include <boost/regex.hpp>
 
 #include <stdlib.h> 
 #include <iostream>
 #include <fstream>
 #include <sstream>
 
+#include "Lexer.h"
+#include "symbole/Symbole.h"
 #include "symbole/Var.h"
 #include "symbole/Identificateur.h"
 #include "symbole/Virgule.h"
@@ -46,7 +47,7 @@ Lexer::~Lexer()
 int Lexer::scannerFichier(string cheminFichier)
 {
 	if(DEBUG) std::cout << "Lexer : lecture de " << cheminFichier << std::endl;
-	std::ifstream file(cheminFichier.c_str(), std::ifstream::in);
+	std::ifstream file(cheminFichier.c_str(), std::ifstream::out);
 
     if ( file )
     {

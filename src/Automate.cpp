@@ -19,6 +19,7 @@ Automate::Automate()
 
 Automate::Automate(string cheminFichier)
 {
+	m_symbole = NULL;
 	m_lexer.scannerFichier(cheminFichier);
 }
 

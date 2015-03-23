@@ -15,7 +15,6 @@ int main(int argc, const char * argv[])
 
 	//test
 	Automate test(argv[argc-1]);
-
 	test.lecture();
 	test.afficherProgramme();
 
