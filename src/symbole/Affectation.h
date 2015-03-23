@@ -20,7 +20,7 @@ class Affectation : public LigneInstruction
 		void determinerId(std::string id){m_id = id;}
 		std::string const demanderId(){return m_id;}
 		void remplirIdsExpression(vector<string> ids){m_expression->remplirIdsExpression(ids);}
-		virtual void interpreter();
+		virtual void interpreter(Automate *automate);
 	protected:
 	private:
 		std::string m_id;

@@ -12,6 +12,8 @@ class Nombre : public Facteur
 		virtual bool estTerminal(){return m_idSymbole==NOMBRE;}
 		virtual operator std::string() const{ return std::to_string(m_valeur); }
 		int getValeur(){return m_valeur;}
+		virtual int calculer(Automate *automate){return m_valeur;}
+		virtual int* evaluer(Automate *automate){ return new int(m_valeur); }
 	protected:
 	private:
 		int m_valeur;

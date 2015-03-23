@@ -3,12 +3,13 @@
 
 #include "Symbole.h"
 
+class Automate;
 class LigneInstruction : public Symbole
 {
 	public:
 		LigneInstruction();
 		virtual ~LigneInstruction();
-		virtual void interpreter()=0;
+		virtual void interpreter(Automate *automate)=0;
 	protected:
 	private:
 };

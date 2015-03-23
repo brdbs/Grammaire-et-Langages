@@ -28,7 +28,7 @@ Affectation::operator std::string() const
 	return ss.str();
 }
 
-void Affectation::interpreter()
+void Affectation::interpreter(Automate *automate)
 {
 
 }
