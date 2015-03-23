@@ -2,7 +2,7 @@
 
 Egal::Egal()
 {
-	//ctor
+	m_idSymbole = EGAL;
 }
 
 Egal::~Egal()

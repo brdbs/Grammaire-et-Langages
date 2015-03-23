@@ -2,7 +2,7 @@
 
 Mult::Mult()
 {
-	//ctor
+	m_idSymbole = MULT;
 }
 
 Mult::~Mult()

@@ -10,6 +10,7 @@ class Lire : public Symbole
 		Lire();
 		virtual ~Lire();
 		virtual bool estTerminal(){return true;}
+		virtual operator std::string() const{ return "lire"; }
 	protected:
 	private:
 };

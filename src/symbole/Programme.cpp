@@ -1,11 +1,56 @@
+#include <sstream>
 #include "Programme.h"
 
+using namespace std;
 Programme::Programme()
 {
-	//ctor
+	m_idSymbole = PROGRAMME;
+	m_blocDec = NULL;
+	m_blocInst = NULL;
 }
 
 Programme::~Programme()
 {
-	//dtor
+	delete m_blocDec;
+	delete m_blocInst;
+}
+
+Programme::operator std::string() const
+{
+	stringstream ss;
+	string dec;
+	if (m_blocDec != NULL)
+	{
+		dec = (string)*m_blocDec;
+	}
+	else
+	{
+		dec = "";
+	}
+	string inst;
+	if (m_blocInst != NULL)
+	{
+		inst = (string)*m_blocInst;
+	}
+	else
+	{
+		inst = "";
+	}
+	ss << dec << endl << inst << endl;
+	return ss.str();
+}
+
+void Programme::initialiser(Symbole **liste, int taille)
+{
+	//On vient de E3
+	//liste : [D,I]
+	if(taille==2){
+		m_blocDec = (LigneDeclaration*)liste[0];
+		m_blocInst = (LigneInstruction*)liste[1];
+	}
+}
+
+void Programme::interpreter()
+{
+	m_blocInst->interpreter();
 }

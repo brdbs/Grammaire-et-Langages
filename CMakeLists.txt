@@ -23,9 +23,14 @@ file(
 	src/*
 )
 
+ADD_DEFINITIONS(
+	-std=c++11 # Or -std=c++0x
+	# Other flags
+	-g
+)
+
 #Déclaration de l'exécutable
 add_executable(
 	lut
 	${source_files}
 )
-target_link_libraries(lut ${Boost_LIBRARIES})

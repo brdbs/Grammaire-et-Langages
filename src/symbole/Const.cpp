@@ -2,7 +2,7 @@
 
 Const::Const()
 {
-	//ctor
+	m_idSymbole = CONST;
 }
 
 Const::~Const()

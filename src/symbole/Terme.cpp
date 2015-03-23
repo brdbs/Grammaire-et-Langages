@@ -2,7 +2,8 @@
 
 Terme::Terme()
 {
-	//ctor
+	m_idSymbole = TERME;
+	
 }
 
 Terme::~Terme()

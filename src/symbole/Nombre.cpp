@@ -1,8 +1,8 @@
 #include "Nombre.h"
 
-Nombre::Nombre()
+Nombre::Nombre(int nb) : m_valeur(nb)
 {
-	//ctor
+	m_idSymbole = NOMBRE;
 }
 
 Nombre::~Nombre()

@@ -2,7 +2,7 @@
 
 ParFermante::ParFermante()
 {
-	//ctor
+	m_idSymbole = PARFERMANTE;
 }
 
 ParFermante::~ParFermante()

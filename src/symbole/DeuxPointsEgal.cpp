@@ -2,7 +2,7 @@
 
 DeuxPointsEgal::DeuxPointsEgal()
 {
-	//ctor
+	m_idSymbole = DEUXPOINTSEGAL;
 }
 
 DeuxPointsEgal::~DeuxPointsEgal()

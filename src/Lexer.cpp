@@ -2,10 +2,33 @@
 #include "symbole/Symbole.h"
 #include <boost/regex.hpp>
 
-
+#include <stdlib.h> 
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+
+#include "symbole/Var.h"
+#include "symbole/Identificateur.h"
+#include "symbole/Virgule.h"
+#include "symbole/ParFermante.h"
+#include "symbole/ParOuvrante.h"
+#include "symbole/Plus.h"
+#include "symbole/Div.h"
+#include "symbole/PointVirgule.h"
+#include "symbole/EndOfFile.h"
+#include "symbole/Const.h"
+#include "symbole/Egal.h"
+#include "symbole/Nombre.h"
+#include "symbole/Virgule.h"
+#include "symbole/DeuxPointsEgal.h"
+#include "symbole/Mult.h"
+#include "symbole/Moins.h"
+#include "symbole/Lire.h"
+#include "symbole/Ecrire.h"
+
+
+
 
 Lexer::Lexer(string cheminFichier)
 {
@@ -78,10 +101,11 @@ Symbole * Lexer::getNext(){
 	boost::cmatch matchSymbole;
 	boost::cmatch matchId;
 	boost::cmatch matchNb;
+	Symbole * symb = NULL;
 	
-	while(ss.get(carLu))
+	while(symb == NULL && !ss.eof())
 	{
-		
+		ss.get(carLu);
 		canBeMotCle = boost::regex_match((carLus+carLu).c_str(), matchMotCle, motCle, boost::match_default | boost::match_partial);
 		canBeSymbole = boost::regex_match((carLus+carLu).c_str(), matchSymbole, symbole, boost::match_default | boost::match_partial);
 		canBeId = boost::regex_match((carLus+carLu).c_str(), matchId, id, boost::match_default | boost::match_partial);
@@ -93,21 +117,80 @@ Symbole * Lexer::getNext(){
 			if(prevCanBeMotCle)
 			{
 				std::cout<<"mot clé ("<<carLus<<")"<<std::endl;
+				if(carLus == "var")
+				{
+					symb = new Var();
+				}
+				if(carLus == "const")
+				{
+					symb = new Const();
+				}
+				if(carLus == "lire")
+				{
+					symb = new Lire();
+				}
+				if(carLus == "ecrire")
+				{
+					symb = new Ecrire();
+				}
 			}else
 			{
 				if(prevCanBeSymbole)
 				{
 					std::cout<<"Symbole ("<<carLus<<")"<<std::endl;
+					if(carLus == "-")
+					{
+						symb = new Moins();
+					}
+					if(carLus == "+")
+					{
+						symb = new Plus();
+					}
+					if(carLus == "/")
+					{
+						symb = new Div();
+					}
+					if(carLus == "*")
+					{
+						symb = new Mult();
+					}
+					if(carLus == ",")
+					{
+						symb = new Virgule();
+					}
+					if(carLus == ";")
+					{
+						symb = new PointVirgule();
+					}
+					if(carLus == "(")
+					{
+						symb = new ParOuvrante();
+					}
+					if(carLus == ")")
+					{
+						symb = new ParFermante();
+					}
+					if(carLus == "=")
+					{
+						symb = new Egal();
+					}
+					if(carLus == ":=")
+					{
+						symb = new DeuxPointsEgal();
+					}
+					
 				}else
 				{
 						if(prevCanBeId)
 						{
 							std::cout<<"Identifiant ("<<carLus<<")"<<std::endl;
+							symb = new Identificateur(carLus);
 						}else
 						{
 							if(prevCanBeNb)
 							{
 								std::cout<<"Nombre ("<<carLus<<")"<<std::endl;
+								symb = new Nombre(atoi(carLus.c_str()));
 							}else
 							{
 								if(!isspace(carLu))
@@ -157,8 +240,11 @@ Symbole * Lexer::getNext(){
 		
 		
 	}
-	
-	return NULL;
+	if(symb == NULL && !ss.eof())
+	{
+		symb = new EndOfFile();
+	}
+	return symb;
 }
 
 

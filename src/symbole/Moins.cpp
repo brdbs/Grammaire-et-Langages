@@ -2,7 +2,7 @@
 
 Moins::Moins()
 {
-	//ctor
+	m_idSymbole = MOINS;
 }
 
 Moins::~Moins()

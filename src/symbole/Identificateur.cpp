@@ -1,11 +1,14 @@
 #include "Identificateur.h"
 
-Identificateur::Identificateur()
+Identificateur::Identificateur(std::string id) : m_id(id)
 {
-	//ctor
+	m_idSymbole = IDENTIFICATEUR;
 }
 
 Identificateur::~Identificateur()
 {
 	//dtor
 }
+
+
+

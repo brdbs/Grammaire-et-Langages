@@ -2,7 +2,7 @@
 
 LigneInstruction::LigneInstruction()
 {
-	//ctor
+	
 }
 
 LigneInstruction::~LigneInstruction()

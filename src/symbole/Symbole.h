@@ -3,8 +3,8 @@
 
 //Déclaration des id des symboles (utilisé dans Etat::transition)
 #define PROGRAMME 1
-#define LIGNEDECLARATION 2
-#define LIGNEINSTRUCTION 3
+#define BLOCDECLARATION 2
+#define BLOCINSTRUCTION 3
 #define LIGNECONST 4
 #define LIGNEVAR 5
 #define LECTURE 6
@@ -12,9 +12,9 @@
 #define ECRITURE 8
 #define EXPRESSION 9
 #define TERME 10
-#define OPERATIONAD 11
+#define OPERATEURAD 11
 #define FACTEUR 12
-#define OPERATIONMUL 13
+#define OPERATEURMUL 13
 #define EXPPAR 14
 #define IDENTIFICATEUR 15
 #define NOMBRE 16
@@ -32,31 +32,30 @@
 #define VAR 28
 #define LIRE 29
 #define ECRIRE 30
+#define ENDOFFILE 31
+#include <string>
 
-/*
 class Symbole
 {
 	public:
-		Symbole(int id) : m_ident(id) {}
+		Symbole(int id) : m_idSymbole(id) {}
 		Symbole();
 		virtual ~Symbole();
 		void print();
-		operator int() const { return m_ident; }
+		operator int() const { return m_idSymbole; }
+		virtual bool estTerminal(){ return false; }
+		virtual bool modificateurTableSymboles(){return false;}
+		virtual operator std::string() const = 0;
+		virtual std::string const demanderId(){return "null";}
+		virtual void castUp(){}
+		virtual void initialiser(Symbole **, int taille){}
+		
 	protected:
-		int m_ident;
+		int m_idSymbole;
 	private:
 };
-*/
 
-struct Symbole
-{
-		Symbole(int id) : m_ident(id) {}
-		Symbole();
-		virtual ~Symbole();
-		operator int() const { return m_ident; }
-		virtual bool estTerminal(){return false;}
 
-		int m_ident;
-};
+
 
 #endif // SYMBOLE_H

@@ -1,6 +1,7 @@
 #ifndef VIRGULE_H
 #define VIRGULE_H
 
+#include <string>
 #include "Symbole.h"
 
 
@@ -10,6 +11,7 @@ class Virgule : public Symbole
 		Virgule();
 		virtual ~Virgule();
 		virtual bool estTerminal(){return true;}
+		virtual operator std::string() const{ return ","; }
 	protected:
 	private:
 };

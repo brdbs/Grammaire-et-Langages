@@ -9,6 +9,7 @@ class Facteur : public Terme
 	public:
 		Facteur();
 		virtual ~Facteur();
+		void castUp();
 	protected:
 	private:
 };

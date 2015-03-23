@@ -2,7 +2,7 @@
 
 Ecrire::Ecrire()
 {
-	//ctor
+	m_idSymbole = ECRIRE;
 }
 
 Ecrire::~Ecrire()
